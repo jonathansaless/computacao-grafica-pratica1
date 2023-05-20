@@ -2,6 +2,8 @@ import * as circle from "./algoritmos/circle-midpoint.js";
 import * as line from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
+import * as sweepFill from "./algoritmos/sweepFill.js";
+import * as fillDrawn from "./algoritmos/sweepFill.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -42,45 +44,46 @@ function clearScreen() {
     subElement.style.backgroundColor = '#ffffff'; // Define a cor de fundo para vermelho (altere para a cor desejada)
   }
 }
-// FUNÇÃO PARA LIMPAR TELA
 
+function drawAlgoritmo() {
+    // bresenham padrão
+    const pointA = document.getElementById("pointA").value;
+    const pointB = document.getElementById("pointB").value;
 
+    // verifica se o valor passado pelo usuário é diferente de null e se tem vírgula separando
+    // se estiver tudo OK, procede no algoritmo, senão apresenta msg de erro!
+    if (pointA && pointA.includes(",") && pointB && pointB.includes(",")) {
+        // separa com o split os valores de x e y recebidos no input e salva em duas variáveis x e y do ponto A
+        const [pointAX, pointAY] = pointA.split(",").map(Number);
+        const [pointBX, pointBY] = pointB.split(",").map(Number);
+        // chama o algoritmo de bresenham
+        //bresenhamLine(pointAX, pointAY, pointBX, pointBY);
 
-
-function drawLine() {
-  const pointA = document.getElementById("pointA").value;
-  const pointB = document.getElementById("pointB").value;
-
-  // verifica se o valor passado pelo usuário é diferente de null e se tem vírgula separando
-  // se estiver tudo OK, procede no algoritmo, senão apresenta msg de erro!
-  if (pointA && pointA.includes(",") && pointB && pointB.includes(",")) {
-    // separa com o split os valores de x e y recebidos no input e salva em duas variáveis x e y do ponto A
-    const [pointAX, pointAY] = pointA.split(",").map(Number);
-    const [pointBX, pointBY] = pointB.split(",").map(Number);
-
-    // chama o algoritmo de bresenham
-    //bresenhamLine(pointAX, pointAY, pointBX, pointBY);
-
-    // Exemplo de uso da curva de Bezier
-    
-  } else {
-    console.log("Valores inválidos");
-  }
+        
+    } else {
+        console.log("Valores inválidos");
+    }
 }
 
 clearButton.addEventListener("click", clearScreen);
-drawLineButton.addEventListener("click", drawLine);
+drawLineButton.addEventListener("click", drawAlgoritmo);
 
 // Exemplo de usos
 // polilinha
 const points = [
     { x: 4, y: 4 },
-    { x: 10, y: 6 },
-    { x: 12, y: 0 },
-    { x: 16, y: 1 }
+    { x: 8, y: 4 },
+    { x: 8, y: 8 },
+    { x: 4, y: 9 },
+    { x: 4, y: 4 }
   ];
-// polilyne.drawPolyline(points);
+polilyne.drawPolyline(points);
 
+// Verifica se os pontos formam um polígono
+
+
+
+fillDrawn.drawPolygon();  
 // circulo
 //circle.circle(8, 5, 4);
 

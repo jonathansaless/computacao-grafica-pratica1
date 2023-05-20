@@ -94,3 +94,39 @@ drawButton.addEventListener("click", () => {
     console.log('Valores inválidos')
   }
 });
+
+
+
+export function getDrawnPoints() {
+  const drawnPoints = [];
+  const subElements = screen.querySelectorAll('*');
+  // percorre os quadrados e pega somente os elementos pintados
+  for (let i = 0; i < subElements.length; i++) {
+      const subElement = subElements[i];
+      if (subElement.classList.contains('painted')){
+          const id = subElement.id
+          const [pointX, pointY] = id.split("_").map(Number);
+          console.log(pointX, pointY);
+          drawnPoints.push({x: pointX, y: pointY})
+      }
+  }
+  console.log(drawnPoints);
+  return drawnPoints;
+  /*
+  for (let cellY = CELL_SIDE_COUNT - 1; cellY >= 0; cellY--) {
+    for (let cellX = 0; cellX < CELL_SIDE_COUNT; cellX++) {
+      const cellId = `${cellX}_${cellY}`;
+      const cellElement = document.getElementById(cellId);
+      const backgroundColor = cellElement.style.backgroundColor;
+
+      if (backgroundColor !== "rgb(255, 255, 255)") {
+        // Ponto desenhado, adiciona às coordenadas
+        const pointX = cellX * cellPixelLength + cellPixelLength / 2;
+        const pointY = cellY * cellPixelLength + cellPixelLength / 2;
+        drawnPoints.push({ x: pointX, y: pointY });
+      }
+    }
+  }
+
+  return drawnPoints;*/
+}
