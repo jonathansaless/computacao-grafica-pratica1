@@ -6,10 +6,12 @@ body {
     color: #ffffff;
     font-family: sans-serif;
   }
+
   .userInput {
     display: flex;
     flex-direction: column;
   }
+  
   #canvas {
     cursor: pointer;
   }
@@ -23,6 +25,7 @@ body {
   #screen div {
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
+  
   #clearButton {
     color: black;
     background-color: red;

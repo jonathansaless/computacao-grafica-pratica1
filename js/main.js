@@ -1,6 +1,7 @@
 import * as circle from "./algoritmos/circle-midpoint.js";
 import * as line from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
+import * as polilyne from "./algoritmos/polyline.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -61,12 +62,7 @@ function drawLine() {
     //bresenhamLine(pointAX, pointAY, pointBX, pointBY);
 
     // Exemplo de uso da curva de Bezier
-    const controlPoint1X = 7;
-    const controlPoint1Y = 8;
-    const controlPoint2X = 8;
-    const controlPoint2Y = 8;
-    // 
-    //drawBezierCurve(pointAX, pointAY, controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, pointBX, pointBY);
+    
   } else {
     console.log("Valores inválidos");
   }
@@ -74,4 +70,30 @@ function drawLine() {
 
 clearButton.addEventListener("click", clearScreen);
 drawLineButton.addEventListener("click", drawLine);
-circle.circle(8, 5, 4);
+
+// Exemplo de usos
+// polilinha
+const points = [
+    { x: 4, y: 4 },
+    { x: 10, y: 6 },
+    { x: 12, y: 0 },
+    { x: 16, y: 1 }
+  ];
+// polilyne.drawPolyline(points);
+
+// circulo
+//circle.circle(8, 5, 4);
+
+// bresenham
+// line.bresenhamLine(4, 4, 10, 6);
+
+// curva 
+// const controlPoint1X = 7;
+// const controlPoint1Y = 8;
+// const controlPoint2X = 9;
+// const controlPoint2Y = 9;
+// const pointAX = 1;
+// const pointAY = 1;
+// const pointBX = 15;
+// const pointBY = 16;
+//drawBezierCurve(pointAX, pointAY, controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, pointBX, pointBY);

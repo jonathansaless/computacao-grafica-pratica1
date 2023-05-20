@@ -5,7 +5,7 @@ Algoritmos desenvolvidos:
 - Bresenham
 - Círculos algoritmo do ponto médio
 - Curvas de Bezier
-- Polilinha
+- Polilinha (utilizando uma conjunto de retas bresenham)
 - Preenchimento Recursivo e Varredura
 - Recorte de linha
 - Recorte de Polígono
