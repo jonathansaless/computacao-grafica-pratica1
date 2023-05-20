@@ -1,4 +1,4 @@
-# Trabalho Prático 1 de Computação Gráfica
+# Trabalho Prático 1
 Algoritmos desenvolvidos para o trabalho prático 1 da disciplina de Computação Gráfica no período 2023.2.
 
 Algoritmos desenvolvidos:
