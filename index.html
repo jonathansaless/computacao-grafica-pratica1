@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel squares</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="script2.js" defer></script>
+</head>
+<body>
+    <div class="topbar">
+        <p style="text-align: center;"><b>
+            Trabalho prático 1 <br>Computação Gráfica 2023.2
+        </b></p>
+    </div>
+    <div>
+        <div id="screen"></div>
+        <canvas width="550" height="550" id="canvas"></canvas>
+    </div>
+    <div>
+        <label for="colorInput">Selecione a Cor: </label>
+        <input type="color" id="colorInput">
+    </div>
+    <div class="userInput">
+        <form>
+            <p>Valor máximo de X e Y: 19</p>
+            <label for="pointA">Point A:</label>
+            <input type="text" id="pointA" placeholder="x, y">
+            <br>
+            <label for="pointB">Point B:</label>
+            <input type="text" id="pointB" placeholder="x, y">
+            <br>
+            <br>
+            <button type="button" id="drawLine">Desenhar linha</button>
+        </form>
+        <br>
+        <button type="button" id="clearButton">Limpar Tela</button>
+    </div>
+    <div class="rodape">
+        <p style="text-align: center;"><b>
+            Alunos: Jonathan José Cardoso de Sales <br>&<br>Antônio Neto
+        </b></p>
+    </div>
+</body>
+</html>
