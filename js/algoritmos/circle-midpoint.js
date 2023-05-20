@@ -1,28 +1,31 @@
-function circle(centerX, centerY, radius) {
-  drawPixel(centerX, centerY, colors.BLACK);
-  let x = radius;
-  let y = 0;
-  let radiusError = 1 - x;
+import * as drawer from "./drawPixel.js";
+import * as colors from "../colors.js";
 
-  while (x >= y) {
-  // Desenha os pontos simétricos em todas as oito partes do círculo
+export function circle(centerX, centerY, radius) {
+    drawer.drawPixel(centerX, centerY, colors.BLACK);
+    let x = radius;
+    let y = 0;
+    let radiusError = 1 - x;
 
-  drawPixel(centerX + x, centerY + y, colors.RED); // Octante 1
-  drawPixel(centerX + y, centerY + x, colors.RED); // Octante 2
-  drawPixel(centerX - y, centerY + x, colors.RED); // Octante 3
-  drawPixel(centerX - x, centerY + y, colors.RED); // Octante 4
-  drawPixel(centerX - x, centerY - y, colors.RED); // Octante 5
-  drawPixel(centerX - y, centerY - x, colors.RED); // Octante 6
-  drawPixel(centerX + y, centerY - x, colors.RED); // Octante 7
-  drawPixel(centerX + x, centerY - y, colors.RED); // Octante 8
+    while (x >= y) {
+      // Desenha os pontos simétricos em todas as oito partes do círculo
 
-  y++;
+        drawer.drawPixel(centerX + x, centerY + y, colors.RED); // Octante 1
+        drawer.drawPixel(centerX + y, centerY + x, colors.RED); // Octante 2
+        drawer.drawPixel(centerX - y, centerY + x, colors.RED); // Octante 3
+        drawer.drawPixel(centerX - x, centerY + y, colors.RED); // Octante 4
+        drawer.drawPixel(centerX - x, centerY - y, colors.RED); // Octante 5
+        drawer.drawPixel(centerX - y, centerY - x, colors.RED); // Octante 6
+        drawer.drawPixel(centerX + y, centerY - x, colors.RED); // Octante 7
+        drawer.drawPixel(centerX + x, centerY - y, colors.RED); // Octante 8
 
-  if (radiusError < 0) {
-      radiusError += 2 * y + 1;
-  } else {
-      x--;
-      radiusError += 2 * (y - x + 1);
-  }
-  }
+        y++;
+
+        if (radiusError < 0) {
+            radiusError += 2 * y + 1;
+        } else {
+            x--;
+            radiusError += 2 * (y - x + 1);
+        }
+    }
 }

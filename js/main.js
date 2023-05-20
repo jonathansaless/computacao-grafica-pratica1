@@ -1,4 +1,6 @@
-import * as colors from "./colors.js";
+import * as circle from "./algoritmos/circle-midpoint.js";
+import * as line from "./algoritmos/line-bresenham.js";
+import * as curve from "./algoritmos/curve-bezier.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -72,4 +74,4 @@ function drawLine() {
 
 clearButton.addEventListener("click", clearScreen);
 drawLineButton.addEventListener("click", drawLine);
-circle(8, 5, 4);
+circle.circle(8, 5, 4);

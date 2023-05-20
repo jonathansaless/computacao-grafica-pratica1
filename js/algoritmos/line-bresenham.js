@@ -1,7 +1,8 @@
-import * as drawer from "drawPixel.js";
+import * as drawer from "./drawPixel.js";
+import * as colors from "../colors.js";
 
 // Algoritmo de Bresenham
-function bresenhamLine(x0, y0, x1, y1) {
+export function bresenhamLine(x0, y0, x1, y1) {
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);
   const dy = Math.abs(y1 - y0);
