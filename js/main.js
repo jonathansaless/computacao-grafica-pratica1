@@ -6,6 +6,7 @@ import * as sweepFill from "./algoritmos/scanline.js";
 import * as fillDrawn from "./algoritmos/scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
+import * as history from "./algoritmos/historyPoints.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -129,6 +130,5 @@ polilyne.drawPolyline(points);
   { x: 4, y: 5 },
   { x: 4, y: 4 },
 ];
-
-scanlineFillWithCriticalPoints(vertices);
+scanlineFillWithCriticalPoints(history.historyPoints);
 */

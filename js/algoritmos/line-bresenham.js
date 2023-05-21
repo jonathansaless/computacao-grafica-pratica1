@@ -4,7 +4,6 @@ import * as history from "./historyPoints.js";
 
 // Algoritmo de Bresenham
 export function bresenhamLine(x0, y0, x1, y1) {
-  history.historyPoints.push({x: x0, y: y0});
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);
   const dy = Math.abs(y1 - y0);
@@ -18,6 +17,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
 
   // Loop principal do algoritmo de Bresenham
   while (x0 !== x1 || y0 !== y1) {
+    history.historyPoints.push({x: x0, y: y0});
     // Desenha o pixel atual
     drawPixel(x0, y0, colors.RED);
     
@@ -36,9 +36,8 @@ export function bresenhamLine(x0, y0, x1, y1) {
       y0 += sy;
     }
   }
-
   // Desenha o último pixel da linha
-  drawPixel(x1, y1, colors.RED);
   history.historyPoints.push({x: x1, y: y1})
+  drawPixel(x1, y1, colors.RED);
 }
 
