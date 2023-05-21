@@ -1,3 +1,5 @@
+// export var 
+
 // historico de pontos pintados, importante para executar o algoritmo de scanline
 export var historyPoints = [];
 
