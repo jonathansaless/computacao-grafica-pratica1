@@ -2,8 +2,8 @@ import * as circle from "./algoritmos/circle-midpoint.js";
 import * as line from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
-import * as sweepFill from "./algoritmos/sweepFill.js";
-import * as fillDrawn from "./algoritmos/sweepFill.js";
+import * as sweepFill from "./algoritmos/scanline.js";
+import * as fillDrawn from "./algoritmos/scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 
 const canvas = document.getElementById("canvas");
