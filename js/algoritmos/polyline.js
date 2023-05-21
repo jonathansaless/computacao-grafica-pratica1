@@ -14,6 +14,5 @@ export function drawPolyline(points) {
     const { x: x1, y: y1 } = points[i + 1];
     line.bresenhamLine(x0, y0, x1, y1);
   }
-  console.log(history.historyPoints);
 }
 
