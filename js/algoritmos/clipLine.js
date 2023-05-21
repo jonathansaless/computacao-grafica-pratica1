@@ -4,7 +4,10 @@ import * as history from "./historyPoints.js";
 
 // Algoritmo de Bresenham
 export function clipLine(x0, y0, x1, y1) {
-  cohenSutherlandClip(x0, y0, x1, y1);
+  // se aceito, recebe os novos valores para pintar na área do desenho
+  // cohenSutherlandClip(x0, y0, x1, y1);
+
+  console.log(x0, y0, x1, y1);
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);
   const dy = Math.abs(y1 - y0);
@@ -50,15 +53,10 @@ const BOTTOM = 4;  // 0100
 const TOP = 8;     // 1000
 
 // Definindo os valores máximos e mínimos para o retângulo
-const x_max = 24;
-const y_max = 24;
-const x_min = 0;
-const y_min = 0;
 
 // Função para calcular o código de região de um ponto (x, y)
-function computeCode(x, y) {
+function computeCode(x, y, x_min, y_min, x_max, y_max) {
   let code = INSIDE;
-  
   if (x < x_min) {      // à esquerda do retângulo
     code |= LEFT;
   } else if (x > x_max) {    // à direita do retângulo
@@ -73,10 +71,11 @@ function computeCode(x, y) {
 }
 
 // Implementação do algoritmo de Cohen-Sutherland para recorte de linha
-function cohenSutherlandClip(x1, y1, x2, y2) {
+export function cohenSutherlandClip(x0, y0, x1, y1, x_min, y_min, x_max, y_max) {
   // Calcular os códigos de região para P1 e P2
-  let code1 = computeCode(x1, y1);
-  let code2 = computeCode(x2, y2);
+  
+  let code1 = computeCode(x0, y0, x_min, y_min, x_max, y_max);
+  let code2 = computeCode(x1, y1, x_min, y_min, x_max, y_max);
   let accept = false;
 
   while (true) {
@@ -98,49 +97,50 @@ function cohenSutherlandClip(x1, y1, x2, y2) {
       let code_out = code1 !== 0 ? code1 : code2;
 
       // Encontra o ponto de interseção
-      // usando as fórmulas y = y1 + slope * (x - x1),
-      // x = x1 + (1 / slope) * (y - y1)
+      // usando as fórmulas y = y0 + slope * (x - x0),
+      // x = x0 + (1 / slope) * (y - y0)
       if (code_out & TOP) {
         // Ponto acima do retângulo
-        x = x1 + (x2 - x1) * (y_max - y1) / (y2 - y1);
+        x = x0 + (x1 - x0) * (y_max - y0) / (y1 - y0);
         y = y_max;
       } else if (code_out & BOTTOM) {
         // Ponto abaixo do retângulo
-        x = x1 + (x2 - x1) * (y_min - y1) / (y2 - y1);
+        x = x0 + (x1 - x0) * (y_min - y0) / (y1 - y0);
         y = y_min;
       } else if (code_out & RIGHT) {
         // Ponto à direita do retângulo
-        y = y1 + (y2 - y1) * (x_max - x1) / (x2 - x1);
+        y = y0 + (y1 - y0) * (x_max - x0) / (x1 - x0);
         x = x_max;
       } else if (code_out & LEFT) {
         // Ponto à esquerda do retângulo
-        y = y1 + (y2 - y1) * (x_min - x1) / (x2 - x1);
+        y = y0 + (y1 - y0) * (x_min - x0) / (x1 - x0);
         x = x_min;
       }
 
       // Agora o ponto de interseção x, y foi encontrado
       // Substitui o ponto fora do retângulo pelo ponto de interseção
       if (code_out === code1) {
+        x0 = x;
+        y0 = y;
+        code1 = computeCode(x0, y0);
+      } else {
         x1 = x;
         y1 = y;
-        code1 = computeCode(x1, y1);
-      } else {
-        x2 = x;
-        y2 = y;
-        code2 = computeCode(x2, y2);
+        code2 = computeCode(x1, y1);
       }
     }
   }
 
   if (accept) {
-    const pointx0 = Math.round(x1);
-    const pointy0 = Math.round(y1);
-    const pointx1 = Math.round(x2);
-    const pointy1 = Math.round(y2);
+    const pointx0 = Math.round(x0);
+    const pointy0 = Math.round(y0);
+    const pointx1 = Math.round(x1);
+    const pointy1 = Math.round(y1);
     
-    console.log(`Linha aceita de (${Math.round(x1)}, ${Math.round(y1)}) a (${Math.round(x2)}, ${Math.round(y2)})`);
-    // Aqui você pode adicionar código para exibir o retângulo
-    // juntamente com as linhas aceitas (parte delas)
+    console.log(`Linha aceita de (${pointx0}, ${pointy0}) a (${pointx1}, ${pointy1})`);
+    
+    clipLine(pointx0, pointy0, pointx1, pointy1);
+
   } else {
     console.log("Linha rejeitada, reta totalmente fora!");
   }

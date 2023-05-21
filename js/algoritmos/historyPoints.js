@@ -1,7 +1,9 @@
-// pontos pintados
+// historico de pontos pintados, importante para executar o algoritmo de scanline
 export var historyPoints = [];
 
+
 // seria interessante criar uma variável que armazena um poligono assim que detectar que existe um poligono
+// ou a ada novo poligono criar um Objeto chamado poligono
 // variavel x
 
 // pontos para testes

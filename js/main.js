@@ -6,7 +6,7 @@ import * as sweepFill from "./algoritmos/___scanline.js";
 import * as fillDrawn from "./algoritmos/___scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
-import { clipLine } from "./algoritmos/clipLine.js";
+import { clipLine, cohenSutherlandClip } from "./algoritmos/clipLine.js";
 import * as history from "./algoritmos/historyPoints.js";
 
 const canvas = document.getElementById("canvas");
@@ -134,4 +134,4 @@ polilyne.drawPolyline(points);
 scanlineFillWithCriticalPoints(history.historyPoints);
 */
 
-clipLine(25, 10, 16, 20);
+// cohenSutherlandClip(28, 10, 16, 20, 0, 0, 24, 24);
