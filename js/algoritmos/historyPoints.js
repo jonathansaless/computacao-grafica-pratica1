@@ -1,4 +1,10 @@
+// pontos pintados
 export var historyPoints = [];
+
+// seria interessante criar uma variável que armazena um poligono assim que detectar que existe um poligono
+// variavel x
+
+// pontos para testes
 export const points = [
   { x: 4, y: 4 },
   { x: 5, y: 4 },

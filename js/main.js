@@ -2,10 +2,11 @@ import * as circle from "./algoritmos/circle-midpoint.js";
 import * as line from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
-import * as sweepFill from "./algoritmos/scanline.js";
-import * as fillDrawn from "./algoritmos/scanline.js";
+import * as sweepFill from "./algoritmos/___scanline.js";
+import * as fillDrawn from "./algoritmos/___scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
+import { clipLine } from "./algoritmos/clipLine.js";
 import * as history from "./algoritmos/historyPoints.js";
 
 const canvas = document.getElementById("canvas");
@@ -132,3 +133,5 @@ polilyne.drawPolyline(points);
 ];
 scanlineFillWithCriticalPoints(history.historyPoints);
 */
+
+clipLine(25, 10, 16, 20);
