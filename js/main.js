@@ -5,6 +5,7 @@ import * as polilyne from "./algoritmos/polyline.js";
 import * as sweepFill from "./algoritmos/scanline.js";
 import * as fillDrawn from "./algoritmos/scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
+import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -104,3 +105,30 @@ polilyne.drawPolyline(points);
 
 // preenchimento recursivo OK
 // floodFill(5, 6);
+
+// necessário saber todos os pontos pintados de vermelho do
+// poligono para assim executar o scanline 
+
+/*const vertices = [
+  { x: 4, y: 4 },
+  { x: 5, y: 4 },
+  { x: 6, y: 4 },
+  { x: 7, y: 4 },
+  { x: 8, y: 4 },
+  { x: 8, y: 5 },
+  { x: 8, y: 6 },
+  { x: 8, y: 7 },
+  { x: 8, y: 8 },
+  { x: 7, y: 8 },
+  { x: 6, y: 8 },
+  { x: 5, y: 9 },
+  { x: 4, y: 9 },
+  { x: 4, y: 8 },
+  { x: 4, y: 7 },
+  { x: 4, y: 6 },
+  { x: 4, y: 5 },
+  { x: 4, y: 4 },
+];
+
+scanlineFillWithCriticalPoints(vertices);
+*/
