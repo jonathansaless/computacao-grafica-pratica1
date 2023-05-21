@@ -1,8 +1,9 @@
-import * as drawer from "./drawPixel.js";
+import { drawPixel } from "./drawPixel.js";
 import * as colors from "../colors.js";
 
 export function circle(centerX, centerY, radius) {
-    drawer.drawPixel(centerX, centerY, colors.BLACK);
+    // pinta o centro de preto, apenas para nos basear
+    drawPixel(centerX, centerY, colors.BLACK);
     let x = radius;
     let y = 0;
     let radiusError = 1 - x;
@@ -10,14 +11,14 @@ export function circle(centerX, centerY, radius) {
     while (x >= y) {
       // Desenha os pontos simétricos em todas as oito partes do círculo
 
-        drawer.drawPixel(centerX + x, centerY + y, colors.RED); // Octante 1
-        drawer.drawPixel(centerX + y, centerY + x, colors.RED); // Octante 2
-        drawer.drawPixel(centerX - y, centerY + x, colors.RED); // Octante 3
-        drawer.drawPixel(centerX - x, centerY + y, colors.RED); // Octante 4
-        drawer.drawPixel(centerX - x, centerY - y, colors.RED); // Octante 5
-        drawer.drawPixel(centerX - y, centerY - x, colors.RED); // Octante 6
-        drawer.drawPixel(centerX + y, centerY - x, colors.RED); // Octante 7
-        drawer.drawPixel(centerX + x, centerY - y, colors.RED); // Octante 8
+        drawPixel(centerX + x, centerY + y, colors.RED); // Octante 1
+        drawPixel(centerX + y, centerY + x, colors.RED); // Octante 2
+        drawPixel(centerX - y, centerY + x, colors.RED); // Octante 3
+        drawPixel(centerX - x, centerY + y, colors.RED); // Octante 4
+        drawPixel(centerX - x, centerY - y, colors.RED); // Octante 5
+        drawPixel(centerX - y, centerY - x, colors.RED); // Octante 6
+        drawPixel(centerX + y, centerY - x, colors.RED); // Octante 7
+        drawPixel(centerX + x, centerY - y, colors.RED); // Octante 8
 
         y++;
 

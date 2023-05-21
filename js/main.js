@@ -4,6 +4,7 @@ import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
 import * as sweepFill from "./algoritmos/sweepFill.js";
 import * as fillDrawn from "./algoritmos/sweepFill.js";
+import { floodFill } from "./algoritmos/floodFill.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -83,7 +84,7 @@ polilyne.drawPolyline(points);
 
 
 
-fillDrawn.drawPolygon();  
+// fillDrawn.drawPolygon();  
 // circulo
 //circle.circle(8, 5, 4);
 
@@ -100,3 +101,6 @@ fillDrawn.drawPolygon();
 // const pointBX = 15;
 // const pointBY = 16;
 //drawBezierCurve(pointAX, pointAY, controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, pointBX, pointBY);
+
+// preenchimento recursivo OK
+// floodFill(5, 6);

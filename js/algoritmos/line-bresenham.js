@@ -1,4 +1,4 @@
-import * as drawer from "./drawPixel.js";
+import { drawPixel } from "./drawPixel.js";
 import * as colors from "../colors.js";
 import * as history from "./historyPoints.js";
 
@@ -19,7 +19,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
   // Loop principal do algoritmo de Bresenham
   while (x0 !== x1 || y0 !== y1) {
     // Desenha o pixel atual
-    drawer.drawPixel(x0, y0, colors.RED);
+    drawPixel(x0, y0, colors.RED);
     
     // Calcula o dobro do erro
     const err2 = 2 * err;
@@ -38,7 +38,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
   }
 
   // Desenha o último pixel da linha
-  drawer.drawPixel(x1, y1, colors.RED);
+  drawPixel(x1, y1, colors.RED);
   history.historyPoints.push({x: x1, y: y1})
 }
 

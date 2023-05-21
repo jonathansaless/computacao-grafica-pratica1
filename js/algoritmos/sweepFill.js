@@ -1,6 +1,6 @@
 import * as history from "./historyPoints.js";
 import * as colors from "../colors.js";
-import * as drawer from "./drawPixel.js";
+import { drawPixel } from "./drawPixel.js";
 
 function isPolygon(points) {
     if (points.length < 3) {
@@ -51,7 +51,7 @@ function fillPolygon(points) {
         const endX = Math.floor(intersectionPoints[i + 1]);
   
         for (let x = startX; x <= endX; x++) {
-            drawer.drawPixel(x, y, colors.GREEN);
+            drawPixel(x, y, colors.GREEN);
         }
       }
     }
