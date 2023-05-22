@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Estilos dos botões */
+    .menu-button {
+      padding: 10px;
+      margin: 5px;
+      background-color: gray;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Estilo do botão selecionado */
+    .menu-button.selected {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 1</button>
+    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 2</button>
+    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 3</button>
+  </div>
+
+  <script>
+    var previousButton = null;
+
+    function changeBackgroundColor(button) {
+      if (previousButton !== null) {
+        previousButton.classList.remove("selected");
+      }
+
+      button.classList.add("selected");
+      previousButton = button;
+    }
+  </script>
+</body>
+</html>
