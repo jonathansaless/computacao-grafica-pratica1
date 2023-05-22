@@ -29,3 +29,10 @@ export const points = [
   { x: 4, y: 5 },
   { x: 4, y: 4 }
 ];
+
+export const clipPolygon = [
+  { x: 0, y: 0 },
+  { x: 24, y: 0 },
+  { x: 24, y: 24 },
+  { x: 0, y: 24 }
+];

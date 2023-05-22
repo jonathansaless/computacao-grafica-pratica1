@@ -1,5 +1,5 @@
 import * as line from "./line-bresenham.js";
-import * as history from "./historyPoints.js";
+import * as history from "./constants/constants.js";
 
 
 export function drawPolyline(points) {

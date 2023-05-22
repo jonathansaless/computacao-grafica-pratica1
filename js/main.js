@@ -6,7 +6,8 @@ import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
 import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
 import { clipPolygon } from "./algoritmos/clipPolyline.js";
-import * as history from "./algoritmos/historyPoints.js";
+import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
+import * as history from "./algoritmos/constants/constants.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.getElementById("screen");
@@ -159,3 +160,21 @@ clipPolygon(subjectPolygon, clipPolygon);
 // suthHodgClip(poly_points, clipper_points);
 
 //polilyne.drawPolyline(poly_points);
+
+var polygon = [
+  { x: 4, y: 4 },
+    { x: 8, y: 4 },
+    { x: 8, y: 8 },
+    { x: 4, y: 8 },
+    { x: 4, y: 4 }
+];
+
+// converte grau em radianos
+function degreesToRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
+var angle = degreesToRadians(180); // 180 degrees
+// define pivô, ponto do qual o poligono será girado
+var pivot = { x: 8, y: 4 };
+rotatePolygon(polygon, angle, pivot);

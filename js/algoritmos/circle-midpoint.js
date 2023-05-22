@@ -1,5 +1,5 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
+import * as colors from "./constants/colors.js";
 
 export function circle(centerX, centerY, radius) {
     // pinta o centro de preto, apenas para nos basear

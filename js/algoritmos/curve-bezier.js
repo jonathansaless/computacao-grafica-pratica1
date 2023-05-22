@@ -1,5 +1,5 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
+import * as colors from "./constants/colors.js";
 
 export function drawBezierCurve(startX, startY, controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, endX, endY) {
     // Pontos de controle da curva de Bezier

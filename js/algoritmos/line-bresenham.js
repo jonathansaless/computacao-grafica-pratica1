@@ -1,6 +1,6 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
-import * as history from "./historyPoints.js";
+import * as colors from "./constants/colors.js";
+import * as history from "./constants/constants.js";
 
 // Algoritmo de Bresenham
 export function bresenhamLine(x0, y0, x1, y1) {

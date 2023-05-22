@@ -1,6 +1,6 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
-import * as history from "./historyPoints.js";
+import * as colors from "./constants/colors.js";
+import * as history from "./constants/constants.js";
 
 // Função para preencher o polígono usando o algoritmo Scanline com pontos críticos
 export function scanlineFillWithCriticalPoints(vertices) {

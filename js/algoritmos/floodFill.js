@@ -1,5 +1,5 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
+import * as colors from "./constants/colors.js";
 
 // preechimento recursivo OK
 export function floodFill(x, y){

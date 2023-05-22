@@ -1,5 +1,6 @@
 import { drawPixel } from "./drawPixel.js";
 import { drawPolyline } from "./polyline.js";
+import { convertListToInteger } from "./features/convertListToInteger.js";
 
 export function clipPolygon(subjectPolygon, clipPolygon) {
     var cp1, cp2, s, e;
@@ -48,14 +49,4 @@ export function clipPolygon(subjectPolygon, clipPolygon) {
     // desenha o poligono com os valores de vertices obtidos
     console.log(outputList);
     drawPolyline(outputList);
-}
-
-function convertListToInteger(points) {
-    var result = [];
-    for (var i = 0; i < points.length; i++) {
-        var point = points[i];
-        var roundedPoint = { x: Math.round(point.x), y: Math.round(point.y) };
-        result.push(roundedPoint);
-    }
-    return result;
 }
