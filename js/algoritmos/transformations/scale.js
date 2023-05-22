@@ -1,4 +1,8 @@
-function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
+import { convertListToInteger } from "./convertListToInteger.js";
+import { clipPolygon } from "../clipPolyline.js";
+import * as constant from "../constants/constants.js";
+
+export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     var scaledPolygon = [];
 
     for (var i = 0; i < polygon.length; i++) {
@@ -20,19 +24,8 @@ function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
 
         scaledPolygon.push(finalVertex);
     }
-
-    return scaledPolygon;
+    // converte valores da lista para inteiro
+    scaledPolygon = convertListToInteger(scaledPolygon);
+    // desenha o poligono usando o clip para ja realizar o corte caso precise
+    clipPolygon(scaledPolygon, constant.clipPolygon);
 }
-
-var polygon = [
-    { x: 50, y: 50 },
-    { x: 100, y: 50 },
-    { x: 100, y: 100 },
-    { x: 50, y: 100 }
-];
-var scaleX = 1.5; // fator de escala em X
-var scaleY = 0.5; // fator de escala em Y
-var fixedPoint = { x: 75, y: 75 }; // ponto fixo para escala
-
-var scaledPolygon = scalePolygon(polygon, scaleX, scaleY, fixedPoint);
-console.log(scaledPolygon);

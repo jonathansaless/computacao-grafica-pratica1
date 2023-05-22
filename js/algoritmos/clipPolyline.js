@@ -1,4 +1,6 @@
-import { drawPixel } from "./drawPixel.js";
+// ainda está meio inacabado
+// verificar, pois se eu desenho uma quadradao com uma parte pra fora, ele desenha o
+// quadrado todo dento do quadro de desenho
 import { drawPolyline } from "./polyline.js";
 import { convertListToInteger } from "./features/convertListToInteger.js";
 

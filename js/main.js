@@ -7,6 +7,8 @@ import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcritic
 import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
 import { clipPolygon } from "./algoritmos/clipPolyline.js";
 import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
+import { scalePolygon } from "./algoritmos/transformations/scale.js";
+import { translatePolygon } from "./algoritmos/transformations/translation.js";
 import * as history from "./algoritmos/constants/constants.js";
 
 const canvas = document.getElementById("canvas");
@@ -169,6 +171,19 @@ var polygon = [
     { x: 4, y: 4 }
 ];
 
+var dx = 18; // deslocamento em X
+var dy = 2; // deslocamento em Y
+
+translatePolygon(polygon, dx, dy);
+
+/*
+var scaleX = 0.5; // fator de escala em X, se valor for 1, mantem mesmo tamanho, se menor que 1, diminui, se maior aumenta
+var scaleY = 1.5; // fator de escala em Y (aqui aumenta no x baixa)
+var fixedPoint = { x: 4, y: 4 }; // ponto fixo da escala
+
+scalePolygon(polygon, scaleX, scaleY, fixedPoint); // ok
+*/
+/*
 // converte grau em radianos
 function degreesToRadians(degrees) {
   return degrees * (Math.PI / 180);
@@ -177,4 +192,5 @@ function degreesToRadians(degrees) {
 var angle = degreesToRadians(180); // 180 degrees
 // define pivô, ponto do qual o poligono será girado
 var pivot = { x: 8, y: 4 };
-rotatePolygon(polygon, angle, pivot);
+rotatePolygon(polygon, angle, pivot); //ok
+*/

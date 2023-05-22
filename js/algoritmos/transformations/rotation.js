@@ -1,5 +1,4 @@
 import { convertListToInteger } from "./convertListToInteger.js";
-import { drawPolyline } from "../polyline.js";
 import { clipPolygon } from "../clipPolyline.js";
 import * as constant from "../constants/constants.js";
 

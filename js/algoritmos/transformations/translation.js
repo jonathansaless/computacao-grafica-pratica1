@@ -1,4 +1,8 @@
-function translatePolygon(polygon, dx, dy) {
+import { convertListToInteger } from "./convertListToInteger.js";
+import { clipPolygon } from "../clipPolyline.js";
+import * as constant from "../constants/constants.js";
+
+export function translatePolygon(polygon, dx, dy) {
     var translatedPolygon = [];
 
     for (var i = 0; i < polygon.length; i++) {
@@ -9,18 +13,6 @@ function translatePolygon(polygon, dx, dy) {
         };
         translatedPolygon.push(translatedVertex);
     }
-
-    return translatedPolygon;
+    translatedPolygon = convertListToInteger(translatedPolygon);
+    clipPolygon(translatedPolygon, constant.clipPolygon);
 }
-
-var polygon = [
-    { x: 50, y: 50 },
-    { x: 100, y: 50 },
-    { x: 100, y: 100 },
-    { x: 50, y: 100 }
-];
-var dx = 10; // deslocamento em X
-var dy = 20; // deslocamento em Y
-
-var translatedPolygon = translatePolygon(polygon, dx, dy);
-console.log(translatedPolygon);
