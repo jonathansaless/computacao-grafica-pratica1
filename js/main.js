@@ -9,6 +9,8 @@ import { clipPolygon } from "./algoritmos/clipPolyline.js";
 import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
 import { scalePolygon } from "./algoritmos/transformations/scale.js";
 import { translatePolygon } from "./algoritmos/transformations/translation.js";
+import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
+import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import * as history from "./algoritmos/constants/constants.js";
 
 const canvas = document.getElementById("canvas");
@@ -162,20 +164,21 @@ clipPolygon(subjectPolygon, clipPolygon);
 // suthHodgClip(poly_points, clipper_points);
 
 //polilyne.drawPolyline(poly_points);
-
+/*
 var polygon = [
   { x: 4, y: 4 },
     { x: 8, y: 4 },
     { x: 8, y: 8 },
     { x: 4, y: 8 },
     { x: 4, y: 4 }
-];
+];*/
 
+/*
 var dx = 18; // deslocamento em X
 var dy = 2; // deslocamento em Y
 
 translatePolygon(polygon, dx, dy);
-
+*/
 /*
 var scaleX = 0.5; // fator de escala em X, se valor for 1, mantem mesmo tamanho, se menor que 1, diminui, se maior aumenta
 var scaleY = 1.5; // fator de escala em Y (aqui aumenta no x baixa)
@@ -194,3 +197,23 @@ var angle = degreesToRadians(180); // 180 degrees
 var pivot = { x: 8, y: 4 };
 rotatePolygon(polygon, angle, pivot); //ok
 */
+
+// Vértices do cubo 3D
+var cubeVertices = [
+  { x: 5, y: 5, z: 10 },
+  { x: 10, y: 5, z: 10 },
+  { x: 10, y: 10, z: 10 },
+  { x: 5, y: 10, z: 10 },
+  { x: 5, y: 5, z: 5 },
+  { x: 10, y: 5, z: 5 },
+  { x: 10, y: 10, z: 5 },
+  { x: 5, y: 10, z: 5 }
+];
+
+// orthographicProjection(cubeVertices);
+// falta verificar se está funcional utilzando o codepen que o professor mandou
+
+// arrumar perspectiva
+// var focalLength = 10;
+//perspectiveProjection(cubeVertices, focalLength);
+// projectPolygon(cubeVertices, focalLength);

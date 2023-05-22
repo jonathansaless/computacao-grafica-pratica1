@@ -1,4 +1,4 @@
-import { convertListToInteger } from "./convertListToInteger.js";
+import { convertListToInteger } from "../features/convertListToInteger.js";
 import { clipPolygon } from "../clipPolyline.js";
 import * as constant from "../constants/constants.js";
 

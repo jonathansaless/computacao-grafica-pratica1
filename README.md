@@ -10,4 +10,4 @@ Algoritmos desenvolvidos para o trabalho prático 1 da disciplina de Computaçã
 - Recorte de linha
 - Recorte de Polígono
 - Transformações
-- Projeções Ortogonais e Perspectiva
+- Projeção Ortogonal e Projeção Perspectiva
