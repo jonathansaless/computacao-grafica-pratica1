@@ -4,8 +4,8 @@ import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
-import { clipLine, cohenSutherlandClip } from "./algoritmos/clipLine.js";
-import { suthHodgClip } from "./algoritmos/clipPolyline.js";
+import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
+import { clipPolygon } from "./algoritmos/clipPolyline.js";
 import * as history from "./algoritmos/historyPoints.js";
 
 const canvas = document.getElementById("canvas");
@@ -133,27 +133,29 @@ polilyne.drawPolyline(points);
 scanlineFillWithCriticalPoints(history.historyPoints);
 */
 
-// cohenSutherlandClip(28, 10, 16, 20, 0, 0, 24, 24);
+// cohenSutherlandClip(30, 10, 16, 20, 0, 0, 24, 24);
 
 
 // clip poligono
-const poly_points = [
+/*
+const subjectPolygon = [
   { x: 4, y: 4 },
-  { x: 8, y: 4 },
-  { x: 8, y: 8 },
-  { x: 4, y: 9 },
-  { x: 4, y: 4 }
+    { x: 8, y: 4 },
+    { x: 8, y: 8 },
+    { x: 4, y: 6 },
 ];
 
 // Definindo os vértices da área de desenho
-const clipper_points = [
+const clipPolygon = [
   { x: 0, y: 0 },
-  { x: 0, y: 24 },
+  { x: 24, y: 0 },
   { x: 24, y: 24 },
-  { x: 24, y: 0 }
+  { x: 0, y: 24 }
 ];
 
+clipPolygon(subjectPolygon, clipPolygon);
+*/
 // Chamando a função de recorte
-suthHodgClip(poly_points, clipper_points);
+// suthHodgClip(poly_points, clipper_points);
 
 //polilyne.drawPolyline(poly_points);

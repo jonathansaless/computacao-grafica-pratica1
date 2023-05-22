@@ -1,8 +1,6 @@
-import { drawPixel } from "./drawPixel.js";
-import * as colors from "../colors.js";
-import * as history from "./historyPoints.js";
-
+import { bresenhamLine } from "./line-bresenham.js";
 // Algoritmo de Bresenham
+/*
 export function clipLine(x0, y0, x1, y1) {
   // se aceito, recebe os novos valores para pintar na área do desenho
   // cohenSutherlandClip(x0, y0, x1, y1);
@@ -44,7 +42,7 @@ export function clipLine(x0, y0, x1, y1) {
   history.historyPoints.push({x: x1, y: y1})
   drawPixel(x1, y1, colors.RED);
 }
-
+*/
 // Definindo os códigos de região
 const INSIDE = 0;  // 0000
 const LEFT = 1;    // 0001
@@ -139,7 +137,7 @@ export function cohenSutherlandClip(x0, y0, x1, y1, x_min, y_min, x_max, y_max) 
     
     console.log(`Linha aceita de (${pointx0}, ${pointy0}) a (${pointx1}, ${pointy1})`);
     
-    clipLine(pointx0, pointy0, pointx1, pointy1);
+    bresenhamLine(pointx0, pointy0, pointx1, pointy1);
 
   } else {
     console.log("Linha rejeitada, reta totalmente fora!");
