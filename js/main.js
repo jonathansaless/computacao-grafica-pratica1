@@ -2,11 +2,10 @@ import * as circle from "./algoritmos/circle-midpoint.js";
 import * as line from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
-import * as sweepFill from "./algoritmos/___scanline.js";
-import * as fillDrawn from "./algoritmos/___scanline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
 import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
 import { clipLine, cohenSutherlandClip } from "./algoritmos/clipLine.js";
+import { suthHodgClip } from "./algoritmos/clipPolyline.js";
 import * as history from "./algoritmos/historyPoints.js";
 
 const canvas = document.getElementById("canvas");
@@ -74,7 +73,7 @@ drawLineButton.addEventListener("click", drawAlgoritmo);
 
 // Exemplo de usos
 // polilinha
-const points = [
+/*const points = [
     { x: 4, y: 4 },
     { x: 8, y: 4 },
     { x: 8, y: 8 },
@@ -82,7 +81,7 @@ const points = [
     { x: 4, y: 4 }
   ];
 polilyne.drawPolyline(points);
-
+*/
 // Verifica se os pontos formam um polígono
 
 
@@ -135,3 +134,26 @@ scanlineFillWithCriticalPoints(history.historyPoints);
 */
 
 // cohenSutherlandClip(28, 10, 16, 20, 0, 0, 24, 24);
+
+
+// clip poligono
+const poly_points = [
+  { x: 4, y: 4 },
+  { x: 8, y: 4 },
+  { x: 8, y: 8 },
+  { x: 4, y: 9 },
+  { x: 4, y: 4 }
+];
+
+// Definindo os vértices da área de desenho
+const clipper_points = [
+  { x: 0, y: 0 },
+  { x: 0, y: 24 },
+  { x: 24, y: 24 },
+  { x: 24, y: 0 }
+];
+
+// Chamando a função de recorte
+suthHodgClip(poly_points, clipper_points);
+
+//polilyne.drawPolyline(poly_points);
