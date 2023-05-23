@@ -74,7 +74,7 @@ function drawAlgoritmo() {
 }
 
 clearButton.addEventListener("click", clearScreen);
-drawLineButton.addEventListener("click", drawAlgoritmo);
+// drawLineButton.addEventListener("click", drawAlgoritmo);
 
 // Exemplo de usos
 // polilinha

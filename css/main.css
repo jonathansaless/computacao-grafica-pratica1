@@ -1,11 +1,28 @@
 body {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    justify-content: space-around;    
     align-items: center;
     background: #1C1C1C;
     color: #ffffff;
     font-family: sans-serif;
+}
+.menu { 
+  display: flex;
+
+}
+
+.menu-button {
+  padding: 10px;
+  margin: 5px;
+  background-color: gray;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-button.selected {
+  background-color: blue;
 }
 
 .userInput {
@@ -32,17 +49,14 @@ body {
   background-color: red;
 }
 
-/* Estilos dos botões */
-.menu-button {
+
+
+#input-container {
   padding: 10px;
   margin: 5px;
-  background-color: gray;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
 
-/* Estilo do botão selecionado */
-.menu-button.selected {
-  background-color: blue;
+input { 
+  height: 15px;
+  width: 50px;
 }
