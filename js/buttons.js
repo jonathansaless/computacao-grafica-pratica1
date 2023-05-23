@@ -1,3 +1,5 @@
+import { bresenhamLine } from "./algoritmos/line-bresenham.js";
+
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
 var inputContainer = document.getElementById('input-container');
@@ -25,15 +27,15 @@ function handleButtonClick(button) {
   switch (buttonText) {
     case 'Linha':
       insertText(inputContainer, 'Ponto A');
-      createInput(inputContainer, 'number', 'x');
-      createInput(inputContainer, 'number', 'y');
+      createInput(inputContainer, 'number', 'x', 'AX');
+      createInput(inputContainer, 'number', 'y', 'AY');
 
       var lineBreak = document.createElement('br');
       inputContainer.appendChild(lineBreak);
 
       insertText(inputContainer, 'Ponto B');
-      createInput(inputContainer, 'number', 'x');
-      createInput(inputContainer, 'number', 'y');
+      createInput(inputContainer, 'number', 'x', 'BX');
+      createInput(inputContainer, 'number', 'y', 'BY');
 
       var lineBreak = document.createElement('br');
       inputContainer.appendChild(lineBreak);
@@ -81,10 +83,12 @@ function handleButtonClick(button) {
   }
 }
 
-function createInput(container, type, placeholder) {
+function createInput(container, type, placeholder, inputId) {
   var input = document.createElement('input');
   input.type = type;
   input.placeholder = placeholder;
+  input.setAttribute('class', 'fade-in');
+  input.setAttribute('id', inputId);
   container.appendChild(input);
 
 }
@@ -92,6 +96,7 @@ function createInput(container, type, placeholder) {
 function insertText(container, labelText) {
   var label = document.createElement('label');
   label.textContent = labelText + ': ';
+  label.setAttribute('class', 'fade-in');
   container.appendChild(label);
 
 }
@@ -100,13 +105,19 @@ function insertDrawingButton(container, buttonText) {
   var button = document.createElement('button');
   button.textContent = buttonText;
   button.setAttribute('id', 'drawLine');
+  button.setAttribute('class', 'fade-in');
   container.appendChild(button);
   button.addEventListener("click", drawAlgoritmo);
 
 }
 
-function drawAlgoritmo(){ 
-  console.log('Teste');
+function drawAlgoritmo() {
+  const pointAX = parseInt(document.getElementById("AX").value);
+  const pointAY = parseInt(document.getElementById("AY").value);
+  const pointBX = parseInt(document.getElementById("BX").value);
+  const pointBY = parseInt(document.getElementById("BY").value);
+
+   bresenhamLine(pointAX, pointAY, pointBX, pointBY);
 }
 
 buttons.forEach(function(button) {

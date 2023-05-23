@@ -1,5 +1,5 @@
 import * as circle from "./algoritmos/circle-midpoint.js";
-import * as line from "./algoritmos/line-bresenham.js";
+import  { bresenhamLine } from "./algoritmos/line-bresenham.js";
 import * as curve from "./algoritmos/curve-bezier.js";
 import * as polilyne from "./algoritmos/polyline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
@@ -76,6 +76,7 @@ function drawAlgoritmo() {
 clearButton.addEventListener("click", clearScreen);
 // drawLineButton.addEventListener("click", drawAlgoritmo);
 
+//bresenhamLine(1, 1, 5, 5);
 // Exemplo de usos
 // polilinha
 /*const points = [

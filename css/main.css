@@ -60,3 +60,18 @@ input {
   height: 15px;
   width: 50px;
 }
+
+/** classe para dá efeito de fade-in em qualquer objeto*/
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
