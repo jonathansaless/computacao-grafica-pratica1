@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    /* Estilos dos botões */
-    .menu-button {
-      padding: 10px;
-      margin: 5px;
-      background-color: gray;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Estilo do botão selecionado */
-    .menu-button.selected {
-      background-color: blue;
-    }
-  </style>
+  <title>Adicionar Pontos</title>
 </head>
 <body>
-  <div id="menu">
-    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 1</button>
-    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 2</button>
-    <button class="menu-button" onclick="changeBackgroundColor(this)">Botão 3</button>
+  <h2>Adicionar Pontos</h2>
+
+  <div id="points-container">
+    <div class="point">
+      <label>Ponto X:</label>
+      <input type="number" id="point-x">
+      <label>Ponto Y:</label>
+      <input type="number" id="point-y">
+    </div>
   </div>
 
-  <script>
-    var previousButton = null;
+  <button id="add-button">Adicionar</button>
 
-    function changeBackgroundColor(button) {
-      if (previousButton !== null) {
-        previousButton.classList.remove("selected");
+  <script>
+    var addButton = document.getElementById('add-button');
+    var pointsContainer = document.getElementById('points-container');
+    var counter = 0;
+
+    function createPointInput() {
+      if (counter >= 5) {
+        addButton.disabled = true;
+        addButton.innerText = 'max';
+        return;
       }
 
-      button.classList.add("selected");
-      previousButton = button;
+      var pointDiv = document.createElement('div');
+      pointDiv.className = 'point';
+
+      var labelX = document.createElement('label');
+      labelX.textContent = 'Ponto X:';
+      var inputX = document.createElement('input');
+      inputX.type = 'number';
+      inputX.id = 'point-x-' + counter;
+
+      var labelY = document.createElement('label');
+      labelY.textContent = 'Ponto Y:';
+      var inputY = document.createElement('input');
+      inputY.type = 'number';
+      inputY.id = 'point-y-' + counter;
+
+      pointDiv.appendChild(labelX);
+      pointDiv.appendChild(inputX);
+      pointDiv.appendChild(labelY);
+      pointDiv.appendChild(inputY);
+
+      pointsContainer.appendChild(pointDiv);
+
+      counter++;
     }
+
+    addButton.addEventListener('click', createPointInput);
   </script>
 </body>
 </html>
