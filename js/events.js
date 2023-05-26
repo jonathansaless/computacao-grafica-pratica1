@@ -7,13 +7,15 @@ var previousButton = null;
 var inputContainer = document.querySelector('.input-container');
 var cont = 1;
 export var controlPoints = [];
-var polilynePoints = [];
+export var polilynePoints = [];
 
 
 function changeBackgroundColor(event) {
   var button = event.target;
-  cont = 1; // reinicia contador de pontos de controles
-
+  // reinicia variaveis
+  cont = 1;
+  controlPoints = [];
+  polilynePoints = [];
   if (previousButton !== null) {
     previousButton.classList.remove('selected');
   }
