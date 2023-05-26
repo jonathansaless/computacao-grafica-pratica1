@@ -44,7 +44,7 @@ drawingContext.fillRect(0, 0, canvas.width, canvas.height);
   }
 }
 
-function clearScreen() {
+export function clearScreen() {
   const subElements = screen.querySelectorAll('*');
   // percorre os quadrados e pinta todos de branco, limpando a tela
   for (let i = 0; i < subElements.length; i++) {
@@ -73,7 +73,7 @@ function drawAlgoritmo() {
     }
 }
 
-clearButton.addEventListener("click", clearScreen);
+// clearButton.addEventListener("click", clearScreen);
 // drawLineButton.addEventListener("click", drawAlgoritmo);
 
 //bresenhamLine(1, 1, 5, 5);

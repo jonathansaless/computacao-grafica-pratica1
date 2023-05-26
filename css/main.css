@@ -61,7 +61,8 @@ h2 {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#clearButton {
+#clear-button {
+  height: 40px;
   color: black;
   background-color: red;
 }
@@ -95,4 +96,8 @@ input {
 
 .end {
   justify-self: flex-end;
+}
+
+#draw-line {
+  height: 40px;
 }
