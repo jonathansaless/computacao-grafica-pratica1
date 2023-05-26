@@ -341,8 +341,7 @@ function addPolilynePoint() {
 }
 function insertAddButton(container){
   var button = document.createElement('button');
-  button.setAttribute('id', 'add-button');
-  button.setAttribute('class', 'button');
+  button.setAttribute('class', 'add-button');
   button.innerText = 'Adicionar';
   container.appendChild(button);
   if(container.id == 'ponto-controle'){
@@ -363,8 +362,8 @@ function insertClearButton(container){
 function insertDrawingButton(container, buttonText) {
   var button = document.createElement('button');
   button.textContent = buttonText;
-  button.setAttribute('id', 'draw-line');
-  button.setAttribute('class', 'fade-in button');
+  // button.setAttribute('id', 'draw-line');
+  button.setAttribute('class', 'fade-in draw-button');
   container.appendChild(button);
   button.addEventListener("click", drawAlgoritmo);
 
