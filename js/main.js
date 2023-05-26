@@ -1,20 +1,7 @@
-import * as circle from "./algoritmos/circle-midpoint.js";
-import  { bresenhamLine } from "./algoritmos/line-bresenham.js";
-import * as curve from "./algoritmos/curve-bezier.js";
-import * as polilyne from "./algoritmos/polyline.js";
-import { floodFill } from "./algoritmos/floodFill.js";
-import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
-import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
-import { clipPolygon } from "./algoritmos/clipPolyline.js";
-import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
-import { scalePolygon } from "./algoritmos/transformations/scale.js";
-import { translatePolygon } from "./algoritmos/transformations/translation.js";
-import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
-import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import * as history from "./algoritmos/constants/constants.js";
 
 const canvas = document.getElementById("canvas");
-const screen = document.getElementById("screen");
+const screen = document.querySelector(".screen");
 const drawLineButton = document.getElementById("drawLine");
 const clearButton = document.getElementById("clearButton");
 const drawingContext = canvas.getContext("2d");

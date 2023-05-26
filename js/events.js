@@ -1,9 +1,14 @@
-// import { bresenhamLine } from "./algoritmos/line-bresenham.js";
+import { drawAlgoritmo} from "./draw.js"; 
 import { clearScreen } from "./main.js";
+
+
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
-var inputContainer = document.getElementById('input-container');
+var inputContainer = document.querySelector('.input-container');
 var cont = 1;
+var controlPoints = [];
+var polilynePoints = [];
+
 
 function changeBackgroundColor(event) {
   var button = event.target;
@@ -212,15 +217,25 @@ function createDivInputControlPoint(idDiv){
 }
 
 function addControlPoint() {
-  if (cont > 5) {
-    let addButton = document.getElementById('add-button');
-    addButton.disabled = true;
-    addButton.innerText = 'Máximo adicionado!';
-    return;
-  }
-  // let containerPoints = document.getElementById('ponto-controle');
-  let controlPointBefore = document.getElementById('ponto-controle-'+(cont-1));
+  let addButton = document.querySelector('.add-button');
 
+  let controlPointBefore = document.getElementById('ponto-controle-'+(cont-1));
+  /* salva os pontos que estavam no input */
+  console.log(controlPointBefore);
+  var inputX = (controlPointBefore.querySelector('input[type="number"][placeholder="x"]')).value;
+  var inputY = (controlPointBefore.querySelector('input[type="number"][placeholder="y"]')).value;
+
+  if(inputX == '' || inputY == ''){
+    console.log('input vazio, favor informe um valor');
+    return;
+
+  }else{
+    console.log('Valor de x:', inputX);
+    console.log('Valor de y:', inputY);
+    controlPoints.push({ x:  parseInt(inputX), y: parseInt(inputY)});
+    controlPointBefore.style.display = 'none';  
+  }
+  
   var controlPoint = document.createElement('div');
   controlPoint.setAttribute('id', 'ponto-controle-'+cont);
 
@@ -240,10 +255,16 @@ function addControlPoint() {
   controlPoint.appendChild(label);
   controlPoint.appendChild(inputA);
   controlPoint.appendChild(inputB);
-  // containerPoints.appendChild(controlPoint);
-  controlPointBefore.after(controlPoint);
+  addButton.before(controlPoint); /* adiciona antes do botão de adicionar*/
 
   cont++;
+  if (cont > 6) {
+    addButton.disabled = true;
+    addButton.innerText = 'Máximo adicionado!';
+    controlPoint.remove();
+    return;
+  }
+  
 }
 
 function createDivInputPointPolilyne(idDiv) {
@@ -292,18 +313,37 @@ function createDivInputPointPolilyne(idDiv) {
 }
 
 function addPolilynePoint() {
-  if (cont > 10) {
-    let addButton = document.getElementById('add-button');
-    addButton.disabled = true;
-    addButton.innerText = 'Máximo adicionado!';
-    return;
-  }
+  let addButton = document.querySelector('.add-button');
+  
   // let containerPoints = document.getElementById('ponto-controle');
   let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
 
+  console.log(polilynePointBefore);
+  var pontoInicial = polilynePointBefore.querySelector('#ponto-inicial');
+  var inputInicialX = (pontoInicial.querySelector('input[type="number"][placeholder="x"]')).value;
+  var inputInicialY = (pontoInicial.querySelector('input[type="number"][placeholder="y"]')).value;
+
+  var pontoFinal = polilynePointBefore.querySelector('#ponto-final');
+  var inputFinalX = (pontoFinal.querySelector('input[type="number"][placeholder="x"]')).value;
+  var inputFinalY = (pontoFinal.querySelector('input[type="number"][placeholder="y"]')).value;
+
+  if(inputInicialX == '' || inputInicialY == '' || inputFinalX == '' || inputFinalY == ''){
+    console.log('algum input vazio, favor informe todos os valores');
+    return;
+
+  }else{
+    console.log('Valor de x:', inputInicialX);
+    console.log('Valor de y:', inputInicialY);
+    console.log('Valor de x:', inputFinalX);
+    console.log('Valor de y:', inputFinalY);
+    polilynePoints.push({ x: parseInt(inputInicialX), y: parseInt(inputInicialY)}, { x: parseInt(inputFinalX), y: parseInt(inputFinalY)});
+    console.log(polilynePoints);
+    polilynePointBefore.style.display = 'none';
+  }
+  
   var polilynePoint = document.createElement('div');
   polilynePoint.setAttribute('id', 'polilyne-'+cont);
-
+  
   var inicialDiv = document.createElement('div');
   inicialDiv.setAttribute('id', 'ponto-inicial');
   var labelInicial = document.createElement('label');
@@ -334,10 +374,17 @@ function addPolilynePoint() {
   finalDiv.appendChild(inputFinalA);
   finalDiv.appendChild(inputFinalB);
   polilynePoint.appendChild(finalDiv);
-  // containerPoints.appendChild(controlPoint);
-  polilynePointBefore.after(polilynePoint);
+  addButton.before(polilynePoint); /* adiciona antes do botão de adicionar*/
+
 
   cont++;
+  if (cont > 10) {
+    addButton.disabled = true;
+    addButton.innerText = 'Máximo adicionado!';
+    polilynePoint.remove();
+    return;
+  }
+  
 }
 function insertAddButton(container){
   var button = document.createElement('button');
@@ -367,17 +414,6 @@ function insertDrawingButton(container, buttonText) {
   container.appendChild(button);
   button.addEventListener("click", drawAlgoritmo);
 
-}
-
-function drawAlgoritmo() {
-  /* Desenha */
-  console.log('Desenha');
-  /*const pointAX = parseInt(document.getElementById("AX").value);
-  const pointAY = parseInt(document.getElementById("AY").value);
-  const pointBX = parseInt(document.getElementById("BX").value);
-  const pointBY = parseInt(document.getElementById("BY").value);
-
-  bresenhamLine(pointAX, pointAY, pointBX, pointBY);*/
 }
 
 

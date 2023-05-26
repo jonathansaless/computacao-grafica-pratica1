@@ -41,4 +41,3 @@ function interpolate(p0, p1, t) {
     const y = p0.y + (p1.y - p0.y) * t;
     return { x, y };
 }
-  
