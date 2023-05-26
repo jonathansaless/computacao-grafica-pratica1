@@ -11,6 +11,7 @@ import { scalePolygon } from "./algoritmos/transformations/scale.js";
 import { translatePolygon } from "./algoritmos/transformations/translation.js";
 import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
 import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
+import { controlPoints } from "./events.js";
 
 export function drawAlgoritmo() {
     /* Desenha */
@@ -26,7 +27,13 @@ export function drawAlgoritmo() {
         var pontoFinal = inputContainer.querySelector('#ponto-final');
         var pontoFinalX = parseInt(pontoFinal.querySelector('input[placeholder="x"]').value);
         var pontoFinalY = parseInt(pontoFinal.querySelector('input[placeholder="y"]').value);
-  
+
+        /* se algum valor estiver vazio, para*/
+        if(isNaN(pontoInicialX)|| isNaN(pontoInicialY) || isNaN(pontoFinalX) || isNaN(pontoFinalY)){
+            console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
+            break;
+        }
+
         bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY);
         break;
     
@@ -38,6 +45,10 @@ export function drawAlgoritmo() {
         var raio = inputContainer.querySelector('#raio');
         var raioValue = parseInt(raio.querySelector('input').value);
 
+        if(isNaN(pontoCentralX)|| isNaN(pontoCentralY) || isNaN(raioValue)){
+            console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
+            break;
+        }
         circle(pontoCentralX, pontoCentralY, raioValue);
         break;
   
@@ -50,7 +61,13 @@ export function drawAlgoritmo() {
         var pontoFinalX = parseInt(pontoFinal.querySelector('input[placeholder="x"]').value);
         var pontoFinalY = parseInt(pontoFinal.querySelector('input[placeholder="y"]').value);
   
-        drawBezierCurve(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY);
+        console.log(controlPoints);
+        if(isNaN(pontoInicialX)|| isNaN(pontoInicialY) || isNaN(pontoFinalX) || isNaN(pontoFinalY) || controlPoints.length === 0){
+            console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
+            break;
+        }
+
+        drawBezierCurve(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, controlPoints);
         break;
   
       default:

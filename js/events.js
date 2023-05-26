@@ -6,7 +6,7 @@ var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
 var inputContainer = document.querySelector('.input-container');
 var cont = 1;
-var controlPoints = [];
+export var controlPoints = [];
 var polilynePoints = [];
 
 

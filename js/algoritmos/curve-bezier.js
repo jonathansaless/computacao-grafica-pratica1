@@ -1,14 +1,20 @@
 import { drawPixel } from "./drawPixel.js";
 import * as colors from "./constants/colors.js";
 
-export function drawBezierCurve(startX, startY, controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, endX, endY) {
-    // Pontos de controle da curva de Bezier
-    const controlPoints = [
-        { x: startX, y: startY },
-        { x: controlPoint1X, y: controlPoint1Y },
-        { x: controlPoint2X, y: controlPoint2Y },
-        { x: endX, y: endY }
+/* CÓDIGO AINDA NÃO ESTÁ FUNCIONANDO COMO ESPERADO */
+export function drawBezierCurve(startX, startY, endX, endY, controlPoints) {
+
+    const points = [
+        { x: startX, y: startY }
     ];
+    
+    controlPoints.forEach(element => {
+        points.push(element);
+    });
+    
+    points.push({ x: endX, y: endY });
+    
+    console.log(points);
 
     // Quantidade de segmentos da curva
     const segments = 100;
@@ -19,9 +25,9 @@ export function drawBezierCurve(startX, startY, controlPoint1X, controlPoint1Y, 
     // Itera sobre os segmentos da curva
     for (let t = 0; t <= 1; t += tDelta) {
         // Calcula os pontos intermediários da curva de Bezier
-        const p0 = interpolate(controlPoints[0], controlPoints[1], t);
-        const p1 = interpolate(controlPoints[1], controlPoints[2], t);
-        const p2 = interpolate(controlPoints[2], controlPoints[3], t);
+        const p0 = interpolate(points[0], points[1], t);
+        const p1 = interpolate(points[1], points[2], t);
+        const p2 = interpolate(points[2], points[3], t);
 
         // Calcula os pontos intermediários do próximo nível
         const p01 = interpolate(p0, p1, t);

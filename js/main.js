@@ -40,26 +40,6 @@ export function clearScreen() {
   }
 }
 
-function drawAlgoritmo() {
-    // bresenham padrão
-    const pointA = document.getElementById("pointA").value;
-    const pointB = document.getElementById("pointB").value;
-
-    // verifica se o valor passado pelo usuário é diferente de null e se tem vírgula separando
-    // se estiver tudo OK, procede no algoritmo, senão apresenta msg de erro!
-    if (pointA && pointA.includes(",") && pointB && pointB.includes(",")) {
-        // separa com o split os valores de x e y recebidos no input e salva em duas variáveis x e y do ponto A
-        const [pointAX, pointAY] = pointA.split(",").map(Number);
-        const [pointBX, pointBY] = pointB.split(",").map(Number);
-        // chama o algoritmo de bresenham
-        //bresenhamLine(pointAX, pointAY, pointBX, pointBY);
-
-        
-    } else {
-        console.log("Valores inválidos");
-    }
-}
-
 // clearButton.addEventListener("click", clearScreen);
 // drawLineButton.addEventListener("click", drawAlgoritmo);
 
