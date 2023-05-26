@@ -1,4 +1,4 @@
-import { bresenhamLine } from "./algoritmos/line-bresenham.js";
+// import { bresenhamLine } from "./algoritmos/line-bresenham.js";
 import { clearScreen } from "./main.js";
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
@@ -42,7 +42,7 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-central', 'Ponto Central');
       inputContainer.appendChild(div);
       
-      div = createDivInput('raio', 'Raio', 'r');
+      div = createDivInput('raio', 'Raio', 'Digite aqui');
       inputContainer.appendChild(div);
       
       insertDrawingButton(inputContainer, 'Desenhar círculo');
@@ -66,7 +66,7 @@ function handleButtonClick(button) {
       div = createDivInputPointPolilyne('polilyne');
       inputContainer.appendChild(div);
 
-      insertDrawingButton(inputContainer, 'Desenhar curva');
+      insertDrawingButton(inputContainer, 'Desenhar polígono');
       insertClearButton(inputContainer);
       break;
 
@@ -74,7 +74,7 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-preenchimento', 'Ponto em poligono');
       inputContainer.appendChild(div);
       
-      insertDrawingButton(inputContainer, 'Desenhar curva');
+      insertDrawingButton(inputContainer, 'Realizar preenchimento');
       insertClearButton(inputContainer);
       break;
 
@@ -82,30 +82,57 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-varredura', 'Ponto em poligono');
       inputContainer.appendChild(div);
       
-      insertDrawingButton(inputContainer, 'Desenhar curva');
+      insertDrawingButton(inputContainer, 'Realizar varredura');
       insertClearButton(inputContainer);
       break;
 
     case 'Rotação':
-      createInput(inputContainer, 'text', 'Ângulo de rotação');
-      createInput(inputContainer, 'text', 'Ponto Pivô (x, y)');
+      // angulo de rotação (ex.: 90º) e pivô (x, y)
+      div = createDivInput('angulo-rotacao', 'Ângulo de rotação', 'Xº');
+      inputContainer.appendChild(div);
+
+      div = createDivInputPoint('ponto-pivo', 'Ponto pivô');
+      inputContainer.appendChild(div);
+      
+      insertDrawingButton(inputContainer, 'Realizar rotação');
+      insertClearButton(inputContainer);
       break;
 
     case 'Translação':
-      createInput(inputContainer, 'text', 'Ponto de deslocação (x, y)');
+      // deslocamento (x, y)
+      div = createDivInputPoint('ponto-deslocamento', 'Ponto de deslocamento');
+      inputContainer.appendChild(div);
+      
+      insertDrawingButton(inputContainer, 'Realizar deslocamento');
+      insertClearButton(inputContainer);
       break;
 
     case 'Escala':
-      createInput(inputContainer, 'text', 'Fator de escala (x, y)');
-      createInput(inputContainer, 'text', 'Ponto fixo de escala (x, y)');
+      // fator de escala de x, y e ponto fixo (x, y)
+      div = createDivInputPoint('fator-escala', 'Fator de escala');
+      inputContainer.appendChild(div);
+
+      div = createDivInputPoint('ponto-fixo', 'Ponto fixo');
+      inputContainer.appendChild(div);
+      
+      insertDrawingButton(inputContainer, 'Realizar transformação de escala');
+      insertClearButton(inputContainer);
       break;
 
     case 'Projeção Ortogonal':
-      createInput(inputContainer, 'text', 'N Pontos de um elemento 3d (x, y, z)');
+      div = createDivInputPointPolilyne('polilyne');
+      inputContainer.appendChild(div);
+
+      insertDrawingButton(inputContainer, 'Polígono com projeção ortogonal');
+      insertClearButton(inputContainer);
       break;
 
     case 'Projeção Perspectiva':
-      createInput(inputContainer, 'text', 'N Pontos de um elemento 3d (x, y, z)');
+      div = createDivInputPointPolilyne('polilyne');
+      inputContainer.appendChild(div);
+
+      insertDrawingButton(inputContainer, 'Polígono com projeção perspectiva');
+      insertClearButton(inputContainer);
       break;
 
     default:
@@ -315,6 +342,7 @@ function addPolilynePoint() {
 function insertAddButton(container){
   var button = document.createElement('button');
   button.setAttribute('id', 'add-button');
+  button.setAttribute('class', 'button');
   button.innerText = 'Adicionar';
   container.appendChild(button);
   if(container.id == 'ponto-controle'){
@@ -326,7 +354,7 @@ function insertAddButton(container){
 
 function insertClearButton(container){
   var button = document.createElement('button');
-  button.setAttribute('id', 'clear-button');
+  button.setAttribute('class', 'clear-button');
   button.innerText = 'Limpar Tela';
   container.appendChild(button);
   button.addEventListener("click", clearScreen);
@@ -336,7 +364,7 @@ function insertDrawingButton(container, buttonText) {
   var button = document.createElement('button');
   button.textContent = buttonText;
   button.setAttribute('id', 'draw-line');
-  button.setAttribute('class', 'fade-in');
+  button.setAttribute('class', 'fade-in button');
   container.appendChild(button);
   button.addEventListener("click", drawAlgoritmo);
 

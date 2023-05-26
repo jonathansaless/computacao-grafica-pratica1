@@ -61,16 +61,24 @@ h2 {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#clear-button {
-  height: 40px;
-  color: black;
-  background-color: red;
-}
 
 
 input { 
-  height: 15px;
-  width: 50px;
+  height: 20px;
+  width: 5vw;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 1rem;
+
+  box-shadow: 0.2vh 0.2vh black;
+  transition: 100ms ease-in;
+}
+
+input:hover { 
+  background-color: blue;
+  box-shadow: 0rem 0rem black;
+  transform: translateX(0.5vh) translateY(0.5vh);
+  transition: 100ms ease-in;
 }
 
 /** classe para dá efeito de fade-in em qualquer objeto*/
@@ -88,12 +96,46 @@ input {
   }
 }
 
-
-
 .end {
   justify-self: flex-end;
 }
 
 #draw-line {
   height: 40px;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: gray;
+
+  box-shadow: 0.2vh 0.2vh black;
+  transition: 100ms ease-in;
+}
+
+.button:hover {
+  background-color: blue;
+  box-shadow: 0rem 0rem black;
+  transform: translateX(0.5vh) translateY(0.5vh);
+  transition: 100ms ease-in;
+}
+
+.clear-button {
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: red;
+
+  box-shadow: 0.2vh 0.2vh black;
+  transition: 100ms ease-in;
+}
+
+.clear-button:hover {
+  background-color: blue;
+  box-shadow: 0rem 0rem black;
+  transform: translateX(0.5vh) translateY(0.5vh);
+  transition: 100ms ease-in;
 }
