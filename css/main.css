@@ -88,11 +88,7 @@ input {
   }
 }
 
-#add-more {
-  display: block;
-  /*flex-direction: column;*/
-  margin: 10px;
-}
+
 
 .end {
   justify-self: flex-end;

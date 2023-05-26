@@ -37,6 +37,7 @@ function handleButtonClick(button) {
       insertDrawingButton(inputContainer, 'Desenhar linha');
       insertClearButton(inputContainer);
       break;
+
     case 'Círculo':
       div = createDivInputPoint('ponto-central', 'Ponto Central');
       inputContainer.appendChild(div);
@@ -47,6 +48,7 @@ function handleButtonClick(button) {
       insertDrawingButton(inputContainer, 'Desenhar círculo');
       insertClearButton(inputContainer);
       break;
+
     case 'Curva':
       div = createDivInputPoint('ponto-inicial', 'Ponto Inicial');
       inputContainer.appendChild(div);
@@ -59,6 +61,7 @@ function handleButtonClick(button) {
       insertDrawingButton(inputContainer, 'Desenhar curva');
       insertClearButton(inputContainer);
       break;
+
     case 'Polígono':
       div = createDivInputPointPolilyne('polilyne');
       inputContainer.appendChild(div);
@@ -66,29 +69,45 @@ function handleButtonClick(button) {
       insertDrawingButton(inputContainer, 'Desenhar curva');
       insertClearButton(inputContainer);
       break;
+
     case 'Preenchimento Recursivo':
-      createInput(inputContainer, 'text', 'Ponto qualquer (x, y)');
+      div = createDivInputPoint('ponto-preenchimento', 'Ponto em poligono');
+      inputContainer.appendChild(div);
+      
+      insertDrawingButton(inputContainer, 'Desenhar curva');
+      insertClearButton(inputContainer);
       break;
+
     case 'Varredura':
-      console.log('Clique em algum poligono');
+      div = createDivInputPoint('ponto-varredura', 'Ponto em poligono');
+      inputContainer.appendChild(div);
+      
+      insertDrawingButton(inputContainer, 'Desenhar curva');
+      insertClearButton(inputContainer);
       break;
+
     case 'Rotação':
       createInput(inputContainer, 'text', 'Ângulo de rotação');
       createInput(inputContainer, 'text', 'Ponto Pivô (x, y)');
       break;
+
     case 'Translação':
       createInput(inputContainer, 'text', 'Ponto de deslocação (x, y)');
       break;
+
     case 'Escala':
       createInput(inputContainer, 'text', 'Fator de escala (x, y)');
       createInput(inputContainer, 'text', 'Ponto fixo de escala (x, y)');
       break;
+
     case 'Projeção Ortogonal':
       createInput(inputContainer, 'text', 'N Pontos de um elemento 3d (x, y, z)');
       break;
+
     case 'Projeção Perspectiva':
       createInput(inputContainer, 'text', 'N Pontos de um elemento 3d (x, y, z)');
       break;
+
     default:
       console.log('Botão inválido');
       break;
@@ -208,34 +227,36 @@ function createDivInputPointPolilyne(idDiv) {
   var polilynePoint = document.createElement('div');
   polilynePoint.setAttribute('id', 'polilyne-'+cont);
 
+  var inicialDiv = document.createElement('div');
+  inicialDiv.setAttribute('id', 'ponto-inicial');
   var labelInicial = document.createElement('label');
   labelInicial.textContent = 'Ponto Inicial (' +cont+ '): ';
-
   var inputInicialA = document.createElement('input');
   inputInicialA.type = 'number';
   inputInicialA.placeholder = 'x';
-
   var inputInicialB = document.createElement('input');
   inputInicialB.type = 'number';
   inputInicialB.placeholder = 'y';
 
+  var finalDiv = document.createElement('div');
+  finalDiv.setAttribute('id', 'ponto-final');
   var labelFinal = document.createElement('label');
   labelFinal.textContent = 'Ponto Final (' +cont+ '): ';
-
   var inputFinalA = document.createElement('input');
   inputFinalA.type = 'number';
   inputFinalA.placeholder = 'x';
-
   var inputFinalB = document.createElement('input');
   inputFinalB.type = 'number';
   inputFinalB.placeholder = 'y';
 
-  polilynePoint.appendChild(labelInicial);
-  polilynePoint.appendChild(inputInicialA);
-  polilynePoint.appendChild(inputInicialB);
-  polilynePoint.appendChild(labelFinal);
-  polilynePoint.appendChild(inputFinalA);
-  polilynePoint.appendChild(inputFinalB);
+  inicialDiv.appendChild(labelInicial);
+  inicialDiv.appendChild(inputInicialA);
+  inicialDiv.appendChild(inputInicialB);
+  polilynePoint.appendChild(inicialDiv);
+  finalDiv.appendChild(labelFinal);
+  finalDiv.appendChild(inputFinalA);
+  finalDiv.appendChild(inputFinalB);
+  polilynePoint.appendChild(finalDiv);
   pointDiv.appendChild(polilynePoint);
   insertAddButton(pointDiv);
 
@@ -256,34 +277,36 @@ function addPolilynePoint() {
   var polilynePoint = document.createElement('div');
   polilynePoint.setAttribute('id', 'polilyne-'+cont);
 
+  var inicialDiv = document.createElement('div');
+  inicialDiv.setAttribute('id', 'ponto-inicial');
   var labelInicial = document.createElement('label');
   labelInicial.textContent = 'Ponto Inicial (' +cont+ '): ';
-
   var inputInicialA = document.createElement('input');
   inputInicialA.type = 'number';
   inputInicialA.placeholder = 'x';
-
   var inputInicialB = document.createElement('input');
   inputInicialB.type = 'number';
   inputInicialB.placeholder = 'y';
 
+  var finalDiv = document.createElement('div');
+  finalDiv.setAttribute('id', 'ponto-final');
   var labelFinal = document.createElement('label');
   labelFinal.textContent = 'Ponto Final (' +cont+ '): ';
-
   var inputFinalA = document.createElement('input');
   inputFinalA.type = 'number';
   inputFinalA.placeholder = 'x';
-
   var inputFinalB = document.createElement('input');
   inputFinalB.type = 'number';
   inputFinalB.placeholder = 'y';
 
-  polilynePoint.appendChild(labelInicial);
-  polilynePoint.appendChild(inputInicialA);
-  polilynePoint.appendChild(inputInicialB);
-  polilynePoint.appendChild(labelFinal);
-  polilynePoint.appendChild(inputFinalA);
-  polilynePoint.appendChild(inputFinalB);
+  inicialDiv.appendChild(labelInicial);
+  inicialDiv.appendChild(inputInicialA);
+  inicialDiv.appendChild(inputInicialB);
+  polilynePoint.appendChild(inicialDiv);
+  finalDiv.appendChild(labelFinal);
+  finalDiv.appendChild(inputFinalA);
+  finalDiv.appendChild(inputFinalB);
+  polilynePoint.appendChild(finalDiv);
   // containerPoints.appendChild(controlPoint);
   polilynePointBefore.after(polilynePoint);
 
@@ -320,12 +343,14 @@ function insertDrawingButton(container, buttonText) {
 }
 
 function drawAlgoritmo() {
-  const pointAX = parseInt(document.getElementById("AX").value);
+  /* Desenha */
+  console.log('Desenha');
+  /*const pointAX = parseInt(document.getElementById("AX").value);
   const pointAY = parseInt(document.getElementById("AY").value);
   const pointBX = parseInt(document.getElementById("BX").value);
   const pointBY = parseInt(document.getElementById("BY").value);
 
-   bresenhamLine(pointAX, pointAY, pointBX, pointBY);
+  bresenhamLine(pointAX, pointAY, pointBX, pointBY);*/
 }
 
 
