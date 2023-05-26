@@ -276,7 +276,7 @@ function createDivInputPointPolilyne(idDiv) {
   var polilynePoint = document.createElement('div');
   polilynePoint.setAttribute('id', 'polilyne-'+cont);
   var labelA = document.createElement('label');
-  labelA.textContent = 'Ponto ' +cont+ ': ';
+  labelA.textContent = 'Ponto ' +cont+ ' (informe no mínimo 3 pontos): ';
   var inputAX = document.createElement('input');
   inputAX.type = 'number';
   inputAX.placeholder = 'x';
@@ -284,30 +284,12 @@ function createDivInputPointPolilyne(idDiv) {
   inputAY.type = 'number';
   inputAY.placeholder = 'y';
   
-  cont++;
-  var polilynePoint2 = document.createElement('div');
-  polilynePoint2.setAttribute('id', 'polilyne-'+cont);
-
-  var labelB = document.createElement('label');
-  labelB.textContent = 'Ponto ' +cont+ ': ';
-  var inputBX = document.createElement('input');
-  inputBX.type = 'number';
-  inputBX.placeholder = 'x';
-  var inputBY = document.createElement('input');
-  inputBY.type = 'number';
-  inputBY.placeholder = 'y';
-
   polilynePoint.appendChild(labelA);
   polilynePoint.appendChild(inputAX);
   polilynePoint.appendChild(inputAY);
   
-  polilynePoint2.appendChild(labelB);
-  polilynePoint2.appendChild(inputBX);
-  polilynePoint2.appendChild(inputBY);
-  
   pointDiv.appendChild(polilynePoint);
-  pointDiv.appendChild(polilynePoint2);
-
+  
   insertAddButton(pointDiv);
 
   cont++;
@@ -318,82 +300,52 @@ function addPolilynePoint() {
   let addButton = document.querySelector('.add-button');
 
   // se for a primeira vez que o usuário vai clicar no botão adicionar, vai ser ocultado 2 inputs
-  console.log(cont);
-  if(cont == 3){
-    let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
-    let polilynePointBefore2 = document.getElementById('polilyne-'+(cont-2));
-  } // senão, vai ocultar somente o input anterior
-  else{
-    let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
-  }
+  let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
+  var inputX = (polilynePointBefore.querySelector('input[type="number"][placeholder="x"]')).value;
+  var inputY = (polilynePointBefore.querySelector('input[type="number"][placeholder="y"]')).value;
 
-  console.log(polilynePointBefore);
-  var pontoInicial = polilynePointBefore.querySelector('#ponto-inicial');
-  var inputInicialX = (pontoInicial.querySelector('input[type="number"][placeholder="x"]')).value;
-  var inputInicialY = (pontoInicial.querySelector('input[type="number"][placeholder="y"]')).value;
-
-  var pontoFinal = polilynePointBefore.querySelector('#ponto-final');
-  var inputFinalX = (pontoFinal.querySelector('input[type="number"][placeholder="x"]')).value;
-  var inputFinalY = (pontoFinal.querySelector('input[type="number"][placeholder="y"]')).value;
-
-  if(inputInicialX == '' || inputInicialY == '' || inputFinalX == '' || inputFinalY == ''){
-    console.log('algum input vazio, favor informe todos os valores');
+  if(inputX == '' || inputY == ''){
+    console.log('input vazio, favor informe um valor');
     return;
+
   }else{
-    console.log('Valor de x:', inputInicialX);
-    console.log('Valor de y:', inputInicialY);
-    console.log('Valor de x:', inputFinalX);
-    console.log('Valor de y:', inputFinalY);
-    polilynePoints.push({ x: parseInt(inputInicialX), y: parseInt(inputInicialY)}, { x: parseInt(inputFinalX), y: parseInt(inputFinalY)});
-    console.log(polilynePoints);
-    polilynePointBefore.style.display = 'none';
+    console.log('Valor de x:', inputX);
+    console.log('Valor de y:', inputY);
+    controlPoints.push({ x:  parseInt(inputX), y: parseInt(inputY)});
+    polilynePointBefore.style.display = 'none';  
   }
   
-  var polilynePoint = document.createElement('div');
-  polilynePoint.setAttribute('id', 'polilyne-'+cont);
+  var controlPoint = document.createElement('div');
+  controlPoint.setAttribute('id', 'ponto-controle-'+cont);
+
+  var label = document.createElement('label');
+  label.textContent = 'Ponto de controle (' +cont+ '): ';
   
-  var inicialDiv = document.createElement('div');
-  inicialDiv.setAttribute('id', 'ponto-inicial');
-  var labelInicial = document.createElement('label');
-  labelInicial.textContent = 'Ponto Inicial (' +cont+ '): ';
-  var inputInicialA = document.createElement('input');
-  inputInicialA.type = 'number';
-  inputInicialA.placeholder = 'x';
-  var inputInicialB = document.createElement('input');
-  inputInicialB.type = 'number';
-  inputInicialB.placeholder = 'y';
+  var inputA = document.createElement('input');
+  inputA.type = 'number';
+  inputA.placeholder = 'x';
+  inputA.setAttribute('class', 'fade-in');
 
-  var finalDiv = document.createElement('div');
-  finalDiv.setAttribute('id', 'ponto-final');
-  var labelFinal = document.createElement('label');
-  labelFinal.textContent = 'Ponto Final (' +cont+ '): ';
-  var inputFinalA = document.createElement('input');
-  inputFinalA.type = 'number';
-  inputFinalA.placeholder = 'x';
-  var inputFinalB = document.createElement('input');
-  inputFinalB.type = 'number';
-  inputFinalB.placeholder = 'y';
+  var inputB = document.createElement('input');
+  inputB.type = 'number';
+  inputB.placeholder = 'y';
+  inputB.setAttribute('class', 'fade-in end');
 
-  inicialDiv.appendChild(labelInicial);
-  inicialDiv.appendChild(inputInicialA);
-  inicialDiv.appendChild(inputInicialB);
-  polilynePoint.appendChild(inicialDiv);
-  finalDiv.appendChild(labelFinal);
-  finalDiv.appendChild(inputFinalA);
-  finalDiv.appendChild(inputFinalB);
-  polilynePoint.appendChild(finalDiv);
-  addButton.before(polilynePoint); /* adiciona antes do botão de adicionar*/
-
+  controlPoint.appendChild(label);
+  controlPoint.appendChild(inputA);
+  controlPoint.appendChild(inputB);
+  addButton.before(controlPoint); /* adiciona antes do botão de adicionar*/
 
   cont++;
-  if (cont > 10) {
+  if (cont > 6) {
     addButton.disabled = true;
     addButton.innerText = 'Máximo adicionado!';
-    polilynePoint.remove();
+    controlPoint.remove();
     return;
   }
   
 }
+
 function insertAddButton(container){
   var button = document.createElement('button');
   button.setAttribute('class', 'add-button');
