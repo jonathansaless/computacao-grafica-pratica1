@@ -27,14 +27,13 @@ function changeBackgroundColor(event) {
 }
 
 function handleButtonClick(button) {
-  var buttonText = button.innerText;
 
   // Remova os inputs anteriores
   inputContainer.innerHTML = '';
 
   // Crie os novos inputs com base no botão selecionado
   let div;
-  switch (buttonText) {
+  switch (button.innerText) {
     case 'Linha':
       div = createDivInputPoint('ponto-inicial', 'Ponto Inicial');
       inputContainer.appendChild(div);
@@ -276,38 +275,39 @@ function createDivInputPointPolilyne(idDiv) {
 
   var polilynePoint = document.createElement('div');
   polilynePoint.setAttribute('id', 'polilyne-'+cont);
+  var labelA = document.createElement('label');
+  labelA.textContent = 'Ponto ' +cont+ ': ';
+  var inputAX = document.createElement('input');
+  inputAX.type = 'number';
+  inputAX.placeholder = 'x';
+  var inputAY = document.createElement('input');
+  inputAY.type = 'number';
+  inputAY.placeholder = 'y';
+  
+  cont++;
+  var polilynePoint2 = document.createElement('div');
+  polilynePoint2.setAttribute('id', 'polilyne-'+cont);
 
-  var inicialDiv = document.createElement('div');
-  inicialDiv.setAttribute('id', 'ponto-inicial');
-  var labelInicial = document.createElement('label');
-  labelInicial.textContent = 'Ponto Inicial (' +cont+ '): ';
-  var inputInicialA = document.createElement('input');
-  inputInicialA.type = 'number';
-  inputInicialA.placeholder = 'x';
-  var inputInicialB = document.createElement('input');
-  inputInicialB.type = 'number';
-  inputInicialB.placeholder = 'y';
+  var labelB = document.createElement('label');
+  labelB.textContent = 'Ponto ' +cont+ ': ';
+  var inputBX = document.createElement('input');
+  inputBX.type = 'number';
+  inputBX.placeholder = 'x';
+  var inputBY = document.createElement('input');
+  inputBY.type = 'number';
+  inputBY.placeholder = 'y';
 
-  var finalDiv = document.createElement('div');
-  finalDiv.setAttribute('id', 'ponto-final');
-  var labelFinal = document.createElement('label');
-  labelFinal.textContent = 'Ponto Final (' +cont+ '): ';
-  var inputFinalA = document.createElement('input');
-  inputFinalA.type = 'number';
-  inputFinalA.placeholder = 'x';
-  var inputFinalB = document.createElement('input');
-  inputFinalB.type = 'number';
-  inputFinalB.placeholder = 'y';
-
-  inicialDiv.appendChild(labelInicial);
-  inicialDiv.appendChild(inputInicialA);
-  inicialDiv.appendChild(inputInicialB);
-  polilynePoint.appendChild(inicialDiv);
-  finalDiv.appendChild(labelFinal);
-  finalDiv.appendChild(inputFinalA);
-  finalDiv.appendChild(inputFinalB);
-  polilynePoint.appendChild(finalDiv);
+  polilynePoint.appendChild(labelA);
+  polilynePoint.appendChild(inputAX);
+  polilynePoint.appendChild(inputAY);
+  
+  polilynePoint2.appendChild(labelB);
+  polilynePoint2.appendChild(inputBX);
+  polilynePoint2.appendChild(inputBY);
+  
   pointDiv.appendChild(polilynePoint);
+  pointDiv.appendChild(polilynePoint2);
+
   insertAddButton(pointDiv);
 
   cont++;
@@ -316,9 +316,16 @@ function createDivInputPointPolilyne(idDiv) {
 
 function addPolilynePoint() {
   let addButton = document.querySelector('.add-button');
-  
-  // let containerPoints = document.getElementById('ponto-controle');
-  let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
+
+  // se for a primeira vez que o usuário vai clicar no botão adicionar, vai ser ocultado 2 inputs
+  console.log(cont);
+  if(cont == 3){
+    let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
+    let polilynePointBefore2 = document.getElementById('polilyne-'+(cont-2));
+  } // senão, vai ocultar somente o input anterior
+  else{
+    let polilynePointBefore = document.getElementById('polilyne-'+(cont-1));
+  }
 
   console.log(polilynePointBefore);
   var pontoInicial = polilynePointBefore.querySelector('#ponto-inicial');
@@ -332,7 +339,6 @@ function addPolilynePoint() {
   if(inputInicialX == '' || inputInicialY == '' || inputFinalX == '' || inputFinalY == ''){
     console.log('algum input vazio, favor informe todos os valores');
     return;
-
   }else{
     console.log('Valor de x:', inputInicialX);
     console.log('Valor de y:', inputInicialY);
