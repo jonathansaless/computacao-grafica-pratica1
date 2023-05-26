@@ -30,6 +30,8 @@ h1 {
 
 .menu { 
   display: flex;
+  width: 100vw;
+  justify-content: center;
 }
 
 .menu-button {
