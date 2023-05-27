@@ -3,7 +3,7 @@ import { circle } from "./algoritmos/circle-midpoint.js";
 import { drawBezierCurve } from "./algoritmos/curve-bezier.js";
 import { drawPolyline } from "./algoritmos/polyline.js";
 import { floodFill } from "./algoritmos/floodFill.js";
-import { scanlineFillWithCriticalPoints } from "./algoritmos/scanline-withcriticalpoints.js";
+import { scanlineFillWithCriticalPoints }  from "./algoritmos/scanline-withcriticalpoints.js";
 import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
 import { clipPolygon } from "./algoritmos/clipPolyline.js";
 import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
@@ -12,6 +12,7 @@ import { translatePolygon } from "./algoritmos/transformations/translation.js";
 import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
 import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
+import { historyPoints } from "./algoritmos/constants/constants.js";
 
 export var contPoligon = 0;
 
@@ -76,9 +77,9 @@ export function drawAlgoritmo() {
                 alert('Favor informar no mínimo 3 pontos!');
                 break;
             }
-            contPoligon += 1;
             console.log(polilynePoints);
             drawPolyline(polilynePoints);
+            contPoligon += 1;
             break;
         
         case 'Preenchimento Recursivo':
@@ -97,9 +98,21 @@ export function drawAlgoritmo() {
         case 'Varredura':
             var pontoVarredura = inputContainer.querySelector('#ponto-varredura');
             var buttonSelected = pontoVarredura.querySelector('.draw-button.selected');
-            console.log(buttonSelected.id);
+            
+            var buttonID = buttonSelected.id; // formato: varredura-poligono-N
+            var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
+            console.log(number);
 
-//            scanlineFillWithCriticalPoints(polilynePoints);
+            var verticesScanline = [];
+
+            for (var i = 0; i < historyPoints.length; i++) {
+                if (historyPoints[i].polID === number) {
+                    verticesScanline.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+                }
+              }
+            // for para criar pegar os vertices apenas do poligono com id do botão
+            
+            scanlineFillWithCriticalPoints(verticesScanline);
             
             break;        
         
