@@ -14,7 +14,7 @@ export function floodFill(x, y){
     
     // verifica se a celular recebida não é nula, pois se o cellId estiver fora dos IDs, não retornará nenhuma div
     if(cellElement === null){
-        return
+        return;
     }
 
     // se o quadrado atual não estiver pintado nem de vermelho nem de verde, entra no IF

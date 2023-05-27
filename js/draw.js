@@ -13,6 +13,8 @@ import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
 import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
 
+export var contPoligon = 0;
+
 export function drawAlgoritmo() {
     /* Desenha */
     const inputContainer = document.querySelector('.input-container');
@@ -70,18 +72,35 @@ export function drawAlgoritmo() {
             break;
         
         case 'Polígono':
-            if(polilynePoints.length === 0){
-                console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
+            if(polilynePoints.length < 3){
+                alert('Favor informar no mínimo 3 pontos!');
                 break;
             }
-
+            contPoligon += 1;
+            console.log(polilynePoints);
             drawPolyline(polilynePoints);
             break;
         
         case 'Preenchimento Recursivo':
+            var pontoPreenchimento = inputContainer.querySelector('#ponto-preenchimento');
+            var pontoX = parseInt(pontoPreenchimento.querySelector('input[placeholder="x"]').value);
+            var pontoY = parseInt(pontoPreenchimento.querySelector('input[placeholder="y"]').value);
+    
+            if(isNaN(pontoX)|| isNaN(pontoY)){
+                alert('Favor, preencha todos os inputs!');
+                break;
+            }
+
+            floodFill(pontoX, pontoY);
             break;
         
         case 'Varredura':
+            var pontoVarredura = inputContainer.querySelector('#ponto-varredura');
+            var buttonSelected = pontoVarredura.querySelector('.draw-button.selected');
+            console.log(buttonSelected.id);
+
+//            scanlineFillWithCriticalPoints(polilynePoints);
+            
             break;        
         
         case 'Rotação':
