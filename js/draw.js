@@ -117,6 +117,34 @@ export function drawAlgoritmo() {
             break;        
         
         case 'Rotação':
+            
+            var anguloRotacao = inputContainer.querySelector('#angulo-rotacao');
+            var anguloValue = parseInt(anguloRotacao.querySelector('input').value);
+
+            var pontoPivo = inputContainer.querySelector('#ponto-pivo');
+            var pontoX = parseInt(pontoPivo.querySelector('input[placeholder="x"]').value);
+            var pontoY = parseInt(pontoPivo.querySelector('input[placeholder="y"]').value);
+            var pivo = { x: pontoX, y: pontoY};
+
+            var pontoVarredura = inputContainer.querySelector('#ponto-varredura');
+            
+            var buttonSelected = pontoVarredura.querySelector('.draw-button.selected');
+            
+            var buttonID = buttonSelected.id; // formato: varredura-poligono-N
+            var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
+            console.log(number);
+
+            var polygon = [];
+
+            for (var i = 0; i < historyPoints.length; i++) {
+                if (historyPoints[i].polID === number) {
+                    verticesScanline.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+                }
+              }
+            // for para criar pegar os vertices apenas do poligono com id do botão
+            // necessita apenas do poligono
+
+            rotatePolygon(polygon, anguloValue, pivo);
             break;  
         
         case 'Translação':    

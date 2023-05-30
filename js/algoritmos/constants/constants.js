@@ -1,9 +1,11 @@
 // historico de pontos pintados, importante para executar o algoritmo de scanline
 export var historyPoints = [];
+export var historyVertices= [];
 
 // função para esvaziar historyPoints
-export function emptyPointsHistory(){
+export function emptyHistory(){
   historyPoints = [];
+  historyVertices = [];
 }
 
 // seria interessante criar uma variável que armazena um poligono assim que detectar que existe um poligono

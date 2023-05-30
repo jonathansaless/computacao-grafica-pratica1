@@ -2,8 +2,8 @@ import { drawPixel } from "./drawPixel.js";
 import * as colors from "./constants/colors.js";
 
 export function circle(centerX, centerY, radius) {
-    // pinta o centro de preto, apenas para nos basear
-    drawPixel(centerX, centerY, colors.BLACK);
+    // pinta o centro de preto, apenas para nos basear em testes
+    // drawPixel(centerX, centerY, colors.BLACK);
     let x = radius;
     let y = 0;
     let radiusError = 1 - x;

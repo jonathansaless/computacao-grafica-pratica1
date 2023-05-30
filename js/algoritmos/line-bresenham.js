@@ -1,6 +1,6 @@
 import { drawPixel } from "./drawPixel.js";
 import * as colors from "./constants/colors.js";
-import * as history from "./constants/constants.js";
+import { historyVertices } from "./constants/constants.js";
 import { contPoligon } from "../draw.js";
 // Algoritmo de Bresenham
 export function bresenhamLine(x0, y0, x1, y1) {
@@ -17,7 +17,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
 
   // Loop principal do algoritmo de Bresenham
   while (x0 !== x1 || y0 !== y1) {
-    history.historyPoints.push({x: x0, y: y0, polID: contPoligon});
+    historyVertices.push({x: x0, y: y0, polID: contPoligon});
     // Desenha o pixel atual
     drawPixel(x0, y0, colors.RED);
     
@@ -37,7 +37,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
     }
   }
   // Desenha o último pixel da linha
-  history.historyPoints.push({x: x1, y: y1, polID: contPoligon})
+  historyVertices.push({x: x1, y: y1, polID: contPoligon})
   drawPixel(x1, y1, colors.RED);
 }
 
