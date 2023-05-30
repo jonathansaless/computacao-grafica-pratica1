@@ -14,8 +14,8 @@ import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/
 import { controlPoints, polilynePoints } from "./events.js";
 import { historyPoints, historyVertices } from "./algoritmos/constants/constants.js";
 import * as colors from "./algoritmos/constants/colors.js";
+import { addContPolygon } from "./algoritmos/constants/constants.js";
 
-export var contPoligon = 0;
 
 export function drawAlgoritmo() {
     /* Desenha */
@@ -80,7 +80,9 @@ export function drawAlgoritmo() {
             }
             console.log(polilynePoints);
             drawPolyline(polilynePoints, colors.RED);
-            contPoligon += 1;
+            // soma +1 no contador de poligonos
+            addContPolygon();
+
             break;
         
         case 'Preenchimento Recursivo':

@@ -1,6 +1,8 @@
 import { drawAlgoritmo} from "./draw.js"; 
-import { clearScreen } from "./main.js";
-import { contPoligon } from "./draw.js";
+// import { clearScreen } from "./main.js";
+import { contPoligon } from "./algoritmos/constants/constants.js";
+import { emptyHistory } from "./algoritmos/constants/constants.js";
+import { restartContPolygon } from "./algoritmos/constants/constants.js";
 
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
@@ -449,6 +451,24 @@ function insertDrawingButton(container, buttonText) {
 
 }
 
+function clearScreen() {
+  const screen = document.querySelector(".screen");
+  const subElements = screen.querySelectorAll('*');
+  // zera o historico de pontos e vertices
+  emptyHistory();
+  // reinicia o contador de poligonos para 0
+  restartContPolygon();
+  // remove os botões com os poligonos no algoritmo de varredura
+  var scanlineButtons = document.querySelector('.ponto-varredura');
+  if(scanlineButtons){
+    scanlineButtons.remove();
+  }
+  // percorre os quadrados e pinta todos de branco, limpando a tela
+  for (let i = 0; i < subElements.length; i++) {
+    const subElement = subElements[i];
+    subElement.style.backgroundColor = '#ffffff'; // Define a cor de fundo para vermelho (altere para a cor desejada)
+  }
+}
 
 buttons.forEach(function(button) {
     button.addEventListener('click', changeBackgroundColor);

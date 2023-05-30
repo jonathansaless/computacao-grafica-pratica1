@@ -8,6 +8,15 @@ export function emptyHistory(){
   historyVertices = [];
 }
 
+export var contPoligon = 0;
+
+export function addContPolygon(){
+  contPoligon++;
+}
+export function restartContPolygon() {
+    contPoligon = 0; 
+}
+
 // seria interessante criar uma variável que armazena um poligono assim que detectar que existe um poligono
 // ou a ada novo poligono criar um Objeto chamado poligono
 // variavel x

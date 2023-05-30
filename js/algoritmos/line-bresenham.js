@@ -1,6 +1,6 @@
 import { drawPixel } from "./drawPixel.js";
 import { historyVertices } from "./constants/constants.js";
-import { contPoligon } from "../draw.js";
+import { contPoligon } from "./constants/constants.js";
 // Algoritmo de Bresenham
 export function bresenhamLine(x0, y0, x1, y1, color) {
   // Calcula as diferenças absolutas nas coordenadas x e y

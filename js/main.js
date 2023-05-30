@@ -1,9 +1,6 @@
-import { emptyHistory } from "./algoritmos/constants/constants.js";
-
+// js contendo os procedimentos necessários para criação do painel de desenhos
 const canvas = document.getElementById("canvas");
 const screen = document.querySelector(".screen");
-// const drawLineButton = document.getElementById("drawLine");
-// const clearButton = document.getElementById("clearButton");
 const drawingContext = canvas.getContext("2d");
 
 const CELL_SIDE_COUNT = 25;
@@ -28,22 +25,6 @@ drawingContext.fillRect(0, 0, canvas.width, canvas.height);
       divElement.setAttribute("id", cellId);
       screen.appendChild(divElement);
     }
-  }
-}
-
-export function clearScreen() {
-  const subElements = screen.querySelectorAll('*');
-  // zera o historico de pontos e vertices
-  emptyHistory();
-  // remove os botões com os poligonos no algoritmo de varredura
-  var scanlineButtons = document.querySelector('.ponto-varredura');
-  if(scanlineButtons){
-    scanlineButtons.remove();
-  }
-  // percorre os quadrados e pinta todos de branco, limpando a tela
-  for (let i = 0; i < subElements.length; i++) {
-    const subElement = subElements[i];
-    subElement.style.backgroundColor = '#ffffff'; // Define a cor de fundo para vermelho (altere para a cor desejada)
   }
 }
 
