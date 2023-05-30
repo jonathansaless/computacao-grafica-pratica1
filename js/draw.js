@@ -176,8 +176,8 @@ export function drawAlgoritmo() {
         case 'Escala':
 
             var fatorEscala = inputContainer.querySelector('#fator-escala');
-            var escalaX = parseInt(fatorEscala.querySelector('input[placeholder="x"]').value);
-            var escalaY = parseInt(fatorEscala.querySelector('input[placeholder="y"]').value);
+            var escalaX = parseFloat(fatorEscala.querySelector('input[placeholder="x"]').value);
+            var escalaY = parseFloat(fatorEscala.querySelector('input[placeholder="y"]').value);
             
             var pontoFixo = inputContainer.querySelector('#ponto-fixo');
             var pontoX = parseInt(pontoFixo.querySelector('input[placeholder="x"]').value);
