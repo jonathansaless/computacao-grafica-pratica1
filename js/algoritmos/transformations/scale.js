@@ -5,7 +5,7 @@ import * as colors from "../constants/colors.js";
 
 export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     var scaledPolygon = [];
-
+    console.log(scaleX);
     for (var i = 0; i < polygon.length; i++) {
         var vertex = polygon[i];
         var translatedVertex = {
