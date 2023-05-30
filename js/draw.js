@@ -12,7 +12,8 @@ import { translatePolygon } from "./algoritmos/transformations/translation.js";
 import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
 import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
-import { historyPoints } from "./algoritmos/constants/constants.js";
+import { historyPoints, historyVertices } from "./algoritmos/constants/constants.js";
+import * as colors from "./algoritmos/constants/colors.js";
 
 export var contPoligon = 0;
 
@@ -37,7 +38,7 @@ export function drawAlgoritmo() {
                 break;
             }
 
-            bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY);
+            bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.RED);
             break;
         
         case 'Círculo':
@@ -78,7 +79,7 @@ export function drawAlgoritmo() {
                 break;
             }
             console.log(polilynePoints);
-            drawPolyline(polilynePoints);
+            drawPolyline(polilynePoints, colors.RED);
             contPoligon += 1;
             break;
         
@@ -105,9 +106,9 @@ export function drawAlgoritmo() {
 
             var verticesScanline = [];
 
-            for (var i = 0; i < historyPoints.length; i++) {
-                if (historyPoints[i].polID === number) {
-                    verticesScanline.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+            for (var i = 0; i < historyVertices.length; i++) {
+                if (historyVertices[i].polID === number) {
+                    verticesScanline.push({ x: historyVertices[i].x, y: historyVertices[i].y });
                 }
               }
             // for para criar pegar os vertices apenas do poligono com id do botão
@@ -126,11 +127,11 @@ export function drawAlgoritmo() {
             var pontoY = parseInt(pontoPivo.querySelector('input[placeholder="y"]').value);
             var pivo = { x: pontoX, y: pontoY};
 
-            var pontoVarredura = inputContainer.querySelector('#ponto-varredura');
+            var rotacao = inputContainer.querySelector('#rotacao');
             
-            var buttonSelected = pontoVarredura.querySelector('.draw-button.selected');
+            var buttonSelected = rotacao.querySelector('.draw-button.selected');
             
-            var buttonID = buttonSelected.id; // formato: varredura-poligono-N
+            var buttonID = buttonSelected.id; // formato: rotacao-poligono-N
             var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
             console.log(number);
 
@@ -138,19 +139,67 @@ export function drawAlgoritmo() {
 
             for (var i = 0; i < historyPoints.length; i++) {
                 if (historyPoints[i].polID === number) {
-                    verticesScanline.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+                    polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
                 }
               }
             // for para criar pegar os vertices apenas do poligono com id do botão
             // necessita apenas do poligono
 
             rotatePolygon(polygon, anguloValue, pivo);
-            break;  
+            break;
         
-        case 'Translação':    
+        case 'Translação':  
+            
+            var pontoDeslocamento = inputContainer.querySelector('#ponto-deslocamento');
+            var pontoX = parseInt(pontoDeslocamento.querySelector('input[placeholder="x"]').value);
+            var pontoY = parseInt(pontoDeslocamento.querySelector('input[placeholder="y"]').value);
+
+            var translacao = inputContainer.querySelector('#translacao');
+            
+            var buttonSelected = translacao.querySelector('.draw-button.selected');
+            
+            var buttonID = buttonSelected.id; // formato: translacao-poligono-N
+            var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
+            console.log(number);
+
+            var polygon = [];
+
+            for (var i = 0; i < historyPoints.length; i++) {
+                if (historyPoints[i].polID === number) {
+                    polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+                }
+            }
+
+            translatePolygon(polygon, pontoX, pontoY);
             break;  
-        
+            
         case 'Escala':
+
+            var fatorEscala = inputContainer.querySelector('#fator-escala');
+            var escalaX = parseInt(fatorEscala.querySelector('input[placeholder="x"]').value);
+            var escalaY = parseInt(fatorEscala.querySelector('input[placeholder="y"]').value);
+            
+            var pontoFixo = inputContainer.querySelector('#ponto-fixo');
+            var pontoX = parseInt(pontoFixo.querySelector('input[placeholder="x"]').value);
+            var pontoY = parseInt(pontoFixo.querySelector('input[placeholder="y"]').value);
+            var pontoFixoValues = { x: pontoX, y: pontoY};
+
+            var escala = inputContainer.querySelector('#escala');
+            
+            var buttonSelected = escala.querySelector('.draw-button.selected');
+            
+            var buttonID = buttonSelected.id; // formato: translacao-poligono-N
+            var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
+
+            var polygon = [];
+
+            for (var i = 0; i < historyPoints.length; i++) {
+                if (historyPoints[i].polID === number) {
+                    polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
+                }
+            }
+
+            scalePolygon(polygon, escalaX, escalaY, pontoFixoValues);
             break;
         
         case 'Projeção Ortogonal':

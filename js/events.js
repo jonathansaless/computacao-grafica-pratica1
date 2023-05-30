@@ -95,6 +95,8 @@ function handleButtonClick(button) {
       break;
 
     case 'Rotação':
+      
+      
       // angulo de rotação (ex.: 90º) e pivô (x, y)
       div = createDivInput('angulo-rotacao', 'Ângulo de rotação', 'Xº');
       inputContainer.appendChild(div);
@@ -102,7 +104,9 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-pivo', 'Ponto pivô');
       inputContainer.appendChild(div);
       
-      insertDrawingButton(inputContainer, 'Realizar rotação');
+      div = createSelectionButton('rotacao');
+      inputContainer.appendChild(div);
+
       insertClearButton(inputContainer);
       break;
 
@@ -111,7 +115,9 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-deslocamento', 'Ponto de deslocamento');
       inputContainer.appendChild(div);
       
-      insertDrawingButton(inputContainer, 'Realizar deslocamento');
+      div = createSelectionButton('translacao');
+      inputContainer.appendChild(div);
+
       insertClearButton(inputContainer);
       break;
 
@@ -123,7 +129,9 @@ function handleButtonClick(button) {
       div = createDivInputPoint('ponto-fixo', 'Ponto fixo');
       inputContainer.appendChild(div);
       
-      insertDrawingButton(inputContainer, 'Realizar transformação de escala');
+      div = createSelectionButton('escala');
+      inputContainer.appendChild(div);
+      
       insertClearButton(inputContainer);
       break;
 
@@ -251,6 +259,38 @@ function createDivScanline(idDiv) {
   return buttonsDiv;
 }
 
+function createSelectionButton(idDiv) {
+  var buttonsDiv = document.createElement('div');
+  buttonsDiv.setAttribute('id', idDiv);
+  buttonsDiv.setAttribute('class', 'fade-in');
+
+  for (var i = 0; i < contPoligon; i++) {
+    var button = document.createElement('button');
+    button.setAttribute('class', 'draw-button');
+    button.setAttribute('id', idDiv+'-poligono-' + i);
+    
+    button.textContent = 'Transformar Polígono ' + (i + 1);
+
+    button.addEventListener('click', function(event) {
+      // Remove a classe "selected" de todos os botões
+      var buttons = buttonsDiv.querySelectorAll('.draw-button');
+      buttons.forEach(function(btn) {
+        btn.classList.remove('selected');
+      });
+
+      // Adiciona a classe "selected" ao botão clicado
+      var clickedButton = event.target;
+      clickedButton.classList.add('selected');
+
+      // Chama a função drawAlgoritmo
+      drawAlgoritmo();
+    });
+
+    buttonsDiv.appendChild(button);
+  }
+
+  return buttonsDiv;
+}
 
 function addControlPoint() {
   let addButton = document.querySelector('.add-button');

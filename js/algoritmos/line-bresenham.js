@@ -1,9 +1,8 @@
 import { drawPixel } from "./drawPixel.js";
-import * as colors from "./constants/colors.js";
 import { historyVertices } from "./constants/constants.js";
 import { contPoligon } from "../draw.js";
 // Algoritmo de Bresenham
-export function bresenhamLine(x0, y0, x1, y1) {
+export function bresenhamLine(x0, y0, x1, y1, color) {
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);
   const dy = Math.abs(y1 - y0);
@@ -19,7 +18,7 @@ export function bresenhamLine(x0, y0, x1, y1) {
   while (x0 !== x1 || y0 !== y1) {
     historyVertices.push({x: x0, y: y0, polID: contPoligon});
     // Desenha o pixel atual
-    drawPixel(x0, y0, colors.RED);
+    drawPixel(x0, y0, color);
     
     // Calcula o dobro do erro
     const err2 = 2 * err;
@@ -38,6 +37,6 @@ export function bresenhamLine(x0, y0, x1, y1) {
   }
   // Desenha o último pixel da linha
   historyVertices.push({x: x1, y: y1, polID: contPoligon})
-  drawPixel(x1, y1, colors.RED);
+  drawPixel(x1, y1, color);
 }
 

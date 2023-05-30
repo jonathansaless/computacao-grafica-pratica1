@@ -1,6 +1,8 @@
 import { convertListToInteger } from "../features/convertListToInteger.js";
 import { clipPolygon } from "../clipPolyline.js";
 import * as constant from "../constants/constants.js";
+import * as colors from "../constants/colors.js";
+
 
 export function rotatePolygon(polygon, angle, pivot) {
     var rotatedPolygon = [];
@@ -27,5 +29,5 @@ export function rotatePolygon(polygon, angle, pivot) {
         rotatedPolygon.push(finalVertex);
     }
     rotatedPolygon = convertListToInteger(rotatedPolygon);
-    clipPolygon(rotatedPolygon, constant.clipPolygon);
+    clipPolygon(rotatedPolygon, constant.clipPolygon, colors.BLUE);
 }

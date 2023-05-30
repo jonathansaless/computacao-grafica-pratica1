@@ -4,7 +4,7 @@
 import { drawPolyline } from "./polyline.js";
 import { convertListToInteger } from "./features/convertListToInteger.js";
 
-export function clipPolygon(subjectPolygon, clipPolygon) {
+export function clipPolygon(subjectPolygon, clipPolygon, color) {
     var cp1, cp2, s, e;
 
     var inside = function (p) {
@@ -50,5 +50,5 @@ export function clipPolygon(subjectPolygon, clipPolygon) {
     
     // desenha o poligono com os valores de vertices obtidos
     console.log(outputList);
-    drawPolyline(outputList);
+    drawPolyline(outputList, color);
 }
