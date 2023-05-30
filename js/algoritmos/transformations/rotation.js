@@ -3,8 +3,13 @@ import { clipPolygon } from "../clipPolyline.js";
 import * as constant from "../constants/constants.js";
 import * as colors from "../constants/colors.js";
 
+// converte o angulo em graus para radiano
+function degreesToRadians(degrees) {
+    return degrees * (Math.PI / 180);
+}
 
 export function rotatePolygon(polygon, angle, pivot) {
+    angle = degreesToRadians(angle);
     var rotatedPolygon = [];
     var sinAngle = Math.sin(angle);
     var cosAngle = Math.cos(angle);
