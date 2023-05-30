@@ -1,6 +1,7 @@
 import { convertListToInteger } from "../features/convertListToInteger.js";
 import { clipPolygon } from "../clipPolyline.js";
 import * as constant from "../constants/constants.js";
+import * as colors from "../constants/colors.js";
 
 export function translatePolygon(polygon, dx, dy) {
     var translatedPolygon = [];
@@ -14,5 +15,5 @@ export function translatePolygon(polygon, dx, dy) {
         translatedPolygon.push(translatedVertex);
     }
     translatedPolygon = convertListToInteger(translatedPolygon);
-    clipPolygon(translatedPolygon, constant.clipPolygon);
+    clipPolygon(translatedPolygon, constant.clipPolygon, colors.BLUE);
 }
