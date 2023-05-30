@@ -1,4 +1,4 @@
-import * as history from "./algoritmos/constants/constants.js";
+import { emptyPointsHistory } from "./algoritmos/constants/constants.js";
 
 const canvas = document.getElementById("canvas");
 const screen = document.querySelector(".screen");
@@ -33,6 +33,11 @@ drawingContext.fillRect(0, 0, canvas.width, canvas.height);
 
 export function clearScreen() {
   const subElements = screen.querySelectorAll('*');
+  // zera o historico de pontos
+  emptyPointsHistory();
+  // remove os botões com os poligonos no algoritmo de varredura
+  var scanlineButtons = document.querySelector('.ponto-varredura');
+  scanlineButtons.remove();
   // percorre os quadrados e pinta todos de branco, limpando a tela
   for (let i = 0; i < subElements.length; i++) {
     const subElement = subElements[i];

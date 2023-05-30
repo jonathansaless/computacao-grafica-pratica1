@@ -8,9 +8,6 @@ var inputContainer = document.querySelector('.input-container');
 var cont = 1;
 export var controlPoints = [];
 export var polilynePoints = [];
-export var totalPolilynePoints = [];
-
-
 
 function changeBackgroundColor(event) {
   var button = event.target;
@@ -297,7 +294,7 @@ function addControlPoint() {
   addButton.before(controlPoint); /* adiciona antes do botão de adicionar*/
 
   cont++;
-  if (cont > 6) {
+  if (cont > 4) {
     addButton.disabled = true;
     addButton.innerText = 'Máximo adicionado!';
     controlPoint.remove();
@@ -348,7 +345,6 @@ function addPolilynePoint() {
   }else{
     // adiciona um campo de ID do poligono, para passar o poligona para preenchimento por varredura
     polilynePoints.push({ x:  parseInt(inputX), y: parseInt(inputY), polID: contPoligon});
-    totalPolilynePoints.push({ x:  parseInt(inputX), y: parseInt(inputY), polID: contPoligon});
     polilynePointBefore.style.display = 'none';
   }
   
@@ -374,7 +370,7 @@ function addPolilynePoint() {
   addButton.before(polilynePoint); /* adiciona antes do botão de adicionar que está dentro da div polilyne*/
 
   cont++;
-  if (cont > 6) {
+  if (cont > 10) {
     addButton.disabled = true;
     addButton.innerText = 'Máximo adicionado!';
     polilynePoint.remove();
