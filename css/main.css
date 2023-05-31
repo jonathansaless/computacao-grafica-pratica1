@@ -123,6 +123,7 @@ input:hover {
 }
 
 .clear-button {
+  margin: 5px;
   height: 8vh;
   cursor: pointer;
   font-weight: bold;

@@ -36,16 +36,17 @@ function handleButtonClick(button) {
   let div;
   switch (button.innerText) {
     case 'Linha':
+
       div = createDivInputPoint('ponto-inicial', 'Ponto Inicial');
       inputContainer.appendChild(div);
       div = createDivInputPoint('ponto-final', 'Ponto Final');
       inputContainer.appendChild(div);
 
       insertDrawingButton(inputContainer, 'Desenhar linha');
-      insertClearButton(inputContainer);
       break;
 
     case 'Círculo':
+
       div = createDivInputPoint('ponto-central', 'Ponto Central');
       inputContainer.appendChild(div);
       
@@ -53,10 +54,10 @@ function handleButtonClick(button) {
       inputContainer.appendChild(div);
       
       insertDrawingButton(inputContainer, 'Desenhar círculo');
-      insertClearButton(inputContainer);
       break;
 
     case 'Curva':
+
       div = createDivInputPoint('ponto-inicial', 'Ponto Inicial');
       inputContainer.appendChild(div);
       div = createDivInputPoint('ponto-final', 'Ponto Final');
@@ -66,26 +67,26 @@ function handleButtonClick(button) {
       inputContainer.appendChild(div);
       
       insertDrawingButton(inputContainer, 'Desenhar curva');
-      insertClearButton(inputContainer);
       break;
 
     case 'Polígono':
+
       div = createDivInputPointPolilyne('polilyne');
       inputContainer.appendChild(div);
 
       insertDrawingButton(inputContainer, 'Desenhar polígono');
-      insertClearButton(inputContainer);
       break;
 
     case 'Preenchimento Recursivo':
+
       div = createDivInputPoint('ponto-preenchimento', 'Ponto em poligono');
       inputContainer.appendChild(div);
       
       insertDrawingButton(inputContainer, 'Realizar preenchimento');
-      insertClearButton(inputContainer);
       break;
 
     case 'Varredura':
+
       // se não houver poligonos desenhados
       if(contPoligon == 0){
         alert('Não há polígonos desenhados! Acesse "Polígono" e desenhe seu primeiro polígono');
@@ -98,7 +99,6 @@ function handleButtonClick(button) {
 
     case 'Rotação':
       
-      
       // angulo de rotação (ex.: 90º) e pivô (x, y)
       div = createDivInput('angulo-rotacao', 'Ângulo de rotação', 'Xº');
       inputContainer.appendChild(div);
@@ -108,22 +108,20 @@ function handleButtonClick(button) {
       
       div = createSelectionButton('rotacao');
       inputContainer.appendChild(div);
-
-      insertClearButton(inputContainer);
       break;
 
     case 'Translação':
+
       // deslocamento (x, y)
       div = createDivInputPoint('ponto-deslocamento', 'Ponto de deslocamento');
       inputContainer.appendChild(div);
       
       div = createSelectionButton('translacao');
       inputContainer.appendChild(div);
-
-      insertClearButton(inputContainer);
       break;
 
     case 'Escala':
+
       // fator de escala de x, y e ponto fixo (x, y)
       div = createDivInputPoint('fator-escala', 'Fator de escala');
       inputContainer.appendChild(div);
@@ -134,27 +132,27 @@ function handleButtonClick(button) {
       div = createSelectionButton('escala');
       inputContainer.appendChild(div);
       
-      insertClearButton(inputContainer);
       break;
 
     case 'Projeção Ortogonal':
+
       div = createDivInputPointPolilyne('polilyne');
       inputContainer.appendChild(div);
 
       insertDrawingButton(inputContainer, 'Polígono com projeção ortogonal');
-      insertClearButton(inputContainer);
       break;
 
     case 'Projeção Perspectiva':
+
       div = createDivInputPointPolilyne('polilyne');
       inputContainer.appendChild(div);
 
       insertDrawingButton(inputContainer, 'Polígono com projeção perspectiva');
-      insertClearButton(inputContainer);
       break;
 
     default:
-      console.log('Botão inválido');
+
+      alert('Botão inválido');
       break;
   }
 }
@@ -433,14 +431,6 @@ function insertAddButton(container){
   }
 }
 
-function insertClearButton(container){
-  var button = document.createElement('button');
-  button.setAttribute('class', 'clear-button');
-  button.innerText = 'Limpar Tela';
-  container.appendChild(button);
-  button.addEventListener("click", clearScreen);
-}
-
 function insertDrawingButton(container, buttonText) {
   var button = document.createElement('button');
   button.textContent = buttonText;
@@ -474,3 +464,6 @@ buttons.forEach(function(button) {
     button.addEventListener('click', changeBackgroundColor);
   }
 );
+
+const clearButton = document.querySelector(".clear-button");
+clearButton.addEventListener("click", clearScreen);
