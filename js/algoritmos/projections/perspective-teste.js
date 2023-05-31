@@ -22,6 +22,7 @@ var cubeTeste = [
 //     return multiplyMatrices(cube, ROTATION_MATRIX);
 // }
 function orthographicProjection() {
+  console.log('***************************');
   cubeTeste.forEach(e => {
     var teste = multiplyMatrixAndVector(PROJECTION_MATRIX_XY, e);
     console.log(teste);
@@ -116,6 +117,7 @@ function multiplyMatrices(matrixA, matrixB) {
 
   return result;
 }
+
 function divideLista(lista, x) {
     var resultado = [];
   
@@ -124,4 +126,12 @@ function divideLista(lista, x) {
     }
   
     return resultado;
-  }
+}
+
+orthographicProjection();
+
+perspectiveProjectionOne();
+
+perspectiveProjectionTwo();
+
+perspectiveProjectionThree();
