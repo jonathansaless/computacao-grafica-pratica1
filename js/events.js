@@ -1,8 +1,8 @@
 import { drawAlgoritmo} from "./draw.js"; 
 // import { clearScreen } from "./main.js";
-import { contPoligon } from "./algoritmos/constants/constants.js";
-import { emptyHistory } from "./algoritmos/constants/constants.js";
-import { restartContPolygon } from "./algoritmos/constants/constants.js";
+import { contPoligon } from "./algorithms/constants/variables.js";
+import { emptyHistory } from "./algorithms/constants/variables.js";
+import { restartContPolygon } from "./algorithms/constants/variables.js";
 
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;

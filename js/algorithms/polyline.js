@@ -1,6 +1,6 @@
-import * as line from "./line-bresenham.js";
-import { historyPoints, historyVertices } from "./constants/constants.js";
-import { contPoligon } from "./constants/constants.js";
+import * as line from "./drawLine.js";
+import { historyPoints, historyVertices } from "./constants/variables.js";
+import { contPoligon } from "./constants/variables.js";
 
 export function drawPolyline(points, color) {
   points.forEach(function(point) {

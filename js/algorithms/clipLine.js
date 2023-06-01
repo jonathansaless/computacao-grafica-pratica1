@@ -1,4 +1,4 @@
-import { bresenhamLine } from "./line-bresenham.js";
+import { bresenhamLine } from "./drawLine.js";
 // Algoritmo de Bresenham
 /*
 export function clipLine(x0, y0, x1, y1) {

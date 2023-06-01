@@ -1,20 +1,21 @@
-import { bresenhamLine } from "./algoritmos/line-bresenham.js";
-import { circle } from "./algoritmos/circle-midpoint.js";
-import { drawBezierCurve } from "./algoritmos/curve-bezier.js";
-import { drawPolyline } from "./algoritmos/polyline.js";
-import { floodFill } from "./algoritmos/floodFill.js";
-import { scanlineFillWithCriticalPoints }  from "./algoritmos/scanline-withcriticalpoints.js";
-import { cohenSutherlandClip } from "./algoritmos/clipLine.js";
-import { clipPolygon } from "./algoritmos/clipPolyline.js";
-import { rotatePolygon } from "./algoritmos/transformations/rotation.js";
-import { scalePolygon } from "./algoritmos/transformations/scale.js";
-import { translatePolygon } from "./algoritmos/transformations/translation.js";
-import { orthographicProjection } from "./algoritmos/projections/orthogonal.js";
-import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
+import { bresenhamLine } from "./algorithms/drawLine.js";
+import { circle } from "./algorithms/drawCircle.js";
+import { drawBezierCurve } from "./algorithms/drawCurve.js";
+import { drawPolyline } from "./algorithms/polyline.js";
+import { floodFill } from "./algorithms/floodFill.js";
+import { scanlineFillWithCriticalPoints }  from "./algorithms/scanline-withcriticalpoints.js";
+import { cohenSutherlandClip } from "./algorithms/clipLine.js";
+import { clipPolygon } from "./algorithms/clipPolyline.js";
+import { rotatePolygon } from "./algorithms/transformations/rotation.js";
+import { scalePolygon } from "./algorithms/transformations/scale.js";
+import { translatePolygon } from "./algorithms/transformations/translation.js";
+import { orthographicProjection } from "./algorithms/projections/orthographic.js";
+// import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
-import { historyPoints, historyVertices } from "./algoritmos/constants/constants.js";
-import * as colors from "./algoritmos/constants/colors.js";
-import { addContPolygon } from "./algoritmos/constants/constants.js";
+import { cube, cube2, cube3, historyPoints, historyVertices } from "./algorithms/constants/variables.js";
+import * as colors from "./algorithms/constants/colors.js";
+import { addContPolygon } from "./algorithms/constants/variables.js";
+import { perspectiveProjectionOne, perspectiveProjectionThree, perspectiveProjectionTwo } from "./algorithms/projections/perspective.js";
 
 
 export function drawAlgoritmo() {
@@ -205,13 +206,20 @@ export function drawAlgoritmo() {
             break;
         
         case 'Projeção Ortogonal':
+            
+            orthographicProjection();
             break;
 
         case 'Projeção Perspectiva':
+            
+            var cubo = cube;
+            perspectiveProjectionOne(cubo);
+            // perspectiveProjectionTwo(cubo);
+            // perspectiveProjectionThree(cubo);
             break;
 
         default:
-            console.log('Nenhuma opção selecionada!');
+            alert('Nenhuma opção selecionada!');
     }
 }
   
