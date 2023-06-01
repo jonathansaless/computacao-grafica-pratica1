@@ -226,27 +226,29 @@ export function drawAlgoritmo() {
 
         case 'Projeção Perspectiva':
             var perspectiva = inputContainer.querySelector('#perspective');
-            var buttonSelected = perspectiva.querySelector('.draw-button.selected');
-            
-            var buttonID = buttonSelected.id;
+            var cubeSelected = perspectiva.querySelector('.cubes.selected');
+            var fugaSelected = perspectiva.querySelector('.pontos-fugas.selected');
 
-            if(buttonID == 'cube-0'){
+            var cubeID = cubeSelected.id;
+            var fugaID = fugaSelected.id;
+            
+            if(cubeID == 'cube-0'){
                 var cubo = cube;
             }
-            else if(buttonID == 'cube-1'){
+            else if(cubeID == 'cube-1'){
                 var cubo = cube2;
             }
-            else if(buttonID == 'cube-2'){
+            else if(cubeID == 'cube-2'){
                 var cubo = cube3;
             }
             // falta implementar
-            if(true){
+            if(fugaID == 'ponto-fuga-0'){
                 perspectiveProjectionOne(cubo);
             }
-            else if(true){
+            else if(fugaID == 'ponto-fuga-1'){
                 perspectiveProjectionTwo(cubo);
             }
-            else if(true){
+            else if(fugaID == 'ponto-fuga-2'){
                 perspectiveProjectionThree(cubo);
             }
             // perspectiveProjectionTwo(cubo);

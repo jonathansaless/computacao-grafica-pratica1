@@ -294,13 +294,13 @@ function createDivPerspective(idDiv){
 
   for (var i = 0; i < 3; i++) {
     var button = document.createElement('button');
-    button.setAttribute('class', 'draw-button');
+    button.setAttribute('class', 'draw-button cubes');
     button.setAttribute('id', 'cube-' + i);
     button.textContent = 'Cubo ' + (i + 1);
 
     button.addEventListener('click', function(event) {
       // Remove a classe "selected" de todos os botões
-      var buttons = buttonsDiv.querySelectorAll('.draw-button');
+      var buttons = buttonsDiv.querySelectorAll('.cubes');
       buttons.forEach(function(btn) {
         btn.classList.remove('selected');
         // oculta os botões de cubos para mostrar novos botões de pontos de fuga
@@ -316,13 +316,13 @@ function createDivPerspective(idDiv){
       
       for (var i = 0; i < 3; i++) {
         var button = document.createElement('button');
-        button.setAttribute('class', 'draw-button');
-        button.setAttribute('id', 'cube-' + i);
-        button.textContent = 'Cubo ' + (i + 1);
+        button.setAttribute('class', 'draw-button pontos-fugas');
+        button.setAttribute('id', 'ponto-fuga-' + i);
+        button.textContent = (i + 1)+' ponto de fuga';
     
         button.addEventListener('click', function(event) {
           // Remove a classe "selected" de todos os botões
-          var buttons = buttonsDiv.querySelectorAll('.draw-button');
+          var buttons = buttonsDiv.querySelectorAll('.pontos-fugas');
           buttons.forEach(function(btn) {
             btn.classList.remove('selected');
             // oculta os botões de cubos para mostrar novos botões de pontos de fuga
