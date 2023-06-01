@@ -1,51 +1,44 @@
-// historico de pontos pintados, importante para executar o algoritmo de scanline
-export var historyPoints = [];
-export var historyVertices= [];
-
-// função para esvaziar historyPoints
-export function emptyHistory(){
-  historyPoints = [];
-  historyVertices = [];
-}
-
+// contador de polígonos
 export var contPoligon = 0;
 
-export function addContPolygon(){
-  contPoligon++;
-}
-export function restartContPolygon() {
-    contPoligon = 0; 
-}
+// historico de pontos de poligonos
+export var historyPoints = [];
 
-// seria interessante criar uma variável que armazena um poligono assim que detectar que existe um poligono
-// ou a ada novo poligono criar um Objeto chamado poligono
-// variavel x
+// historico de todos os pontos pintados, importante para executar o algoritmo de scanline
+export var historyVertices= [];
 
-// pontos para testes
-/*export const points = [
-  { x: 4, y: 4 },
-  { x: 5, y: 4 },
-  { x: 6, y: 4 },
-  { x: 7, y: 4 },
-  { x: 8, y: 4 },
-  { x: 8, y: 5 },
-  { x: 8, y: 6 },
-  { x: 8, y: 7 },
-  { x: 8, y: 8 },
-  { x: 7, y: 8 },
-  { x: 6, y: 8 },
-  { x: 5, y: 9 },
-  { x: 4, y: 9 },
-  { x: 4, y: 8 },
-  { x: 4, y: 7 },
-  { x: 4, y: 6 },
-  { x: 4, y: 5 },
-  { x: 4, y: 4 }
-];*/
+// Matriz de rotação para z=0
+export const cube = [
+  [0, 0, 5, 1],
+  [5, 0, 5, 1],
+  [5, 5, 5, 1],
+  [0, 5, 5, 1],
+  [0, 0, 0, 1],
+  [5, 0, 0, 1],
+  [5, 5, 0, 1],
+  [0, 5, 0, 1]
+  ];
 
+// necessário para os algoritmos de recorte
 export const clipPolygon = [
   { x: 0, y: 0 },
   { x: 24, y: 0 },
   { x: 24, y: 24 },
   { x: 0, y: 24 }
 ];
+
+// função para esvaziar histórico de pontos
+export function emptyHistory(){
+  historyPoints = [];
+  historyVertices = [];
+}
+
+// adiciona +1 ao contador de poligonos
+export function addContPolygon(){
+  contPoligon++;
+}
+
+// reinicia contador de poligonos
+export function restartContPolygon() {
+  contPoligon = 0; 
+}

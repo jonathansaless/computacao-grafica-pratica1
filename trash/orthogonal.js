@@ -1,6 +1,6 @@
-import { convertListToInteger } from "../features/convertListToInteger.js";
-import { clipPolygon } from "../clipPolyline.js";
-import * as constant from "../constants/constants.js";
+import { convertListToInteger } from "../js/algoritmos/features/convertListToInteger.js";
+import { clipPolygon } from "../js/algoritmos/clipPolyline.js";
+import * as constant from "../js/algoritmos/constants/constants.js";
 
 // Função para realizar a projeção ortogonal de um polígono
 export function orthographicProjection(vertices) {
