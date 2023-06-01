@@ -1,4 +1,3 @@
-import { cube } from "../constants/variables.js"
 import { bresenhamLine } from "../drawLine.js";
 import * as colors from "../constants/colors.js";
 // Projeção Ortográfica - Matriz de Rotação
@@ -9,7 +8,7 @@ export const PROJECTION_MATRIX_XY = [
   [0, 0, 0, 1]
 ];
 
-export function orthographicProjection() {
+export function orthographicProjection(cube) {
   for(var i = 0; i < cube.length - 1; i++){
     // console.log(cube[i][0]);
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY, cube[i]);

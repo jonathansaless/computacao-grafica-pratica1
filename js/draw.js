@@ -206,14 +206,49 @@ export function drawAlgoritmo() {
             break;
         
         case 'Projeção Ortogonal':
+            var ortografico = inputContainer.querySelector('#orthographic');
+            var buttonSelected = ortografico.querySelector('.draw-button.selected');
             
-            orthographicProjection();
+            var buttonID = buttonSelected.id;
+
+            if(buttonID == 'cube-0'){
+                var cubo = cube;
+            }
+            else if(buttonID == 'cube-1'){
+                var cubo = cube2;
+            }
+            else if(buttonID == 'cube-2'){
+                var cubo = cube3;
+            }
+            
+            orthographicProjection(cubo);
             break;
 
         case 'Projeção Perspectiva':
+            var perspectiva = inputContainer.querySelector('#perspective');
+            var buttonSelected = perspectiva.querySelector('.draw-button.selected');
             
-            var cubo = cube;
-            perspectiveProjectionOne(cubo);
+            var buttonID = buttonSelected.id;
+
+            if(buttonID == 'cube-0'){
+                var cubo = cube;
+            }
+            else if(buttonID == 'cube-1'){
+                var cubo = cube2;
+            }
+            else if(buttonID == 'cube-2'){
+                var cubo = cube3;
+            }
+            // falta implementar
+            if(true){
+                perspectiveProjectionOne(cubo);
+            }
+            else if(true){
+                perspectiveProjectionTwo(cubo);
+            }
+            else if(true){
+                perspectiveProjectionThree(cubo);
+            }
             // perspectiveProjectionTwo(cubo);
             // perspectiveProjectionThree(cubo);
             break;

@@ -136,18 +136,14 @@ function handleButtonClick(button) {
 
     case 'Projeção Ortogonal':
 
-      div = createDivInputPointPolilyne('polilyne');
+      div = createDivOrthographic('orthographic');
       inputContainer.appendChild(div);
-
-      insertDrawingButton(inputContainer, 'Polígono com projeção ortogonal');
       break;
 
     case 'Projeção Perspectiva':
 
-      div = createDivInputPointPolilyne('polilyne');
+      div = createDivPerspective('perspective');
       inputContainer.appendChild(div);
-
-      insertDrawingButton(inputContainer, 'Polígono com projeção perspectiva');
       break;
 
     default:
@@ -251,6 +247,100 @@ function createDivScanline(idDiv) {
 
       // Chama a função drawAlgoritmo
       drawAlgoritmo();
+    });
+
+    buttonsDiv.appendChild(button);
+  }
+
+  return buttonsDiv;
+}
+
+function createDivOrthographic(idDiv){
+  var buttonsDiv = document.createElement('div');
+  buttonsDiv.setAttribute('id', idDiv);
+  buttonsDiv.setAttribute('class', 'fade-in');
+
+  for (var i = 0; i < 3; i++) {
+    var button = document.createElement('button');
+    button.setAttribute('class', 'draw-button');
+    button.setAttribute('id', 'cube-' + i);
+    button.textContent = 'Cubo ' + (i + 1);
+
+    button.addEventListener('click', function(event) {
+      // Remove a classe "selected" de todos os botões
+      var buttons = buttonsDiv.querySelectorAll('.draw-button');
+      buttons.forEach(function(btn) {
+        btn.classList.remove('selected');
+      });
+
+      // Adiciona a classe "selected" ao botão clicado
+      var clickedButton = event.target;
+      clickedButton.classList.add('selected');
+
+      // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
+      drawAlgoritmo();
+    });
+
+    buttonsDiv.appendChild(button);
+  }
+
+  return buttonsDiv;
+}
+
+function createDivPerspective(idDiv){
+  var buttonsDiv = document.createElement('div');
+  buttonsDiv.setAttribute('id', idDiv);
+  buttonsDiv.setAttribute('class', 'fade-in');
+
+  for (var i = 0; i < 3; i++) {
+    var button = document.createElement('button');
+    button.setAttribute('class', 'draw-button');
+    button.setAttribute('id', 'cube-' + i);
+    button.textContent = 'Cubo ' + (i + 1);
+
+    button.addEventListener('click', function(event) {
+      // Remove a classe "selected" de todos os botões
+      var buttons = buttonsDiv.querySelectorAll('.draw-button');
+      buttons.forEach(function(btn) {
+        btn.classList.remove('selected');
+        // oculta os botões de cubos para mostrar novos botões de pontos de fuga
+        btn.style.display = 'None';
+        
+      });
+
+      // Adiciona a classe "selected" ao botão clicado
+      var clickedButton = event.target;
+      clickedButton.classList.add('selected');
+
+      // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
+      
+      for (var i = 0; i < 3; i++) {
+        var button = document.createElement('button');
+        button.setAttribute('class', 'draw-button');
+        button.setAttribute('id', 'cube-' + i);
+        button.textContent = 'Cubo ' + (i + 1);
+    
+        button.addEventListener('click', function(event) {
+          // Remove a classe "selected" de todos os botões
+          var buttons = buttonsDiv.querySelectorAll('.draw-button');
+          buttons.forEach(function(btn) {
+            btn.classList.remove('selected');
+            // oculta os botões de cubos para mostrar novos botões de pontos de fuga
+            btn.style.display = 'None';
+            
+          });
+    
+          // Adiciona a classe "selected" ao botão clicado
+          var clickedButton = event.target;
+          clickedButton.classList.add('selected');
+    
+          // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
+          
+          drawAlgoritmo();
+        });
+    
+        buttonsDiv.appendChild(button);
+      }
     });
 
     buttonsDiv.appendChild(button);
