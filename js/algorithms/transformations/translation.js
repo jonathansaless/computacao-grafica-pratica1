@@ -1,5 +1,5 @@
 import { convertListToInteger } from "../features/convertListToInteger.js";
-import { clipPolygon } from "../clipPolyline.js";
+import { drawClipPolygon } from "../drawPolygon.js";
 import * as constant from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 

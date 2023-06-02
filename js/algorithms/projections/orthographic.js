@@ -1,4 +1,4 @@
-import { bresenhamLine } from "../drawLine.js";
+import { drawClipLine } from "../drawLine.js";
 import * as colors from "../constants/colors.js";
 // Projeção Ortográfica - Matriz de Rotação
 export const PROJECTION_MATRIX_XY = [
@@ -14,7 +14,7 @@ export function orthographicProjection(cube) {
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY, cube[i+1]);
     //console.log(point, nextPoint);
-    bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
+    drawClipLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
 

@@ -1,18 +1,16 @@
-import { bresenhamLine } from "./algorithms/drawLine.js";
+import { drawClipLine } from "./algorithms/drawLine.js";
 import { circle } from "./algorithms/drawCircle.js";
 import { drawBezierCurve } from "./algorithms/drawCurve.js";
-import { drawPolyline } from "./algorithms/polyline.js";
+import { drawClipPolygon } from "./algorithms/drawPolygon.js";
 import { floodFill } from "./algorithms/floodFill.js";
 import { scanlineFillWithCriticalPoints }  from "./algorithms/scanline-withcriticalpoints.js";
-import { cohenSutherlandClip } from "./algorithms/clipLine.js";
-import { clipPolygon } from "./algorithms/clipPolyline.js";
 import { rotatePolygon } from "./algorithms/transformations/rotation.js";
 import { scalePolygon } from "./algorithms/transformations/scale.js";
 import { translatePolygon } from "./algorithms/transformations/translation.js";
 import { orthographicProjection } from "./algorithms/projections/orthographic.js";
 // import { perspectiveProjection, projectPolygon } from "./algoritmos/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
-import { cube, cube2, cube3, historyPoints, historyVertices } from "./algorithms/constants/variables.js";
+import { cube, cube2, cube3, historyPoints, historyVertices, clipPolygon } from "./algorithms/constants/variables.js";
 import * as colors from "./algorithms/constants/colors.js";
 import { addContPolygon } from "./algorithms/constants/variables.js";
 import { perspectiveProjectionOne, perspectiveProjectionThree, perspectiveProjectionTwo } from "./algorithms/projections/perspective.js";
@@ -39,7 +37,7 @@ export function drawAlgoritmo() {
                 break;
             }
 
-            bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.RED);
+            drawClipLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.RED);
             break;
         
         case 'Círculo':
@@ -70,7 +68,7 @@ export function drawAlgoritmo() {
                 console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
                 break;
             }
-            bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.BLUE);
+            drawClipLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.BLUE);
             drawBezierCurve(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, controlPoints);
             break;
         
@@ -80,7 +78,7 @@ export function drawAlgoritmo() {
                 break;
             }
             console.log(polilynePoints);
-            drawPolyline(polilynePoints, colors.RED);
+            drawClipPolygon(polilynePoints, colors.RED);
             // soma +1 no contador de poligonos
             addContPolygon();
 

@@ -1,5 +1,5 @@
 import { PROJECTION_MATRIX_XY, multiplyMatrixAndVector } from "./orthographic.js";
-import { bresenhamLine } from "../drawLine.js";
+import { drawClipLine } from "../drawLine.js";
 import * as colors from "../constants/colors.js";
 
 const FOCAL_DISTANCE = 20;
@@ -20,7 +20,7 @@ export function perspectiveProjectionOne(cube){
     point = convertListToInteger(divideLista(point, point[3])); // necessário dividir todos valores da linha pelo ultimo valor
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
+    drawClipLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
 
@@ -39,7 +39,7 @@ export function perspectiveProjectionTwo(cube){
     point = convertListToInteger(divideLista(point, point[3]));
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
+    drawClipLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
 
@@ -58,7 +58,7 @@ export function perspectiveProjectionThree(cube){
     point = convertListToInteger(divideLista(point, point[3]));
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
+    drawClipLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
 

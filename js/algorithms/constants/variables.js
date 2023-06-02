@@ -40,13 +40,20 @@ export const cube3 = [
     [10, 10, 20, 1],
     [0, 10, 20, 1]
     ];
-// necessário para os algoritmos de recorte
+
+// necessário para o recorte de polígono
 export const clipPolygon = [
   { x: 0, y: 0 },
   { x: 24, y: 0 },
   { x: 24, y: 24 },
   { x: 0, y: 24 }
 ];
+
+// necessário para o recorte de linha
+export const x_min = 0;
+export const y_min = 0;
+export const x_max = 24;
+export const y_max = 24;
 
 // função para esvaziar histórico de pontos 
 export function emptyHistory(){
