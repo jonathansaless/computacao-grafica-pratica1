@@ -16,7 +16,7 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Projeção Ortogonal e Projeção Perspectiva
 
 # Vídeo da apresentação da aplicação
-<iframe width="517" height="388" src="https://www.youtube.com/embed/QNJL6nfu__Q" title="Michael Jackson - They Don’t Care About Us (Brazil Version) (Official Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Michael Jackson](https://img.youtube.com/vi/QNJL6nfu/0.jpg)](https://www.youtube.com/watch?v=QNJL6nfu)
 
 # Autores
 - Jonathan Sales
