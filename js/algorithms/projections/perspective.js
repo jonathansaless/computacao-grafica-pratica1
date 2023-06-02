@@ -1,13 +1,8 @@
 import { PROJECTION_MATRIX_XY, multiplyMatrixAndVector } from "./orthographic.js";
-// import { cube } from "../constants/constants.js"
 import { bresenhamLine } from "../drawLine.js";
 import * as colors from "../constants/colors.js";
 
 const FOCAL_DISTANCE = 20;
-
-// function projecaoXY(cube, ROTATION_MATRIX) {
-//     return multiplyMatrices(cube, ROTATION_MATRIX);
-// }
 
 export function perspectiveProjectionOne(cube){ 
   // um ponto de fuga
@@ -20,33 +15,13 @@ export function perspectiveProjectionOne(cube){
   ]));
 
   for(var i = 0; i < cube.length - 1; i++){
-    // console.log(cube[i][0]);
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_one, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_one, cube[i+1]);
-    point = convertListToInteger(divideLista(point, point[3]));
+    point = convertListToInteger(divideLista(point, point[3])); // necessário dividir todos valores da linha pelo ultimo valor
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    console.log(point, nextPoint);
     bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
-  //console.log(cube[2][0], cube[2][1]);
-  // bresenhamLine(cube[cube.length-1][0], cube[cube.length-1][1], cube[0][0], cube[0][1], colors.GREEN)
-  // bresenhamLine(cube[2][0], cube[2][1], cube[4][0], cube[4][1], colors.GREEN)
-
-}
-
-function convertListToInteger(points) {
-  var result = [];
-
-  for (var i = 0; i < points.length; i++) {
-    var roundedPoint = Math.round(points[i], 10);
-    
-    if (!isNaN(roundedPoint)) {
-      result.push(roundedPoint);
-    }
-  }
-
-  return result;
 }
 
 export function perspectiveProjectionTwo(cube){ 
@@ -59,13 +34,11 @@ export function perspectiveProjectionTwo(cube){
   ]));
 
   for(var i = 0; i < cube.length - 1; i++){
-    // console.log(cube[i][0]);
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_two, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_two, cube[i+1]);
     point = convertListToInteger(divideLista(point, point[3]));
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    console.log(point, nextPoint);
     bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
@@ -80,13 +53,11 @@ export function perspectiveProjectionThree(cube){
   ]));
 
   for(var i = 0; i < cube.length - 1; i++){
-    // console.log(cube[i][0]);
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_three, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_three, cube[i+1]);
     point = convertListToInteger(divideLista(point, point[3]));
     nextPoint = convertListToInteger(divideLista(nextPoint, nextPoint[3]));
 
-    console.log(point, nextPoint);
     bresenhamLine(point[0], point[1], nextPoint[0], nextPoint[1], colors.RED);
   }
 }
@@ -118,8 +89,16 @@ function divideLista(lista, x) {
     return resultado;
 }
 
-// perspectiveProjectionOne();
+function convertListToInteger(points) {
+  var result = [];
 
-// perspectiveProjectionTwo();
+  for (var i = 0; i < points.length; i++) {
+    var roundedPoint = Math.round(points[i], 10);
+    
+    if (!isNaN(roundedPoint)) {
+      result.push(roundedPoint);
+    }
+  }
 
-// perspectiveProjectionThree();
+  return result;
+}

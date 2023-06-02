@@ -70,7 +70,7 @@ export function drawAlgoritmo() {
                 console.log('Algum valor está vazio, favor digite um valor em todos os inputs');
                 break;
             }
-
+            bresenhamLine(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, colors.BLUE);
             drawBezierCurve(pontoInicialX, pontoInicialY, pontoFinalX, pontoFinalY, controlPoints);
             break;
         
