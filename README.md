@@ -15,11 +15,8 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Transformações
 - Projeção Ortogonal e Projeção Perspectiva
 
-# Dependências
-- Canvas
-
 # Vídeo da apresentação da aplicação
-<VÍDEO NO YOUTUBE>
+<iframe width="517" height="388" src="https://www.youtube.com/embed/QNJL6nfu__Q" title="Michael Jackson - They Don’t Care About Us (Brazil Version) (Official Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Autores
 - Jonathan Sales
