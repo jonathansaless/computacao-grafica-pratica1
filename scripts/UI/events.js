@@ -1,8 +1,8 @@
-import { drawAlgoritmo} from "./draw.js"; 
+import { drawAlgorithm} from "./draw.js"; 
 // import { clearScreen } from "./main.js";
-import { contPoligon } from "./algorithms/constants/variables.js";
-import { emptyHistory } from "./algorithms/constants/variables.js";
-import { restartContPolygon } from "./algorithms/constants/variables.js";
+import { contPoligon } from "../algorithms/constants/variables.js";
+import { emptyHistory } from "../algorithms/constants/variables.js";
+import { restartContPolygon } from "../algorithms/constants/variables.js";
 
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
@@ -245,8 +245,8 @@ function createDivScanline(idDiv) {
       var clickedButton = event.target;
       clickedButton.classList.add('selected');
 
-      // Chama a função drawAlgoritmo
-      drawAlgoritmo();
+      // Chama a função drawAlgorithm
+      drawAlgorithm();
     });
 
     buttonsDiv.appendChild(button);
@@ -277,8 +277,8 @@ function createDivOrthographic(idDiv){
       var clickedButton = event.target;
       clickedButton.classList.add('selected');
 
-      // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
-      drawAlgoritmo();
+      // Chama a função drawAlgorithm se for projeção ortogonal, pois nao precisa de mais informações
+      drawAlgorithm();
     });
 
     buttonsDiv.appendChild(button);
@@ -312,7 +312,7 @@ function createDivPerspective(idDiv){
       var clickedButton = event.target;
       clickedButton.classList.add('selected');
 
-      // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
+      // Chama a função drawAlgorithm se for projeção ortogonal, pois nao precisa de mais informações
       
       for (var i = 0; i < 3; i++) {
         var button = document.createElement('button');
@@ -334,9 +334,9 @@ function createDivPerspective(idDiv){
           var clickedButton = event.target;
           clickedButton.classList.add('selected');
     
-          // Chama a função drawAlgoritmo se for projeção ortogonal, pois nao precisa de mais informações
+          // Chama a função drawAlgorithm se for projeção ortogonal, pois nao precisa de mais informações
           
-          drawAlgoritmo();
+          drawAlgorithm();
         });
     
         buttonsDiv.appendChild(button);
@@ -372,8 +372,8 @@ function createSelectionButton(idDiv) {
       var clickedButton = event.target;
       clickedButton.classList.add('selected');
 
-      // Chama a função drawAlgoritmo
-      drawAlgoritmo();
+      // Chama a função drawAlgorithm
+      drawAlgorithm();
     });
 
     buttonsDiv.appendChild(button);
@@ -527,7 +527,7 @@ function insertDrawingButton(container, buttonText) {
   // button.setAttribute('id', 'draw-line');
   button.setAttribute('class', 'fade-in draw-button');
   container.appendChild(button);
-  button.addEventListener("click", drawAlgoritmo);
+  button.addEventListener("click", drawAlgorithm);
 
 }
 

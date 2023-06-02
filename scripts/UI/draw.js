@@ -1,20 +1,20 @@
-import { drawClipLine } from "./algorithms/drawings/drawLine.js";
-import { drawClipPolygon } from "./algorithms/drawings/drawPolygon.js";
-import { drawCircle } from "./algorithms/drawings/drawCircle.js";
-import { drawCurve } from "./algorithms/drawings/drawCurve.js";
-import { floodFill } from "./algorithms/filling/floodFill.js";
-import { scanlineFill }  from "./algorithms/filling/scanlineFill.js";
-import { rotatePolygon } from "./algorithms/transformations/rotation.js";
-import { scalePolygon } from "./algorithms/transformations/scale.js";
-import { translatePolygon } from "./algorithms/transformations/translation.js";
-import { orthographicProjection } from "./algorithms/projections/orthographic.js";
-import { perspectiveProjectionOne, perspectiveProjectionThree, perspectiveProjectionTwo } from "./algorithms/projections/perspective.js";
+import { drawClipLine } from "../algorithms/drawings/drawLine.js";
+import { drawClipPolygon } from "../algorithms/drawings/drawPolygon.js";
+import { drawCircle } from "../algorithms/drawings/drawCircle.js";
+import { drawCurve } from "../algorithms/drawings/drawCurve.js";
+import { floodFill } from "../algorithms/filling/floodFill.js";
+import { scanlineFill }  from "../algorithms/filling/scanlineFill.js";
+import { rotatePolygon } from "../algorithms/transformations/rotation.js";
+import { scalePolygon } from "../algorithms/transformations/scale.js";
+import { translatePolygon } from "../algorithms/transformations/translation.js";
+import { orthographicProjection } from "../algorithms/projections/orthographic.js";
+import { perspectiveProjectionOne, perspectiveProjectionThree, perspectiveProjectionTwo } from "../algorithms/projections/perspective.js";
 import { controlPoints, polilynePoints } from "./events.js";
-import { cube, cube2, cube3, historyPoints, historyVertices, addContPolygon } from "./algorithms/constants/variables.js";
-import * as colors from "./algorithms/constants/colors.js";
+import { cube, cube2, cube3, historyPoints, historyVertices, addContPolygon } from "../algorithms/constants/variables.js";
+import * as colors from "../algorithms/constants/colors.js";
 
 
-export function drawAlgoritmo() {
+export function drawAlgorithm() {
     /* Desenha */
     const inputContainer = document.querySelector('.input-container');
     var buttonSelected = document.querySelector('.selected');
