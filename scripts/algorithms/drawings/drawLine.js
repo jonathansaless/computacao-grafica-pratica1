@@ -3,7 +3,7 @@ import { historyVertices, x_min, y_min, x_max, y_max } from "../constants/variab
 import { contPoligon } from "../constants/variables.js";
 
 // Algoritmo de Bresenham para desenho de linhas
-function bresenhamLine(x0, y0, x1, y1, color) {
+function drawLine(x0, y0, x1, y1, color) {
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);
   const dy = Math.abs(y1 - y0);
@@ -117,7 +117,7 @@ export function drawClipLine(x0, y0, x1, y1, color) {
     
     // console.log(`Linha aceita de (${pointx0}, ${pointy0}) a (${pointx1}, ${pointy1})`);
     
-    bresenhamLine(pointx0, pointy0, pointx1, pointy1, color);
+    drawLine(pointx0, pointy0, pointx1, pointy1, color);
 
   } else {
     console.log("Linha rejeitada, reta totalmente fora!");

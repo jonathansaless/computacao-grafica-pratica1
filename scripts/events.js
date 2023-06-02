@@ -547,6 +547,7 @@ function clearScreen() {
   for (let i = 0; i < subElements.length; i++) {
     const subElement = subElements[i];
     subElement.style.backgroundColor = '#ffffff'; // Define a cor de fundo para vermelho (altere para a cor desejada)
+    subElement.classList.remove('painted');
   }
 }
 
