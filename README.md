@@ -29,4 +29,4 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Instalar a extensão "Live Server" no Visual Studio Code (VScode).
 - Após instalado, clicar com o botão direito do mouse sobre o arquivo index.html e selecionar a opção "Open with Live Server".
 
-Lembrando que para maior facilidade dos testes, o deploy da aplicação está disponível aqui https://jonathansaless.github.io/computacao-grafica-pratica1/
+Lembrando que para maior facilidade dos testes, o deploy da aplicação está disponível [aqui](https://jonathansaless.github.io/computacao-grafica-pratica1/)
