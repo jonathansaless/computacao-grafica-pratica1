@@ -7,7 +7,7 @@ export var historyPoints = [];
 // historico de todos os pontos pintados, importante para executar o algoritmo de scanline
 export var historyVertices= [];
 
-// Matriz de rotação para z=0
+// Cubo 1
 export const cube = [
   [0, 0, 0, 1],
   [10, 0, 0, 1],
@@ -18,7 +18,8 @@ export const cube = [
   [10, 10, 10, 1],
   [0, 10, 10, 1]
   ];
-
+  
+// Cubo 2
 export const cube2 = [
   [0, 0, 0, 1],
   [10, 0, 0, 1],
@@ -30,6 +31,7 @@ export const cube2 = [
   [0, 5, 0, 1]
   ];
 
+// Cubo 3
 export const cube3 = [
     [0, 0, 10, 1],
     [10, 0, 10, 1],
@@ -41,7 +43,7 @@ export const cube3 = [
     [0, 10, 20, 1]
     ];
 
-// necessário para o recorte de polígono
+// Recorte de polígono, necessário para o recorte de polígono
 export const clipPolygon = [
   { x: 0, y: 0 },
   { x: 24, y: 0 },
@@ -49,7 +51,7 @@ export const clipPolygon = [
   { x: 0, y: 24 }
 ];
 
-// necessário para o recorte de linha
+// Pontos mínimos e máximos, necessários para o recorte de linha
 export const x_min = 0;
 export const y_min = 0;
 export const x_max = 24;

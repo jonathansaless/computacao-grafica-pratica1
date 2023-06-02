@@ -1,20 +1,21 @@
 import { drawPixel } from "../drawPixel.js";
 
-// algoritmo para desenho de curvas de bezier
+// Função para desenho de curvas de bezier
 export function drawCurve(startX, startY, endX, endY, controlPoints, color) {
 
+    // Array que irá conter os pontos da curva de Bezier
     const points = [
         { x: startX, y: startY }
     ];
     
+    // Adiciona os pontos de controle ao array de pontos
     controlPoints.forEach(element => {
         points.push(element);
     });
     
+    // Adiciona o ponto final ao array de pontos
     points.push({ x: endX, y: endY });
     
-    console.log(points);
-
     // Quantidade de segmentos da curva
     const segments = 100;
 

@@ -1,7 +1,7 @@
 import { drawPixel } from "../drawPixel.js";
 import { contPoligon, historyVertices, x_min, y_min, x_max, y_max } from "../constants/variables.js";
 
-// Algoritmo de Bresenham para desenho de linhas
+// Função para desenho de linhas
 function drawLine(x0, y0, x1, y1, color) {
   // Calcula as diferenças absolutas nas coordenadas x e y
   const dx = Math.abs(x1 - x0);

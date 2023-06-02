@@ -1,27 +1,29 @@
 import { drawPixel } from "../drawPixel.js";
 import * as colors from "../constants/colors.js";
 
-// preechimento recursivo OK
-export function floodFill(x, y){
+// Função de preenchimento recursivo (flood fill)
+export function floodFill(x, y) {
     
-    // pega o quadrado atual
+    // Obtém o ID do quadrado atual
     const cellId = `${x}_${y}`;
+    // Obtém o elemento do quadrado atual com base no ID
     const cellElement = document.getElementById(cellId);
     
-    // verifica se a celular recebida não é nula, pois se o cellId estiver fora dos IDs, não retornará nenhuma div
-    if(cellElement === null){
+    // Verifica se o elemento do quadrado é nulo, o que significa que está fora dos IDs válidos
+    // Nesse caso, retorna sem fazer nada
+    if (cellElement === null) {
         return;
     }
 
-    // se o quadrado atual não estiver pintado nem de vermelho nem de verde, entra no IF
-    if(!cellElement.classList.contains('painted')) {
-        // pinta de verde
+    // Verifica se o quadrado atual não está pintado nem de vermelho nem de verde
+    if (!cellElement.classList.contains('painted')) {
+        // Pinta o quadrado de verde
         drawPixel(x, y, colors.GREEN);
-        // preenche os demais recursivamente
-        floodFill(x+1, y);
-        floodFill(x, y+1);
-        floodFill(x-1, y);
-        floodFill(x, y-1);
+        // Chama a função de preenchimento recursivamente para os quadrados adjacentes
+        floodFill(x + 1, y);
+        floodFill(x, y + 1);
+        floodFill(x - 1, y);
+        floodFill(x, y - 1);
     }
     return;
 }
