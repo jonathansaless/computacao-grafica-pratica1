@@ -1,8 +1,8 @@
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import { convertListToInteger } from "../features/convertions.js";
-import { clipPolygon } from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 
+// aumentar ou diminuir o tamanho do objeto
 export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     var scaledPolygon = [];
     console.log(scaleX);
@@ -30,5 +30,5 @@ export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     scaledPolygon = convertListToInteger(scaledPolygon);
     console.log('scaled poligono',scaledPolygon);
     // desenha o poligono usando o clip para ja realizar o corte caso precise
-    drawClipPolygon(scaledPolygon, clipPolygon, colors.BLUE);
+    drawClipPolygon(scaledPolygon, colors.BLUE);
 }

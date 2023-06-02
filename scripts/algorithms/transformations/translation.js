@@ -1,8 +1,8 @@
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import { convertListToInteger } from "../features/convertions.js";
-import { clipPolygon } from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 
+// alterar a posição do objeto
 export function translatePolygon(polygon, dx, dy) {
     var translatedPolygon = [];
 
@@ -15,5 +15,6 @@ export function translatePolygon(polygon, dx, dy) {
         translatedPolygon.push(translatedVertex);
     }
     translatedPolygon = convertListToInteger(translatedPolygon);
-    drawClipPolygon(translatedPolygon, clipPolygon, colors.BLUE);
+    console.log(translatedPolygon);
+    drawClipPolygon(translatedPolygon, colors.BLUE);
 }

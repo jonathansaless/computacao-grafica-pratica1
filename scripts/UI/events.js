@@ -115,7 +115,7 @@ function handleButtonClick(button) {
       
       break;
 
-    case 'Projeção Ortogonal':
+    case 'Projeção Ortográfica':
 
       div = createDivOrthographic('orthographic');
       inputContainer.appendChild(div);

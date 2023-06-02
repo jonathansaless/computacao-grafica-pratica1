@@ -1,8 +1,8 @@
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import { convertListToInteger, degreesToRadians } from "../features/convertions.js";
-import { clipPolygon } from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 
+// girar o objeto
 export function rotatePolygon(polygon, angle, pivot) {
     angle = degreesToRadians(angle);
     var rotatedPolygon = [];
@@ -29,5 +29,5 @@ export function rotatePolygon(polygon, angle, pivot) {
         rotatedPolygon.push(finalVertex);
     }
     rotatedPolygon = convertListToInteger(rotatedPolygon);
-    drawClipPolygon(rotatedPolygon, clipPolygon, colors.BLUE);
+    drawClipPolygon(rotatedPolygon, colors.BLUE);
 }

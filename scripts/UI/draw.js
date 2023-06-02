@@ -160,16 +160,17 @@ export function drawAlgorithm() {
             
             var buttonID = buttonSelected.id; // formato: translacao-poligono-N
             var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
-            console.log(number);
 
             var polygon = [];
-
+            console.log(historyPoints);
+            console.log(historyVertices);
+            
             for (var i = 0; i < historyPoints.length; i++) {
                 if (historyPoints[i].polID === number) {
                     polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
                 }
             }
-
+            console.log(polygon);
             translatePolygon(polygon, pontoX, pontoY);
             break;  
             
@@ -202,7 +203,8 @@ export function drawAlgorithm() {
             scalePolygon(polygon, escalaX, escalaY, pontoFixoValues);
             break;
         
-        case 'Projeção Ortogonal':
+        case 'Projeção Ortográfica':
+
             var ortografico = inputContainer.querySelector('#orthographic');
             var buttonSelected = ortografico.querySelector('.draw-button.selected');
             
@@ -222,6 +224,7 @@ export function drawAlgorithm() {
             break;
 
         case 'Projeção Perspectiva':
+            
             var perspectiva = inputContainer.querySelector('#perspective');
             var cubeSelected = perspectiva.querySelector('.cubes.selected');
             var fugaSelected = perspectiva.querySelector('.pontos-fugas.selected');

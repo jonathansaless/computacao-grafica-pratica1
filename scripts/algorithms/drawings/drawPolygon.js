@@ -4,8 +4,9 @@ import { convertListToInteger } from "../features/convertions.js";
 
 function drawPolygon(points, color) {
   points.forEach(function(point) {
+    console.log(point);
     historyPoints.push(point);
-    historyPoints.polID = contPoligon;
+    // historyPoints.polID = contPoligon;
   });
   
   for (let i = 0; i < points.length - 1; i++) {
@@ -16,7 +17,8 @@ function drawPolygon(points, color) {
   // console.log(historyPoints);
   // console.log(historyVertices);
 }
-export function drawClipPolygon(subjectPolygon, color) {
+
+export function drawClipPolygon(polygon, color) {
   var cp1, cp2, s, e;
   
   var inside = function (p) {
@@ -28,11 +30,11 @@ export function drawClipPolygon(subjectPolygon, color) {
       var dp = { x: s.x - e.x, y: s.y - e.y };
       var n1 = cp1.x * cp2.y - cp1.y * cp2.x;
       var n2 = s.x * e.y - s.y * e.x;
-      var n3 = 1.0 / (dc.x * dp.y - dc.y * dp.x);
+      var n3 = 1.0 / (dc.x * dp.y - dc.y * dp.x); 
       return { x: (n1 * dp.x - n2 * dc.x) * n3, y: (n1 * dp.y - n2 * dc.y) * n3 };
   };
-
-  var outputList = subjectPolygon;
+  
+  var outputList = polygon;
   cp1 = clipPolygon[clipPolygon.length - 1];
 
   for (var j = 0; j < clipPolygon.length; j++) {
@@ -47,6 +49,7 @@ export function drawClipPolygon(subjectPolygon, color) {
           if (inside(e)) {
               if (!inside(s)) {
                   outputList.push(computeIntersection());
+                  console.log(outputList);
               }
               outputList.push(e);
           } else if (inside(s)) {
@@ -61,6 +64,12 @@ export function drawClipPolygon(subjectPolygon, color) {
   outputList = convertListToInteger(outputList);
   
   // desenha o poligono com os valores de vertices obtidos
+  
+  outputList.forEach(function(point) {
+    point.polID = contPoligon;
+  })
+
   console.log(outputList);
+
   drawPolygon(outputList, color);
 }
