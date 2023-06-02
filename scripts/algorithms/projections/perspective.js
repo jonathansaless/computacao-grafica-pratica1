@@ -1,6 +1,6 @@
 import { drawClipLine } from "../drawings/drawLine.js";
-import { PROJECTION_MATRIX_XY, multiplyMatrixAndVector } from "./orthographic.js";
-import { multiplyMatrices, divideLista } from "../features/operations.js";
+import { PROJECTION_MATRIX_XY } from "./orthographic.js";
+import { multiplyMatrices, divideLista, multiplyMatrixAndVector } from "../features/operations.js";
 import { convertListToInt } from "../features/convertions.js";
 import * as colors from "../constants/colors.js";
 

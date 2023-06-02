@@ -24,3 +24,19 @@ export function divideLista(lista, x) {
       }
       return resultado;
   }
+
+export function multiplyMatrixAndVector(matrix, vector) {
+    if (matrix[0].length !== vector.length) {
+      throw new Error("Incompatible dimensions for matrix and vector multiplication");
+    }
+  
+    var result = [];
+    for (var i = 0; i < matrix.length; i++) {
+      var sum = 0;
+      for (var j = 0; j < vector.length; j++) {
+        sum += matrix[i][j] * vector[j];
+      }
+      result.push(sum);
+    }
+    return result;
+  }

@@ -8,22 +8,6 @@ var cont = 1;
 export var controlPoints = [];
 export var polilynePoints = [];
 
-function changeBackgroundColor(event) {
-  var button = event.target;
-  // reinicia variaveis
-  cont = 1;
-  controlPoints = [];
-  polilynePoints = [];
-  if (previousButton !== null) {
-    previousButton.classList.remove('selected');
-  }
-
-  button.classList.add('selected');
-  previousButton = button;
-
-  handleButtonClick(button);
-}
-
 function handleButtonClick(button) {
 
   // Remova os inputs anteriores
@@ -546,6 +530,22 @@ function clearScreen() {
     subElement.style.backgroundColor = '#ffffff'; // Define a cor de fundo para vermelho (altere para a cor desejada)
     subElement.classList.remove('painted');
   }
+}
+
+function changeBackgroundColor(event) {
+  var button = event.target;
+  // reinicia variaveis
+  cont = 1;
+  controlPoints = [];
+  polilynePoints = [];
+  if (previousButton !== null) {
+    previousButton.classList.remove('selected');
+  }
+
+  button.classList.add('selected');
+  previousButton = button;
+
+  handleButtonClick(button);
 }
 
 buttons.forEach(function(button) {

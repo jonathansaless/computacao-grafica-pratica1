@@ -10,7 +10,6 @@ export function convertListToInteger(points) {
 
 export function convertListToInt(points) {
     var result = [];
-  
     for (var i = 0; i < points.length; i++) {
       var roundedPoint = Math.round(points[i], 10);
       
