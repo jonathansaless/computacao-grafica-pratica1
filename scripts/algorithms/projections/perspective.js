@@ -1,5 +1,5 @@
 import { PROJECTION_MATRIX_XY, multiplyMatrixAndVector } from "./orthographic.js";
-import { drawClipLine } from "../drawLine.js";
+import { drawClipLine } from "../drawings/drawLine.js";
 import * as colors from "../constants/colors.js";
 
 const FOCAL_DISTANCE = 20;

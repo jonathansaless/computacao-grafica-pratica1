@@ -1,5 +1,5 @@
 // js contendo os procedimentos necessários para criação do painel de desenhos
-const canvas = document.getElementById("canvas");
+const canvas = document.querySelector(".canvas");
 const screen = document.querySelector(".screen");
 const drawingContext = canvas.getContext("2d");
 

@@ -1,8 +1,7 @@
-import { drawPixel } from "./drawPixel.js";
-import * as colors from "./constants/colors.js";
+import { drawPixel } from "../drawPixel.js";
 
-/* CÓDIGO AINDA NÃO ESTÁ FUNCIONANDO COMO ESPERADO */
-export function drawBezierCurve(startX, startY, endX, endY, controlPoints) {
+// algoritmo para desenho de curvas de bezier
+export function drawCurve(startX, startY, endX, endY, controlPoints, color) {
 
     const points = [
         { x: startX, y: startY }
@@ -37,7 +36,7 @@ export function drawBezierCurve(startX, startY, endX, endY, controlPoints) {
         const pFinal = interpolate(p01, p12, t);
 
         // Desenha o pixel correspondente ao ponto final da curva
-        drawPixel(Math.round(pFinal.x), Math.round(pFinal.y), colors.RED);
+        drawPixel(Math.round(pFinal.x), Math.round(pFinal.y), color);
     }
 }
   

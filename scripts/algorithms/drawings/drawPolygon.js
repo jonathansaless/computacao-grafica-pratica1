@@ -1,7 +1,6 @@
-import * as line from "./drawLine.js";
-import { historyPoints } from "./constants/variables.js";
-import { contPoligon, clipPolygon } from "./constants/variables.js";
-import { convertListToInteger } from "./features/convertListToInteger.js";
+import { drawClipLine } from "./drawLine.js";
+import { contPoligon, clipPolygon, historyPoints } from "../constants/variables.js";
+import { convertListToInteger } from "../features/convertListToInteger.js";
 
 function drawPolygon(points, color) {
   points.forEach(function(point) {
@@ -12,7 +11,7 @@ function drawPolygon(points, color) {
   for (let i = 0; i < points.length - 1; i++) {
     const { x: x0, y: y0 } = points[i];
     const { x: x1, y: y1 } = points[i + 1];
-    line.bresenhamLine(x0, y0, x1, y1, color);
+    drawClipLine(x0, y0, x1, y1, color);
   }
   // console.log(historyPoints);
   // console.log(historyVertices);

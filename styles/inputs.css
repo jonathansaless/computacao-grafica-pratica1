@@ -1,0 +1,35 @@
+input { 
+    height: 5vh;
+    width: 5vw;
+    padding: 2px;
+    margin: 5px;
+  
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 1rem;
+  
+    box-shadow: 0.2vh 0.2vh black;
+    transition: 100ms ease-in;
+}
+  
+input:hover { 
+    background-color: rgb(239, 255, 149);
+    box-shadow: 0rem 0rem black;
+    transform: translateX(0.5vh) translateY(0.5vh);
+    transition: 100ms ease-in;
+}
+  
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-column-gap: 30px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px;
+}
+  
+.userInput {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,5 +1,5 @@
 import { convertListToInteger } from "../features/convertListToInteger.js";
-import { drawClipPolygon } from "../drawPolygon.js";
+import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import * as constant from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 
@@ -34,5 +34,5 @@ export function rotatePolygon(polygon, angle, pivot) {
         rotatedPolygon.push(finalVertex);
     }
     rotatedPolygon = convertListToInteger(rotatedPolygon);
-    clipPolygon(rotatedPolygon, constant.clipPolygon, colors.BLUE);
+    drawClipPolygon(rotatedPolygon, constant.clipPolygon, colors.BLUE);
 }

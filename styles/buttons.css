@@ -1,0 +1,94 @@
+.menu-button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+    
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: gray;
+  
+    box-shadow: 0.2vh 0.2vh black;
+    transition: 100ms ease-in;
+  }
+  
+  .menu-button:hover {
+    background-color: blue;
+    box-shadow: 0rem 0rem black;
+    transform: translateX(0.5vh) translateY(0.5vh);
+    transition: 100ms ease-in;
+  }
+  
+  .menu-button.selected {
+    background-color: blue;
+  }
+  
+  .clear-button {
+    margin: 5px;
+    height: 8vh;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: red;
+  
+    box-shadow: 0.2vh 0.2vh black;
+    transition: 100ms ease-in;
+  }
+  
+  .clear-button:hover {
+    background-color: blue;
+    box-shadow: 0rem 0rem black;
+    transform: translateX(0.5vh) translateY(0.5vh);
+    transition: 100ms ease-in;
+  }
+  
+  .draw-button {
+    height: 8vh;
+    cursor: pointer;
+    font-weight: bold;
+    
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: gray;
+  
+    box-shadow: 0.2vh 0.2vh black;
+    transition: 100ms ease-in;
+  }
+  
+  .draw-button:hover {
+    background-color: green;
+    box-shadow: 0rem 0rem black;
+    transform: translateX(0.5vh) translateY(0.5vh);
+    transition: 100ms ease-in;
+  }
+  
+  .draw-button.selected {
+    background-color: green;
+  }
+  
+  .add-button {
+    height: 5vh;
+    cursor: pointer;
+    font-weight: bold;
+    
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: gray;
+  
+    box-shadow: 0.2vh 0.2vh black;
+    transition: 100ms ease-in;
+  }
+  
+  .add-button:hover {
+    background-color: green;
+    box-shadow: 0rem 0rem black;
+    transform: translateX(0.5vh) translateY(0.5vh);
+    transition: 100ms ease-in;
+  }
+  
+  .add-button.selected {
+    background-color: green;
+  }

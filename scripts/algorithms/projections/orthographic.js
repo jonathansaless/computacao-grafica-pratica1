@@ -1,4 +1,4 @@
-import { drawClipLine } from "../drawLine.js";
+import { drawClipLine } from "../drawings/drawLine.js";
 import * as colors from "../constants/colors.js";
 // Projeção Ortográfica - Matriz de Rotação
 export const PROJECTION_MATRIX_XY = [

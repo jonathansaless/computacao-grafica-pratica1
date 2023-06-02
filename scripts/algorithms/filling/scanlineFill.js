@@ -1,9 +1,8 @@
-import { drawPixel } from "./drawPixel.js";
-import * as colors from "./constants/colors.js";
-import * as history from "./constants/variables.js";
+import { drawPixel } from "../drawPixel.js";
+import * as colors from "../constants/colors.js";
 
 // Função para preencher o polígono usando o algoritmo Scanline com pontos críticos
-export function scanlineFillWithCriticalPoints(vertices) {
+export function scanlineFill(vertices) {
   // Etapa 1: Construção da tabela de arestas
   const edgeTable = {};
 
@@ -93,27 +92,3 @@ function isPointInsidePolygon(x, y, vertices) {
 function isVertexPoint(x, y, vertices) {
   return vertices.some(vertex => vertex.x === x && vertex.y === y);
 }
-
-// Exemplo de uso:
-const vertices = [
-  { x: 4, y: 4 },
-  { x: 5, y: 4 },
-  { x: 6, y: 4 },
-  { x: 7, y: 4 },
-  { x: 8, y: 4 },
-  { x: 8, y: 5 },
-  { x: 8, y: 6 },
-  { x: 8, y: 7 },
-  { x: 8, y: 8 },
-  { x: 7, y: 8 },
-  { x: 6, y: 8 },
-  { x: 5, y: 9 },
-  { x: 4, y: 9 },
-  { x: 4, y: 8 },
-  { x: 4, y: 7 },
-  { x: 4, y: 6 },
-  { x: 4, y: 5 },
-  { x: 4, y: 4 }
-];
-
-//scanlineFillWithCriticalPoints(vertices);
