@@ -5,17 +5,16 @@ Trabalho prático 1 da disciplina de Computação Gráfica da UFPA período 2023
 https://jonathansaless.github.io/computacao-grafica-pratica1/
 
 # Algoritmos Implementados
-- Bresenham
-- Círculos algoritmo do ponto médio
-- Curvas de Bezier
-- Polilinha (utilizando um conjunto de retas bresenham)
-- Preenchimento Recursivo e Varredura
-- Recorte de linha
-- Recorte de Polígono
-- Transformações
-- Projeção Ortogonal e Projeção Perspectiva
+- Desenho de Linhas - Bresenham
+- Desenho de Círculos - Ponto médio
+- Desenho de Curvas - Bezier
+- Desenho de Polígonos - Polilinha (conjunto de retas bresenham)
+- Preenchimento - Recursivo e Varredura
+- Recorte de Linha e Polígono
+- Transformações - Rotação, translação e escala
+- Projeção Ortográfica e Perspectiva
 
-# Vídeo da apresentação da aplicação
+# Apresentação
 <APRESENTAÇÃO>
 
 # Autores
