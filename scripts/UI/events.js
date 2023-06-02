@@ -1,8 +1,5 @@
 import { drawAlgorithm} from "./draw.js"; 
-// import { clearScreen } from "./main.js";
-import { contPoligon } from "../algorithms/constants/variables.js";
-import { emptyHistory } from "../algorithms/constants/variables.js";
-import { restartContPolygon } from "../algorithms/constants/variables.js";
+import { emptyHistory, restartContPolygon, contPoligon } from "../algorithms/constants/variables.js";
 
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;

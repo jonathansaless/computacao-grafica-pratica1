@@ -1,6 +1,6 @@
 import { drawClipLine } from "./drawLine.js";
 import { contPoligon, clipPolygon, historyPoints } from "../constants/variables.js";
-import { convertListToInteger } from "../features/convertListToInteger.js";
+import { convertListToInteger } from "../features/convertions.js";
 
 function drawPolygon(points, color) {
   points.forEach(function(point) {

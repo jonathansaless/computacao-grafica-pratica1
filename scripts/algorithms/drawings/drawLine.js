@@ -1,6 +1,5 @@
 import { drawPixel } from "../drawPixel.js";
-import { historyVertices, x_min, y_min, x_max, y_max } from "../constants/variables.js";
-import { contPoligon } from "../constants/variables.js";
+import { contPoligon, historyVertices, x_min, y_min, x_max, y_max } from "../constants/variables.js";
 
 // Algoritmo de Bresenham para desenho de linhas
 function drawLine(x0, y0, x1, y1, color) {

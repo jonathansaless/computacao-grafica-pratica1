@@ -1,12 +1,7 @@
-import { convertListToInteger } from "../features/convertListToInteger.js";
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
-import * as constant from "../constants/variables.js";
+import { convertListToInteger, degreesToRadians } from "../features/convertions.js";
+import { clipPolygon } from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
-
-// converte o angulo em graus para radiano
-function degreesToRadians(degrees) {
-    return degrees * (Math.PI / 180);
-}
 
 export function rotatePolygon(polygon, angle, pivot) {
     angle = degreesToRadians(angle);
@@ -34,5 +29,5 @@ export function rotatePolygon(polygon, angle, pivot) {
         rotatedPolygon.push(finalVertex);
     }
     rotatedPolygon = convertListToInteger(rotatedPolygon);
-    drawClipPolygon(rotatedPolygon, constant.clipPolygon, colors.BLUE);
+    drawClipPolygon(rotatedPolygon, clipPolygon, colors.BLUE);
 }

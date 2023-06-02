@@ -1,6 +1,6 @@
-import { convertListToInteger } from "../features/convertListToInteger.js";
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
-import * as constant from "../constants/variables.js";
+import { convertListToInteger } from "../features/convertions.js";
+import { clipPolygon } from "../constants/variables.js";
 import * as colors from "../constants/colors.js";
 
 export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
@@ -30,5 +30,5 @@ export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     scaledPolygon = convertListToInteger(scaledPolygon);
     console.log('scaled poligono',scaledPolygon);
     // desenha o poligono usando o clip para ja realizar o corte caso precise
-    drawClipPolygon(scaledPolygon, constant.clipPolygon, colors.BLUE);
+    drawClipPolygon(scaledPolygon, clipPolygon, colors.BLUE);
 }
