@@ -16,7 +16,7 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Projeção Ortogonal e Projeção Perspectiva
 
 # Vídeo da apresentação da aplicação
-[![Michael Jackson](https://img.youtube.com/vi/QNJL6nfu__Q/0.jpg)](https://www.youtube.com/watch?v=QNJL6nfu__Q)
+<APRESENTAÇÃO>
 
 # Autores
 - Jonathan Sales
