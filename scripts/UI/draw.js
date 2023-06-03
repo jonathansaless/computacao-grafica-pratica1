@@ -76,10 +76,8 @@ export function drawAlgorithm() {
                 alert('Favor informar no mínimo 3 pontos!');
                 break;
             }
-            console.log(polilynePoints);
+
             drawClipPolygon(polilynePoints, colors.RED);
-            // soma +1 no contador de poligonos
-            addContPolygon();
 
             break;
         
@@ -102,7 +100,6 @@ export function drawAlgorithm() {
             
             var buttonID = buttonSelected.id; // formato: varredura-poligono-N
             var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
-            console.log(number);
 
             var verticesScanline = [];
 
@@ -133,7 +130,6 @@ export function drawAlgorithm() {
             
             var buttonID = buttonSelected.id; // formato: rotacao-poligono-N
             var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
-            console.log(number);
 
             var polygon = [];
 
@@ -142,8 +138,6 @@ export function drawAlgorithm() {
                     polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
                 }
               }
-            // for para criar pegar os vertices apenas do poligono com id do botão
-            // necessita apenas do poligono
 
             rotatePolygon(polygon, anguloValue, pivo);
             break;
@@ -162,15 +156,13 @@ export function drawAlgorithm() {
             var number = parseInt(buttonID.split("-")[2]); // queremos apenas o número no final
 
             var polygon = [];
-            console.log(historyPoints);
-            console.log(historyVertices);
             
             for (var i = 0; i < historyPoints.length; i++) {
                 if (historyPoints[i].polID === number) {
                     polygon.push({ x: historyPoints[i].x, y: historyPoints[i].y });
                 }
             }
-            console.log(polygon);
+
             translatePolygon(polygon, pontoX, pontoY);
             break;  
             

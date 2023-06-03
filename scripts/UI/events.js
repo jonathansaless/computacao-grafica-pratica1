@@ -512,7 +512,7 @@ function insertDrawingButton(container, buttonText) {
 
 }
 
-function clearScreen() {
+export function clearScreen() {
   const screen = document.querySelector(".screen");
   const subElements = screen.querySelectorAll('*');
   // zera o historico de pontos e vertices

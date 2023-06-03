@@ -1,5 +1,6 @@
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import { convertListToInteger } from "../features/convertions.js";
+import { clearScreen } from "../../UI/events.js";
 import * as colors from "../constants/colors.js";
 
 // Função para aumentar ou diminuir o tamanho de um polígono
@@ -36,6 +37,9 @@ export function scalePolygon(polygon, scaleX, scaleY, fixedPoint) {
     // Converte as coordenadas dos vértices para valores inteiros
     scaledPolygon = convertListToInteger(scaledPolygon);
     
+    // Apaga o antigo polígono
+    clearScreen();
+
     // Desenha o polígono redimensionado na cor azul
-    drawClipPolygon(scaledPolygon, colors.BLUE);
+    drawClipPolygon(scaledPolygon, colors.RED);
 }

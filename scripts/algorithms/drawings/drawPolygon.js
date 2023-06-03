@@ -1,9 +1,10 @@
 import { drawClipLine } from "./drawLine.js";
-import { contPolygon, clipPolygon, historyPoints } from "../constants/variables.js";
+import { contPolygon, addContPolygon, clipPolygon, historyPoints } from "../constants/variables.js";
 import { convertListToInteger } from "../features/convertions.js";
 
 // Função para desenho de polígonos
 function drawPolygon(points, color) {
+  
   points.forEach(function(point) {
     console.log(point);
     historyPoints.push(point);
@@ -15,6 +16,8 @@ function drawPolygon(points, color) {
     const { x: x1, y: y1 } = points[i + 1];
     drawClipLine(x0, y0, x1, y1, color);
   }
+  // Soma +1 no contador de poligonos, indicando que mais um polígono foi adicionado
+  addContPolygon();
 }
 
 // algoritmo para recortar o polígono antes de realizar o desenho do polígono

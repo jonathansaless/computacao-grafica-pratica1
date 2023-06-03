@@ -1,5 +1,6 @@
 import { drawClipPolygon } from "../drawings/drawPolygon.js";
 import { convertListToInteger, degreesToRadians } from "../features/convertions.js";
+import { clearScreen } from "../../UI/events.js";
 import * as colors from "../constants/colors.js";
 
 // Função para girar um polígono
@@ -43,6 +44,9 @@ export function rotatePolygon(polygon, angle, pivot) {
     // Converte as coordenadas dos vértices para valores inteiros
     rotatedPolygon = convertListToInteger(rotatedPolygon);
     
+    // Apaga o antigo polígono
+    clearScreen();
+
     // Desenha o polígono rotacionado na cor azul
-    drawClipPolygon(rotatedPolygon, colors.BLUE);
+    drawClipPolygon(rotatedPolygon, colors.RED);
 }

@@ -8,15 +8,7 @@ export function drawPixel(pointX, pointY, color) {
 
     // Define a cor de fundo do ponto como a cor fornecida
     pointElement.style.backgroundColor = color;
-
-    // Se a cor for Branca, então o pixel está sendo apagado. Logo, a classe painted é removida
-    if(color == '#ffffff'){
-        // Remove a classe 'painted' ao ponto para indicar que não está mais pintado
-        pointElement.classList.remove('painted');
-    }
-    else{
-        // Adiciona a classe 'painted' ao ponto para indicar que foi pintado
-        pointElement.classList.add('painted');
-    }
     
+    // Adiciona a classe 'painted' ao ponto para indicar que foi pintado
+    pointElement.classList.add('painted');
 }
