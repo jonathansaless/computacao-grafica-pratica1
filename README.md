@@ -14,9 +14,9 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Desenho de Curvas - Bezier
 - Desenho de Polígonos - Polilinha (conjunto de retas bresenham)
 - Preenchimento - Recursivo e Varredura
-- Recorte de Linha e Polígono
-- Transformações - Rotação, translação e escala
-- Projeção Ortográfica e Perspectiva
+- Recorte - Linha e Polígono
+- Transformações - Rotação, Translação e Escala
+- Projeções - Ortográfica e Perspectiva
 
 # Execução local do projeto
 - Instalar a extensão "Live Server" no Visual Studio Code (VScode).
