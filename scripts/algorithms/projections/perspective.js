@@ -7,7 +7,7 @@ import * as colors from "../constants/colors.js";
 const FOCAL_DISTANCE = 20;
 
 export function perspectiveProjectionOne(cube){ 
-  // Um Ponto de fuga
+  // Um ponto de fuga
   const PROJECTION_MATRIX_XY_one = multiplyMatrices(PROJECTION_MATRIX_XY, ([
     [FOCAL_DISTANCE, 0,              0,              0             ],
     [0,              FOCAL_DISTANCE, 0,              0             ],
@@ -40,6 +40,7 @@ export function perspectiveProjectionTwo(cube){
   for(var i = 0; i < cube.length - 1; i++){
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_two, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_two, cube[i+1]);
+    
     point = convertListToInt(divideLista(point, point[3]));
     nextPoint = convertListToInt(divideLista(nextPoint, nextPoint[3]));
 
@@ -59,6 +60,7 @@ export function perspectiveProjectionThree(cube){
   for(var i = 0; i < cube.length - 1; i++){
     var point = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_three, cube[i]);
     var nextPoint = multiplyMatrixAndVector(PROJECTION_MATRIX_XY_three, cube[i+1]);
+    
     point = convertListToInt(divideLista(point, point[3]));
     nextPoint = convertListToInt(divideLista(nextPoint, nextPoint[3]));
 
