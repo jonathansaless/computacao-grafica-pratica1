@@ -1,5 +1,5 @@
 import { drawPixel } from "../drawPixel.js";
-import { contPoligon, historyVertices, x_min, y_min, x_max, y_max } from "../constants/variables.js";
+import { contPolygon, historyVertices, x_min, y_min, x_max, y_max } from "../constants/variables.js";
 
 // Função para desenho de linhas
 function drawLine(x0, y0, x1, y1, color) {
@@ -16,7 +16,7 @@ function drawLine(x0, y0, x1, y1, color) {
 
   // Loop principal do algoritmo de Bresenham
   while (x0 !== x1 || y0 !== y1) {
-    historyVertices.push({x: x0, y: y0, polID: contPoligon});
+    historyVertices.push({x: x0, y: y0, polID: contPolygon});
     // Desenha o pixel atual
     drawPixel(x0, y0, color);
     
@@ -36,7 +36,7 @@ function drawLine(x0, y0, x1, y1, color) {
     }
   }
   // Desenha o último pixel da linha
-  historyVertices.push({x: x1, y: y1, polID: contPoligon})
+  historyVertices.push({x: x1, y: y1, polID: contPolygon})
   drawPixel(x1, y1, color);
 }
 

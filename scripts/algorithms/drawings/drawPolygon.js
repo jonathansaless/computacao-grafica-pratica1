@@ -1,5 +1,5 @@
 import { drawClipLine } from "./drawLine.js";
-import { contPoligon, clipPolygon, historyPoints } from "../constants/variables.js";
+import { contPolygon, clipPolygon, historyPoints } from "../constants/variables.js";
 import { convertListToInteger } from "../features/convertions.js";
 
 // Função para desenho de polígonos
@@ -75,7 +75,7 @@ export function drawClipPolygon(polygon, color) {
   
   // Atribui um identificador ao polígono desenhado
   outputList.forEach(function(point) {
-    point.polID = contPoligon;
+    point.polID = contPolygon;
   })
 
   console.log(outputList);

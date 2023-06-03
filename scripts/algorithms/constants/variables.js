@@ -1,5 +1,5 @@
 // contador de polígonos
-export var contPoligon = 0;
+export var contPolygon = 0;
 
 // historico de pontos de poligonos
 export var historyPoints = [];
@@ -65,10 +65,10 @@ export function emptyHistory(){
 
 // adiciona +1 ao contador de poligonos
 export function addContPolygon(){
-  contPoligon++;
+  contPolygon++;
 }
 
 // reinicia contador de poligonos
 export function restartContPolygon() {
-  contPoligon = 0; 
+  contPolygon = 0; 
 }

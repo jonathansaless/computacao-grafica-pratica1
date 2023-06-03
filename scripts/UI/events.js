@@ -1,5 +1,5 @@
 import { drawAlgorithm} from "./draw.js"; 
-import { emptyHistory, restartContPolygon, contPoligon } from "../algorithms/constants/variables.js";
+import { emptyHistory, restartContPolygon, contPolygon } from "../algorithms/constants/variables.js";
 
 var buttons = document.querySelectorAll('.menu-button');
 var previousButton = null;
@@ -69,7 +69,7 @@ function handleButtonClick(button) {
     case 'Varredura':
 
       // se não houver poligonos desenhados
-      if(contPoligon == 0){
+      if(contPolygon == 0){
         alert('Não há polígonos desenhados! Acesse "Polígono" e desenhe seu primeiro polígono');
         break;
       }
@@ -209,7 +209,7 @@ function createDivScanline(idDiv) {
   buttonsDiv.setAttribute('id', idDiv);
   buttonsDiv.setAttribute('class', 'fade-in');
 
-  for (var i = 0; i < contPoligon; i++) {
+  for (var i = 0; i < contPolygon; i++) {
     var button = document.createElement('button');
     button.setAttribute('class', 'draw-button');
     button.setAttribute('id', 'varredura-poligono-' + i);
@@ -335,7 +335,7 @@ function createSelectionButton(idDiv) {
   buttonsDiv.setAttribute('id', idDiv);
   buttonsDiv.setAttribute('class', 'fade-in');
 
-  for (var i = 0; i < contPoligon; i++) {
+  for (var i = 0; i < contPolygon; i++) {
     var button = document.createElement('button');
     button.setAttribute('class', 'draw-button');
     button.setAttribute('id', idDiv+'-poligono-' + i);
@@ -455,7 +455,7 @@ function addPolilynePoint() {
     return;
   }else{
     // adiciona um campo de ID do poligono, para passar o poligona para preenchimento por varredura
-    polilynePoints.push({ x:  parseInt(inputX), y: parseInt(inputY), polID: contPoligon});
+    polilynePoints.push({ x:  parseInt(inputX), y: parseInt(inputY), polID: contPolygon});
     polilynePointBefore.style.display = 'none';
   }
   
