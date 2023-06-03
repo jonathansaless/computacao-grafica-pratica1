@@ -25,5 +25,8 @@ export function translatePolygon(polygon, dx, dy) {
     translatedPolygon = convertListToInteger(translatedPolygon);
     
     // Desenha o polígono transladado na cor azul
+    drawClipPolygon(translatedPolygon, colors.WHITE);
+
+    // Desenha o polígono transladado na cor azul
     drawClipPolygon(translatedPolygon, colors.BLUE);
 }
