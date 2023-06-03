@@ -368,7 +368,6 @@ function addControlPoint() {
 
   let controlPointBefore = document.getElementById('ponto-controle-'+(cont-1));
   /* salva os pontos que estavam no input */
-  console.log(controlPointBefore);
   let inputX = (controlPointBefore.querySelector('input[placeholder="x"]')).value;
   let inputY = (controlPointBefore.querySelector('input[placeholder="y"]')).value;
 
@@ -377,8 +376,6 @@ function addControlPoint() {
     return;
 
   }else{
-    console.log('Valor de x:', inputX);
-    console.log('Valor de y:', inputY);
     controlPoints.push({ x:  parseInt(inputX), y: parseInt(inputY)});
     controlPointBefore.style.display = 'none';  
   }
