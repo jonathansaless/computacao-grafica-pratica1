@@ -31,3 +31,6 @@ Obs.: Lembrando que para maior praticidade, o deploy da aplicação está dispon
 
 # Apresentação
 [![Apresentação de Trabalho Prático 1 de Computação Gráfica](https://img.youtube.com/vi/AnsP_ctWqVs/0.jpg)](https://youtu.be/AnsP_ctWqVs)
+
+
+[<img src="https://i.ytimg.com/vi/AnsP_ctWqVs/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=AnsP_ctWqVs "Apresentação de Trabalho Prático 1 de Computação Gráfica")
