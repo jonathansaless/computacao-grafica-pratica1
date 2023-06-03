@@ -10,17 +10,16 @@ export function translatePolygon(polygon, dx, dy) {
 
     // Itera sobre os vértices do polígono
     for (var i = 0; i < polygon.length; i++) {
-        var vertex = polygon[i];
+        var point = polygon[i];
 
         // Translada o vértice adicionando os deslocamentos dx e dy
-        var translatedVertex = {
-            x: vertex.x + dx,
-            y: vertex.y + dy,
-            polID: vertex.polID
+        var translatedPoint = {
+            x: point.x + dx,
+            y: point.y + dy,
         };
 
         // Adiciona o vértice transladado à lista do polígono transladado
-        translatedPolygon.push(translatedVertex);
+        translatedPolygon.push(translatedPoint);
     }
     
     // Converte as coordenadas dos vértices para valores inteiros

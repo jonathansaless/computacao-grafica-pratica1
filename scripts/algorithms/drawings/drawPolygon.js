@@ -81,7 +81,7 @@ export function drawClipPolygon(polygon, color) {
     point.polID = contPolygon;
   })
 
-  console.log(outputList);
+  //console.log(outputList);
 
   // Desenha o polígono resultante
   drawPolygon(outputList, color);

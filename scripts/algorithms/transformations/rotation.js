@@ -17,28 +17,28 @@ export function rotatePolygon(polygon, angle, pivot) {
 
     // Itera sobre os vértices do polígono
     for (var i = 0; i < polygon.length; i++) {
-        var vertex = polygon[i];
+        var point = polygon[i];
         
         // Translada o vértice em relação ao pivô
-        var translatedVertex = {
-            x: vertex.x - pivot.x,
-            y: vertex.y - pivot.y
+        var translatedPoint = {
+            x: point.x - pivot.x,
+            y: point.y - pivot.y
         };
 
         // Aplica a rotação no vértice transladado
-        var rotatedVertex = {
-            x: translatedVertex.x * cosAngle - translatedVertex.y * sinAngle,
-            y: translatedVertex.x * sinAngle + translatedVertex.y * cosAngle
+        var rotatedPoint = {
+            x: translatedPoint.x * cosAngle - translatedPoint.y * sinAngle,
+            y: translatedPoint.x * sinAngle + translatedPoint.y * cosAngle
         };
 
         // Translada o vértice rotacionado de volta para sua posição original
-        var finalVertex = {
-            x: rotatedVertex.x + pivot.x,
-            y: rotatedVertex.y + pivot.y
+        var finalPoint = {
+            x: rotatedPoint.x + pivot.x,
+            y: rotatedPoint.y + pivot.y
         };
 
         // Adiciona o vértice final ao polígono rotacionado
-        rotatedPolygon.push(finalVertex);
+        rotatedPolygon.push(finalPoint);
     }
     
     // Converte as coordenadas dos vértices para valores inteiros
@@ -47,6 +47,6 @@ export function rotatePolygon(polygon, angle, pivot) {
     // Apaga o antigo polígono
     clearScreen();
 
-    // Desenha o polígono rotacionado na cor azul
+    // Desenha o polígono rotacionado na cor vermelha
     drawClipPolygon(rotatedPolygon, colors.RED);
 }
