@@ -405,7 +405,7 @@ function addControlPoint() {
   addButton.before(controlPoint); /* adiciona antes do botão de adicionar*/
 
   cont++;
-  if (cont > 4) {
+  if (cont > 3) {
     addButton.disabled = true;
     addButton.innerText = 'Máximo adicionado!';
     controlPoint.remove();
