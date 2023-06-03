@@ -28,6 +28,6 @@ export function translatePolygon(polygon, dx, dy) {
     // Apaga o antigo polígono
     clearScreen();
 
-    // Desenha o polígono transladado na cor azul
+    // Desenha o polígono transladado na cor vermelha
     drawClipPolygon(translatedPolygon, colors.RED);
 }
