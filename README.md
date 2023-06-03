@@ -1,5 +1,5 @@
 # Trabalho Prático 1
-Trabalho prático 1 da disciplina de Computação Gráfica da UFPA período 2023.2. O trabalho consiste em desenvolver uma aplicação que desenhe pixels utilizando algoritmos de CG, como Bresenham, Algoritmo do ponto médio e etc. Nossa aplicação foi desenvolvida em HTML, CSS e JavaScript.
+Trabalho prático 1 da disciplina de Computação Gráfica da UFPA no período 2023.2. O trabalho consiste em desenvolver uma aplicação que desenhe pixels utilizando algoritmos de CG, como Bresenham, Algoritmo do ponto médio e etc. Nossa aplicação foi desenvolvida em HTML, CSS e JavaScript.
 
 # Alunos
 - Jonathan José C. de Sales.        Nº Matrícula: 201804940058
