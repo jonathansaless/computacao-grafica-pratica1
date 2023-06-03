@@ -33,8 +33,7 @@ b {
 
 .menu { 
   display: flex;
-  flex-wrap: wrap; /* adicionar quebra de linha*/
-  /*flex-basis: 100%;*/
+  flex-wrap: wrap;
   width: 100vw;
   justify-content: center;
 }
