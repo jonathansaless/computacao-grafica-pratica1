@@ -7,9 +7,7 @@ import * as colors from "../constants/colors.js";
 const FOCAL_DISTANCE = 20;
 
 export function perspectiveProjectionOne(cube){ 
-  // Ponto de fuga único
-  
-  // Define a matriz de projeção para um ponto de fuga
+  // Um Ponto de fuga
   const PROJECTION_MATRIX_XY_one = multiplyMatrices(PROJECTION_MATRIX_XY, ([
     [FOCAL_DISTANCE, 0,              0,              0             ],
     [0,              FOCAL_DISTANCE, 0,              0             ],
