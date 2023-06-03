@@ -1,3 +1,6 @@
+// Alunos:  Jonathan José C. de Sales.      Matrícula: 201804940058
+//          Antônio Melgacino de S. Neto.   Matrícula: 201804940032
+
 import * as colors from "./algorithms/constants/colors.js";
 
 // Seleciona o elemento HTML com a classe 'canvas'
