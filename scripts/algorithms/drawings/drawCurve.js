@@ -1,47 +1,35 @@
 import { drawPixel } from "../drawPixel.js";
 
-// Função para desenho de curvas de bezier
 export function drawCurve(startX, startY, endX, endY, controlPoints, color) {
-
-    // Array que irá conter os pontos da curva de Bezier
     const points = [
-        { x: startX, y: startY }
+        { x: startX, y: startY },
+        ...controlPoints,
+        { x: endX, y: endY }
     ];
     
-    // Adiciona os pontos de controle ao array de pontos
-    controlPoints.forEach(element => {
-        points.push(element);
-    });
-    
-    // Adiciona o ponto final ao array de pontos
-    points.push({ x: endX, y: endY });
-    
-    // Quantidade de segmentos da curva
     const segments = 100;
-
-    // Intervalo entre cada segmento
     const tDelta = 1 / segments;
 
-    // Itera sobre os segmentos da curva
     for (let t = 0; t <= 1; t += tDelta) {
-        // Calcula os pontos intermediários da curva de Bezier
-        const p0 = interpolate(points[0], points[1], t);
-        const p1 = interpolate(points[1], points[2], t);
-        const p2 = interpolate(points[2], points[3], t);
+        let p = points;
+        let pTemp;
 
-        // Calcula os pontos intermediários do próximo nível
-        const p01 = interpolate(p0, p1, t);
-        const p12 = interpolate(p1, p2, t);
+        while (p.length > 1) {
+            pTemp = [];
+            for (let i = 0; i < p.length - 1; i++) {
+                const p0 = p[i];
+                const p1 = p[i + 1];
+                const interpolatedPoint = interpolate(p0, p1, t);
+                pTemp.push(interpolatedPoint);
+            }
+            p = pTemp;
+        }
 
-        // Calcula o ponto final da curva no nível atual
-        const pFinal = interpolate(p01, p12, t);
-
-        // Desenha o pixel correspondente ao ponto final da curva
+        const pFinal = p[0];
         drawPixel(Math.round(pFinal.x), Math.round(pFinal.y), color);
     }
 }
-  
-// Função auxiliar para interpolar coordenadas
+
 function interpolate(p0, p1, t) {
     const x = p0.x + (p1.x - p0.x) * t;
     const y = p0.y + (p1.y - p0.y) * t;
