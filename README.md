@@ -18,11 +18,16 @@ https://jonathansaless.github.io/computacao-grafica-pratica1/
 - Transformações - Rotação, Translação e Escala
 - Projeções - Ortográfica e Perspectiva
 
-# Execução local do projeto
-- Instalar a extensão "Live Server" no Visual Studio Code (VScode).
-- Após instalado, clicar com o botão direito do mouse sobre o arquivo index.html e selecionar a opção "Open with Live Server".
+# Execução local do projeto utilizando o VSCode
+- Realizar o download ou o clone do repositório com o comando no terminal:
+```
+git clone https://github.com/jonathansaless/computacao-grafica-pratica1.git
+```
+- Baixar o Visual Studio Code (https://code.visualstudio.com/).
+- Instalar a extensão "Live Server" no VS Code.
+- Após instalado, clicar com o botão direito do mouse sobre o arquivo index.html e selecionar a opção "Open with Live Server". Abrirá uma nova guia de seu navegador com uma execução local do projeto.
 
-Obs.: Lembrando que para maior praticidade dos testes, o deploy da aplicação está disponível no [GitHub Pages](https://jonathansaless.github.io/computacao-grafica-pratica1/).
+Obs.: Lembrando que para maior praticidade, o deploy da aplicação está disponível [aqui](https://jonathansaless.github.io/computacao-grafica-pratica1/).
 
 # Apresentação
 <APRESENTAÇÃO>
