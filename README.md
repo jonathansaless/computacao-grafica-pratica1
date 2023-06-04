@@ -30,4 +30,4 @@ git clone https://github.com/jonathansaless/computacao-grafica-pratica1.git
 Obs.: Lembrando que para maior praticidade, o deploy da aplicação está disponível [aqui](https://jonathansaless.github.io/computacao-grafica-pratica1/).
 
 # Apresentação
-[<img src="https://i.ytimg.com/vi/AnsP_ctWqVs/maxresdefault.jpg">](https://youtu.be/AnsP_ctWqVs "Apresentação de Trabalho Prático 1 de Computação Gráfica")
+[<img src="https://i.ytimg.com/vi/AnsP_ctWqVs/maxresdefault.jpg" target="_blank">](https://youtu.be/AnsP_ctWqVs "Apresentação de Trabalho Prático 1 de Computação Gráfica")
