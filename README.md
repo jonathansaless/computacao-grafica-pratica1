@@ -1,4 +1,11 @@
 # Trabalho Prático 1
+<p align="center">
+  <img src="https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github" />
+  <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC" />
+  <img src="https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript" />
+  <img src="https://img.shields.io/badge/-HTML-05122A?style=flat&logo=html5" />
+  <img src="https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3" />
+</p>
 Trabalho prático 1 da disciplina de Computação Gráfica da UFPA no período 2023.2. O trabalho consiste em desenvolver uma aplicação que desenhe pixels utilizando algoritmos de CG, como Bresenham, Algoritmo do ponto médio e etc. Nossa aplicação foi desenvolvida em HTML, CSS e JavaScript.
 
 # Alunos
